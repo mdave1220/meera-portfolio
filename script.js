@@ -127,7 +127,7 @@ document.querySelectorAll('.project-card').forEach(card => {
 document.addEventListener('DOMContentLoaded', () => {
     const socialLinks = {
         '.social-link.linkedin': 'https://www.linkedin.com/in/meera-dave',
-        '.social-link.github': 'https://github.com/yourusername',
+        '.social-link.github': 'https://github.com/mdave1220',
         '.social-link.email': 'mailto:mdave39@gatech.edu',
         '.social-link.resume': 'Meera_Resume.pdf'
     };
