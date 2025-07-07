@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28ish - Meera Dave Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 80px;
+            background-color: var(--cream);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: var(--brown);
+            margin-bottom: 1rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .meta-item {
+            background: var(--sage);
+            color: var(--brown);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .project-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h3 {
+            color: var(--sage);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--sage);
+            padding-bottom: 0.5rem;
+        }
+
+        .section p,
+        .section li {
+            color: var(--brown);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            margin-left: 1.5rem;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: var(--sage);
+            color: var(--brown);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            background: var(--softblue);
+            transform: translateY(-2px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--softblue) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: var(--cream);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html#projects" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <div class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1 class="project-title">28ish</h1>
+                <p class="project-subtitle">Menstrual Cycle Insight App</p>
+                <div class="project-meta">
+                    <span class="meta-item">UX Design</span>
+                    <span class="meta-item">Product Management</span>
+                    <span class="meta-item">Frontend Engineering</span>
+                    <span class="meta-item">Georgia Tech Capstone</span>
+                    <span class="meta-item">1 Year Project</span>
+                </div>
+            </div>
+
+            <div class="project-image">
+                <i class="fas fa-female"></i>
+            </div>
+
+            <div class="project-content">
+                <div class="section">
+                    <h3>Project Overview</h3>
+                    <p>A mobile app designed for women to learn more about their menstrual cycle through personalized
+                        insights. Our client, 28ish, tasked us with creating a new app that tracks a woman's menstrual
+                        cycle and provides comparative insights from one phase to another.</p>
+                    <p><strong>Goal:</strong> Empower women to be more informed about their menstrual cycle with
+                        comparative insights across phases.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Research & Discovery</h3>
+                    <p>We sent out a survey to 50+ women to understand what they felt was wrong with existing period
+                        tracking apps, how informed they felt on their menstrual cycle, and what they'd want to see in a
+                        new app.</p>
+                    <p><strong>Key Findings:</strong></p>
+                    <ul>
+                        <li>Most women didn't feel properly educated on their cycle</li>
+                        <li>Users wanted to learn more about how to capitalize off the different phases</li>
+                        <li>Desired insights on how phases affect mood, social life, productivity, and energy</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Wireframing & Design Process</h3>
+                    <p>I analyzed existing period tracking apps, such as Flo and Apple Health, to understand typical
+                        calendar tracking heuristics and behaviors. From there, I created low-fidelity screens for:</p>
+                    <ul>
+                        <li>Daily check-in page</li>
+                        <li>Home screen with calendar view</li>
+                        <li>Insights pages with comparative data</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Prototyping & Development</h3>
+                    <p>I finalized a functional prototype in Figma. 28ish had their own design system, but I helped
+                        refine it to work seamlessly with the TamaGUI component library for development.</p>
+                    <p>I also studied the React-Native-Charts library to understand its structure and created the
+                        insights pages based on that knowledge, ensuring a smooth transition from design to development.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h3>Product Management & Development</h3>
+                    <p>Beyond UX and design, I was heavily involved as a frontend engineer and product manager for this
+                        capstone internship:</p>
+                    <ul>
+                        <li><strong>Project Management:</strong> Monitored a Jira board with user story tickets and
+                            created a 5-sprint iteration plan</li>
+                        <li><strong>Client Relations:</strong> Led weekly meetings with the client to show design
+                            progress and align goals</li>
+                        <li><strong>Team Leadership:</strong> Oversaw progress among the development team to ensure
+                            client satisfaction</li>
+                        <li><strong>Frontend Development:</strong> Worked directly with TamaGUI components and
+                            React-Native-Charts library</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Key Takeaways</h3>
+                    <h4>Client Feedback is Crucial</h4>
+                    <p>Leading weekly meetings with the client while acting as both UX designer and product manager
+                        helped me discover a new passion for taking products from start to finish, beyond just UX.</p>
+
+                    <h4>Design-to-Development Transition</h4>
+                    <p>Initially, I was discouraged by the extra time needed to switch Figma UI components to match what
+                        our developers were using. However, I realized how crucial this seamless transition is for
+                        project efficiency.</p>
+
+                    <h4>Product Management x UX</h4>
+                    <p>Before this internship, I didn't think I wanted to go into product management. Having the
+                        opportunity to learn Agile development and lead project timelines allowed me to explore this new
+                        field and combine it with my UX passions.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Technologies Used</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">TamaGUI</span>
+                        <span class="tech-tag">React-Native-Charts</span>
+                        <span class="tech-tag">Jira</span>
+                        <span class="tech-tag">UX Research</span>
+                        <span class="tech-tag">Product Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

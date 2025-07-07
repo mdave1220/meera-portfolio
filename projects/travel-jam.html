@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Jam - Meera Dave Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .project-detail {
+            padding: 120px 0 80px;
+            background-color: var(--cream);
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: var(--brown);
+            margin-bottom: 1rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--sage);
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .meta-item {
+            background: var(--sage);
+            color: var(--brown);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .project-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h3 {
+            color: var(--sage);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--sage);
+            padding-bottom: 0.5rem;
+        }
+
+        .section p,
+        .section li {
+            color: var(--brown);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .section ul {
+            margin-left: 1.5rem;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: var(--sage);
+            color: var(--brown);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-link:hover {
+            background: var(--softblue);
+            transform: translateY(-2px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--softblue) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: var(--cream);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html#projects" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <div class="project-detail">
+        <div class="container">
+            <div class="project-header">
+                <h1 class="project-title">Travel Jam</h1>
+                <p class="project-subtitle">Smart Trip Planner for Study Abroad Students</p>
+                <div class="project-meta">
+                    <span class="meta-item">UX Research</span>
+                    <span class="meta-item">UI Design</span>
+                    <span class="meta-item">Figma</span>
+                    <span class="meta-item">User Testing</span>
+                    <span class="meta-item">6-week Project</span>
+                </div>
+            </div>
+
+            <div class="project-image">
+                <i class="fas fa-plane"></i>
+            </div>
+
+            <div class="project-content">
+                <div class="section">
+                    <h3>The Problem</h3>
+                    <p>When studying abroad, students often want to travel in groups but find it difficult to coordinate
+                        trips. Each person may have different budgets, time constraints, and interests — leading to
+                        inefficient, stressful planning across multiple platforms.</p>
+                    <p>We aimed to design a solution that makes trip planning intuitive, collaborative, and personalized
+                        for the needs of students traveling in Europe.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Research & Discovery</h3>
+                    <p><strong>Research Goal:</strong> Identify the key challenges study abroad students face when
+                        planning trips.</p>
+
+                    <p><strong>Our Process:</strong> To understand our users, we conducted primary interviews with seven
+                        study abroad students and created a user survey to capture travel habits, planning challenges,
+                        and desired features.</p>
+
+                    <p><strong>Key Insights:</strong></p>
+                    <ul>
+                        <li>Students prioritize convenience, cost, and time when planning short trips</li>
+                        <li>Most users use multiple apps (Google Sheets, Skyscanner, Maps, TikTok) to cobble together a
+                            plan</li>
+                        <li>Planning in groups is hard — especially when balancing different priorities</li>
+                        <li>Students want quick suggestions based on time, cost, and interest alignment</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Ideation & Design Strategy</h3>
+                    <p>We brainstormed around key themes: simplicity, personalization, and collaboration. Our core ideas
+                        focused on:</p>
+                    <ul>
+                        <li>Smart itinerary recommendations based on budget, group size, and interests</li>
+                        <li>A shared platform for group input and agreement</li>
+                        <li>Minimizing the number of apps needed to finalize a trip</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Wireframing & Design Process</h3>
+                    <p>We sketched a few interface ideas, focusing on an intuitive, mobile-first flow. The app would:
+                    </p>
+                    <ul>
+                        <li>Ask simple, key planning questions (budget, interests, timeframe)</li>
+                        <li>Show grouped destination options with estimated cost + travel time</li>
+                        <li>Let users vote and finalize the itinerary within the app</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Final Prototype</h3>
+                    <p>We designed a mobile prototype in Figma, emphasizing simplicity and personalization. Key features
+                        included:</p>
+                    <ul>
+                        <li><strong>Home Screen:</strong> Users input trip preferences (budget, duration, group size)
+                        </li>
+                        <li><strong>Destination Cards:</strong> Show top matches with visuals, price breakdowns, and key
+                            highlights</li>
+                        <li><strong>Group Vote Feature:</strong> For collaborative decision-making</li>
+                        <li><strong>Final Screen:</strong> Shareable itinerary (flights, hotels, to-do list)</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>Key Takeaways</h3>
+                    <h4>Figma Mastery</h4>
+                    <p>I learned the basics of Figma from taking on this project in my user interface course. It was
+                        initially a lot of trial and error, but learning how to create reusable components, autolayout,
+                        layout grids, and apply a mini-design system was a blast.</p>
+
+                    <h4>User Research Importance</h4>
+                    <p>This project helped me understand the value of user-centered design in fast-paced, real-life
+                        contexts. I learned how to translate ambiguous problems into structured flows, how to design for
+                        collaboration, and how to prioritize features that genuinely solve a user need.</p>
+
+                    <h4>Design Process</h4>
+                    <p>I built my foundation in Figma and UI design systems through this project. I learned how to
+                        convert vague problems into structured design flows. The experience showed me how user research
+                        directly informs features that solve real pain points.</p>
+                </div>
+
+                <div class="section">
+                    <h3>Tools Used</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">UX Research</span>
+                        <span class="tech-tag">UI Design Systems</span>
+                        <span class="tech-tag">Prototyping</span>
+                        <span class="tech-tag">Google Forms</span>
+                        <span class="tech-tag">User Interviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Meera Dave</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Meera Dave</span></h1>
+                <p class="hero-subtitle">Full Stack Developer & Creative Problem Solver</p>
+                <p class="hero-description">
+                    I build innovative digital solutions that make a difference.
+                    Passionate about clean code, user experience, and continuous learning.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-photo">
+                    <img src="profile-photo.jpg" alt="Meera Dave" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate developer with a love for creating meaningful digital experiences.
+                        With expertise in modern web technologies, I specialize in building scalable applications
+                        that solve real-world problems.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me exploring new technologies, contributing to open-source
+                        projects, or sharing knowledge with the developer community. I believe in continuous learning
+                        and staying up-to-date with industry best practices.
+                    </p>
+                    <div class="skills">
+                        <h3>Skills & Technologies</h3>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h4>Frontend</h4>
+                                <ul>
+                                    <li>HTML5 & CSS3</li>
+                                    <li>JavaScript (ES6+)</li>
+                                    <li>React.js</li>
+                                    <li>Vue.js</li>
+                                    <li>TypeScript</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <ul>
+                                    <li>Node.js</li>
+                                    <li>Python</li>
+                                    <li>Express.js</li>
+                                    <li>PostgreSQL</li>
+                                    <li>MongoDB</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Tools & Others</h4>
+                                <ul>
+                                    <li>Git & GitHub</li>
+                                    <li>Docker</li>
+                                    <li>AWS</li>
+                                    <li>Figma</li>
+                                    <li>Agile/Scrum</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- 28ish Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-female"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">28ish</h3>
+                        <p class="project-description">
+                            A mobile app designed for women to learn more about their menstrual cycle through
+                            personalized insights.
+                            Led UX design, product management, and frontend development for this year-long capstone
+                            project at Georgia Tech.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">UX Design</span>
+                            <span class="tech-tag">Product Management</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Figma</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/28ish.html" class="project-link"><i class="fas fa-external-link-alt"></i>
+                                View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Travel Jam Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Travel Jam</h3>
+                        <p class="project-description">
+                            A collaborative mobile app for study abroad students to plan group trips intuitively and
+                            efficiently.
+                            Conducted user research and designed a complete mobile prototype focusing on group
+                            collaboration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">UX Research</span>
+                            <span class="tech-tag">UI Design</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">User Testing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="projects/travel-jam.html" class="project-link"><i
+                                    class="fas fa-external-link-alt"></i> View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>
+                        I'm always interested in new opportunities and exciting projects.
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/meera-dave" target="_blank" class="social-link linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="#" class="social-link github">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:mdave39@gatech.edu" class="social-link email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="Meera_Resume.pdf" target="_blank" class="social-link resume">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Resume</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
