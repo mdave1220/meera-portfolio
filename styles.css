@@ -1,9 +1,9 @@
 /* Color Variables */
 :root {
-    --sage: #a8c3a0;
+    --sage: #7fb069;
     --brown: #5e4b3c;
     --cream: #f4f1ed;
-    --softblue: #b3d6e0;
+    --softgreen: #a8d5ba;
 }
 
 /* Reset and Base Styles */
@@ -62,7 +62,7 @@ body {
 }
 
 .nav-logo a:hover {
-    color: var(--softblue);
+    color: var(--softgreen);
 }
 
 .nav-menu {
@@ -117,7 +117,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--sage) 0%, var(--softblue) 100%);
+    background: linear-gradient(135deg, var(--sage) 0%, var(--softgreen) 100%);
     color: var(--brown);
     padding-top: 80px;
 }
@@ -148,7 +148,7 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    color: var(--softblue);
+    color: var(--softgreen);
 }
 
 .hero-description {
@@ -179,7 +179,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--softblue);
+    background-color: var(--softgreen);
     color: var(--brown);
     transform: translateY(-2px);
 }
@@ -331,7 +331,7 @@ section {
 
 .project-image {
     height: 200px;
-    background: linear-gradient(135deg, var(--sage) 0%, var(--softblue) 100%);
+    background: linear-gradient(135deg, var(--sage) 0%, var(--softgreen) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -339,7 +339,7 @@ section {
 
 .project-placeholder {
     font-size: 3rem;
-    color: var(--softblue);
+    color: var(--softgreen);
 }
 
 .project-content {
@@ -367,7 +367,7 @@ section {
 }
 
 .tech-tag {
-    background-color: var(--softblue);
+    background-color: var(--softgreen);
     color: var(--brown);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -388,7 +388,7 @@ section {
 }
 
 .project-link:hover {
-    color: var(--softblue);
+    color: var(--softgreen);
 }
 
 /* Contact Section */
@@ -433,8 +433,8 @@ section {
 
 .social-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(179, 214, 224, 0.15);
-    background: var(--softblue);
+    box-shadow: 0 4px 8px rgba(168, 213, 186, 0.15);
+    background: var(--softgreen);
     color: var(--brown);
 }
 
@@ -449,7 +449,7 @@ section {
 }
 
 .social-link.email:hover {
-    background-color: var(--softblue);
+    background-color: var(--softgreen);
     color: var(--brown);
 }
 
