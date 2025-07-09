@@ -1,9 +1,10 @@
 /* Color Variables */
 :root {
-    --sage: #7fb069;
-    --brown: #5e4b3c;
-    --cream: #f4f1ed;
-    --softgreen: #a8d5ba;
+    --dark-gray: #6d6666;
+    --light-gray: #b4adad;
+    --cream: #eedab5;
+    --mauve: #855b5b;
+    --dark-brown: #362323;
 }
 
 /* Reset and Base Styles */
@@ -20,7 +21,7 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--brown);
+    color: var(--dark-brown);
     background-color: var(--cream);
 }
 
@@ -35,13 +36,13 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(244, 241, 237, 0.95);
+    background: rgba(238, 218, 181, 0.95);
     /* cream */
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
-    border-bottom: 1px solid var(--sage);
+    border-bottom: 1px solid var(--mauve);
 }
 
 .nav-container {
@@ -56,13 +57,13 @@ body {
 .nav-logo a {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--sage);
+    color: var(--mauve);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-logo a:hover {
-    color: var(--softgreen);
+    color: var(--dark-gray);
 }
 
 .nav-menu {
@@ -72,7 +73,7 @@ body {
 }
 
 .nav-link {
-    color: var(--brown);
+    color: var(--dark-brown);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -80,7 +81,7 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--sage);
+    color: var(--mauve);
 }
 
 .nav-link::after {
@@ -90,7 +91,7 @@ body {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--sage);
+    background-color: var(--mauve);
     transition: width 0.3s ease;
 }
 
@@ -107,7 +108,7 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: var(--brown);
+    background-color: var(--dark-brown);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -117,8 +118,8 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--sage) 0%, var(--softgreen) 100%);
-    color: var(--brown);
+    background: linear-gradient(135deg, var(--mauve) 0%, var(--light-gray) 100%);
+    color: var(--dark-brown);
     padding-top: 80px;
 }
 
@@ -137,24 +138,24 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: var(--brown);
+    color: var(--dark-brown);
 }
 
 .highlight {
-    color: var(--sage);
+    color: var(--mauve);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1rem;
-    color: var(--softgreen);
+    color: var(--light-gray);
 }
 
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: var(--brown);
+    color: var(--dark-brown);
     line-height: 1.7;
 }
 
@@ -174,25 +175,25 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--sage);
-    color: var(--brown);
+    background-color: var(--mauve);
+    color: var(--cream);
 }
 
 .btn-primary:hover {
-    background-color: var(--softgreen);
-    color: var(--brown);
+    background-color: var(--dark-gray);
+    color: var(--cream);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--brown);
-    border: 2px solid var(--sage);
+    color: var(--dark-brown);
+    border: 2px solid var(--mauve);
 }
 
 .btn-secondary:hover {
-    background-color: var(--sage);
-    color: var(--brown);
+    background-color: var(--mauve);
+    color: var(--cream);
     transform: translateY(-2px);
 }
 
@@ -208,8 +209,8 @@ body {
     height: 300px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid var(--sage);
-    box-shadow: 0 8px 25px rgba(168, 195, 160, 0.2);
+    border: 3px solid var(--mauve);
+    box-shadow: 0 8px 25px rgba(133, 91, 91, 0.2);
 }
 
 .profile-photo img {
@@ -244,7 +245,7 @@ section {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--brown);
+    color: var(--dark-brown);
 }
 
 /* About Section */
@@ -260,7 +261,7 @@ section {
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: var(--brown);
+    color: var(--dark-brown);
     line-height: 1.8;
 }
 
@@ -272,7 +273,7 @@ section {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--brown);
+    color: var(--dark-brown);
 }
 
 .skills-grid {
@@ -285,7 +286,7 @@ section {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--sage);
+    color: var(--mauve);
 }
 
 .skill-category ul {
@@ -294,7 +295,7 @@ section {
 
 .skill-category li {
     padding: 0.5rem 0;
-    color: var(--brown);
+    color: var(--dark-brown);
     position: relative;
     padding-left: 1.5rem;
 }
@@ -303,7 +304,7 @@ section {
     content: '▹';
     position: absolute;
     left: 0;
-    color: var(--sage);
+    color: var(--mauve);
 }
 
 /* Projects Section */
@@ -317,21 +318,21 @@ section {
     background: var(--cream);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(168, 195, 160, 0.1);
-    /* sage shadow */
+    box-shadow: 0 4px 6px rgba(133, 91, 91, 0.1);
+    /* mauve shadow */
     transition: all 0.3s ease;
-    border: 1px solid var(--sage);
+    border: 1px solid var(--mauve);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(179, 214, 224, 0.15);
-    /* soft blue shadow */
+    box-shadow: 0 10px 25px rgba(180, 173, 173, 0.15);
+    /* light gray shadow */
 }
 
 .project-image {
     height: 200px;
-    background: linear-gradient(135deg, var(--sage) 0%, var(--softgreen) 100%);
+    background: linear-gradient(135deg, var(--mauve) 0%, var(--light-gray) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -339,7 +340,7 @@ section {
 
 .project-placeholder {
     font-size: 3rem;
-    color: var(--softgreen);
+    color: var(--light-gray);
 }
 
 .project-content {
@@ -350,11 +351,11 @@ section {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: var(--brown);
+    color: var(--dark-brown);
 }
 
 .project-description {
-    color: var(--brown);
+    color: var(--dark-brown);
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -367,8 +368,8 @@ section {
 }
 
 .tech-tag {
-    background-color: var(--softgreen);
-    color: var(--brown);
+    background-color: var(--light-gray);
+    color: var(--dark-brown);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -381,14 +382,14 @@ section {
 }
 
 .project-link {
-    color: var(--sage);
+    color: var(--mauve);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .project-link:hover {
-    color: var(--softgreen);
+    color: var(--dark-gray);
 }
 
 /* Contact Section */
@@ -404,7 +405,7 @@ section {
 
 .contact-info p {
     font-size: 1.1rem;
-    color: var(--brown);
+    color: var(--dark-brown);
     margin-bottom: 2rem;
     line-height: 1.7;
 }
@@ -422,45 +423,45 @@ section {
     gap: 0.5rem;
     padding: 12px 20px;
     background: var(--cream);
-    color: var(--brown);
+    color: var(--dark-brown);
     text-decoration: none;
     border-radius: 8px;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(168, 195, 160, 0.1);
-    border: 1px solid var(--sage);
+    box-shadow: 0 2px 4px rgba(133, 91, 91, 0.1);
+    border: 1px solid var(--mauve);
 }
 
 .social-link:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(168, 213, 186, 0.15);
-    background: var(--softgreen);
-    color: var(--brown);
+    box-shadow: 0 4px 8px rgba(180, 173, 173, 0.15);
+    background: var(--light-gray);
+    color: var(--dark-brown);
 }
 
 .social-link.linkedin:hover {
-    background-color: var(--sage);
-    color: var(--brown);
+    background-color: var(--mauve);
+    color: var(--cream);
 }
 
 .social-link.github:hover {
-    background-color: var(--brown);
+    background-color: var(--dark-brown);
     color: var(--cream);
 }
 
 .social-link.email:hover {
-    background-color: var(--softgreen);
-    color: var(--brown);
+    background-color: var(--light-gray);
+    color: var(--dark-brown);
 }
 
 .social-link.resume:hover {
-    background-color: var(--sage);
-    color: var(--brown);
+    background-color: var(--mauve);
+    color: var(--cream);
 }
 
 /* Footer */
 .footer {
-    background-color: var(--brown);
+    background-color: var(--dark-brown);
     color: var(--cream);
     text-align: center;
     padding: 2rem 0;
