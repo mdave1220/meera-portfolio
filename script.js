@@ -112,3 +112,41 @@ document.querySelectorAll('a[href^="#"]').forEach((link) =>
 );
 
 if (location.hash) openFromHash(location.hash);
+
+// Photo lightbox
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = `
+    <figure class="lightbox-frame">
+        <button class="lightbox-close" aria-label="Close photo">×</button>
+        <img alt="">
+        <figcaption class="handwritten"></figcaption>
+    </figure>`;
+document.body.appendChild(lightbox);
+
+const lbImg = lightbox.querySelector('img');
+const lbCaption = lightbox.querySelector('figcaption');
+
+function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.classList.remove('no-scroll');
+}
+
+lightbox.addEventListener('click', closeLightbox);
+
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+});
+
+document.querySelectorAll('.polaroid, .snapshot, .hero-photo').forEach((fig) => {
+    fig.classList.add('zoomable');
+    fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        const caption = fig.querySelector('figcaption');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCaption.textContent = caption ? caption.textContent : '';
+        lightbox.classList.add('is-open');
+        document.body.classList.add('no-scroll');
+    });
+});
