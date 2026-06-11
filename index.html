@@ -4,69 +4,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meera Dave - Portfolio</title>
+    <title>Meera Dave — CS @ Georgia Tech | AI + HCI</title>
+    <meta name="description"
+        content="Meera Dave is a computer science student at Georgia Tech concentrating in AI and Human-Computer Interaction, building products people love to use.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23efe7d8'/><text x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='bold' font-size='62' fill='%23e088ad'>M</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Caveat:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">Meera Dave</a>
-            </div>
+    <header class="navbar">
+        <nav class="nav-inner">
+            <a href="#top" class="nav-logo">MD<span>_01</span></a>
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="projects.html" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
+                <li><a href="#experience" class="nav-link">experience</a></li>
+                <li><a href="#projects" class="nav-link">my work</a></li>
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">say hi ✿</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="top">
+        <!-- Hero -->
+        <section class="hero">
+            <p class="hero-note note-left reveal">Hi. since you’re new here,</p>
+            <p class="hero-note note-right reveal">let me show you around →</p>
+            <div class="hero-stage reveal">
+                <p class="hero-thisis">this is</p>
+                <h1 class="hero-title"><span>Meera</span><span class="line2">Dave</span></h1>
+                <figure class="hero-photo">
+                    <img src="profile-photo.jpg" alt="Meera Dave">
+                </figure>
+            </div>
+            <div class="hero-strip reveal">
+                <span class="mono-label">CS @ GEORGIA TECH ’26</span>
+                <p class="hero-blurb">builds products at the edge of <strong>AI</strong> &amp; <strong>people</strong> —
+                    most recently AI tooling at Manhattan Associates &amp; real-time platforms at Nokia.</p>
+                <span class="mono-label">AI + HCI // ATLANTA, GA</span>
+            </div>
+            <div class="hero-actions reveal">
+                <a href="#projects" class="btn btn-solid">see my work ↓</a>
+                <a href="Meera_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">resume ↗</a>
+            </div>
+        </section>
+
+        <!-- Skills marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Python</span><span>✿</span><span>TypeScript</span><span>✿</span><span>Java</span><span>✿</span>
+                <span>React</span><span>✿</span><span>React Native</span><span>✿</span><span>Node.js</span><span>✿</span>
+                <span>Django</span><span>✿</span><span>TensorFlow</span><span>✿</span><span>SQL</span><span>✿</span>
+                <span>Figma</span><span>✿</span><span>AWS</span><span>✿</span><span>Docker</span><span>✿</span>
+                <span>Go</span><span>✿</span><span>Kubernetes</span><span>✿</span><span>C++</span><span>✿</span>
             </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Meera Dave</span></h1>
-                <p class="hero-subtitle">Full Stack Developer & Creative Problem Solver</p>
-                <p class="hero-description">
-                    I build innovative digital solutions that make a difference.
-                    Passionate about clean code, user experience, and continuous learning.
-                </p>
-                <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary">View My Work</a>
-                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+        <!-- Experience -->
+        <section class="section file" id="experience">
+            <div class="section-tab reveal">
+                <span class="mono-label">FILE_01 //</span>
+                <h2>experience</h2>
+            </div>
+            <div class="file-content" id="experience-content">
+                <div class="file-inner">
+            <ol class="timeline">
+                <li class="timeline-item reveal">
+                    <div class="timeline-when mono-label">MAY 2026 — PRESENT</div>
+                    <div class="timeline-body">
+                        <h3>Manhattan Associates <span class="role">Change Management Consultant Intern</span></h3>
+                        <p>Driving change-management strategy across three concurrent client engagements in retail,
+                            life sciences, and healthcare — from organizational readiness assessments to end-user
+                            training programs and stakeholder workshops.</p>
+                        <ul class="tags">
+                            <li>Consulting</li><li>Stakeholder Management</li><li>Training Design</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="timeline-item reveal">
+                    <div class="timeline-when mono-label">AUG — DEC 2025</div>
+                    <div class="timeline-body">
+                        <h3>Manhattan Associates <span class="role">Software Consultant Intern</span></h3>
+                        <p>Built an AI-powered client onboarding tool that ingests training documents and videos to
+                            auto-generate tailored materials. Automated image processing to cut formatting time by
+                            <strong>80%</strong>, and rewrote slow MIF SQL queries to boost warehouse system throughput.</p>
+                        <ul class="tags">
+                            <li>AI Tooling</li><li>Prompt Engineering</li><li>SQL</li><li>TypeScript</li><li>Jenkins</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="timeline-item reveal">
+                    <div class="timeline-when mono-label">JUN — AUG 2025</div>
+                    <div class="timeline-body">
+                        <h3>Nokia <span class="role">Frontend Software Engineering Intern</span></h3>
+                        <figure class="snapshot">
+                            <img src="photos/nokia-presentation.jpg" alt="Meera presenting her IMS Data Channel project at Nokia">
+                            <figcaption class="handwritten">intern presentation day ✿</figcaption>
+                        </figure>
+                        <p>Shipped a customer-service platform with live whiteboarding and file sharing on WebRTC and
+                            IMS DC. Identified a peer-to-peer data flow inefficiency that drove a <strong>25%</strong>
+                            reduction in average call handling time; built backend services in Go with Kubernetes
+                            deployments.</p>
+                        <ul class="tags">
+                            <li>WebRTC</li><li>JavaScript</li><li>Go</li><li>Kubernetes</li><li>CI/CD</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-photo">
-                    <img src="profile-photo.jpg" alt="Meera Dave" />
+        </section>
+
+        <!-- Projects -->
+        <section class="section file" id="projects">
+            <div class="section-tab reveal">
+                <span class="mono-label">FILE_02 //</span>
+                <h2>skills <em>&amp;</em> works</h2>
+            </div>
+            <div class="file-content" id="projects-content">
+                <div class="file-inner">
+            <div class="project-list">
+                <article class="project folder reveal">
+                    <span class="folder-tab mono-label">CODE_001 // SERVE</span>
+                    <div class="folder-body">
+                        <span class="folder-year mono-label">2026 — PRESENT</span>
+                        <h3>Serve</h3>
+                        <p class="project-tagline">a social recipe platform — save recipes from anywhere, share what you cook.</p>
+                        <p>Product owner and full-stack engineer. Designed a normalized Supabase Postgres schema to power a
+                            complex social graph (follows, likes, comments, DMs), built an LLM-powered importer that parses
+                            unstructured web content into structured recipes, and shipped trigger-driven push notifications
+                            on the Expo Push API. Launch features prioritized from 15+ user interviews.</p>
+                        <ul class="tags">
+                            <li>Supabase</li><li>PostgreSQL</li><li>LLM</li><li>Expo</li><li>Product Ownership</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="project folder reveal">
+                    <span class="folder-tab mono-label">CODE_002 // 28ISH</span>
+                    <div class="folder-body">
+                        <span class="folder-year mono-label">2024 — 2025</span>
+                        <h3>28ish</h3>
+                        <p class="project-tagline">a menstrual health app that predicts, prepares, and empowers.</p>
+                        <p>Led product from MVP definition through launch on a team of five — cycle tracking, symptom
+                            logging, and personalized insights powered by predictive data models. Ran iterative Figma
+                            prototypes and usability tests, and conducted peer code reviews across the codebase.</p>
+                        <ul class="tags">
+                            <li>React Native</li><li>TypeScript</li><li>Data Modeling</li><li>UX Research</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="project folder reveal">
+                    <span class="folder-tab mono-label">CODE_003 // TRAVELJAM</span>
+                    <div class="folder-body">
+                        <span class="folder-year mono-label">2024</span>
+                        <h3>TravelJAM</h3>
+                        <p class="project-tagline">travel planning for study-abroad students, shaped by 30+ interviews.</p>
+                        <p>Led product discovery for a travel app serving hundreds of students abroad. Translated research
+                            into personalized budget filters, location-based recommendations, scheduling tools, and a
+                            TikTok-style discovery feed in a high-fidelity Figma prototype.</p>
+                        <ul class="tags">
+                            <li>UX Research</li><li>Figma</li><li>Prototyping</li><li>User Testing</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="project folder reveal">
+                    <span class="folder-tab mono-label">CODE_004 // FITNESS TRACKER</span>
+                    <div class="folder-body">
+                        <span class="folder-year mono-label">2024</span>
+                        <h3>Fitness Tracker</h3>
+                        <p class="project-tagline">an Android app for sustainable eating and shopping habits.</p>
+                        <p>Built meal logging, recipe generation, and shopping-list features in Java on a six-person Agile
+                            Scrum team, delivering a fully functional app across four sprints.</p>
+                        <ul class="tags">
+                            <li>Java</li><li>Android</li><li>Agile Scrum</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <!-- About -->
+        <section class="section file" id="about">
+            <div class="section-tab reveal">
+                <span class="mono-label">FILE_03 //</span>
+                <h2>about me</h2>
+            </div>
+            <div class="file-content" id="about-content">
+                <div class="file-inner">
+            <div class="about-grid">
+                <div class="photo-stack reveal">
+                    <figure class="polaroid">
+                        <img src="photos/tech-tower.jpg" alt="Meera in front of Tech Tower at Georgia Tech">
+                        <figcaption class="handwritten">hello from GT</figcaption>
+                    </figure>
+                    <figure class="polaroid">
+                        <img src="photos/coffee.jpg" alt="Meera with a homemade iced coffee">
+                        <figcaption class="handwritten">avid coffee drinker ✿</figcaption>
+                    </figure>
+                    <figure class="polaroid">
+                        <img src="photos/jadoo-stage.jpg" alt="Meera performing with GT Jadoo on stage">
+                        <figcaption class="handwritten">on stage w/ jadoo</figcaption>
+                    </figure>
+                    <figure class="polaroid">
+                        <img src="photos/jadoo-trophy.jpg" alt="Meera holding a national competition trophy">
+                        <figcaption class="handwritten">we won!!</figcaption>
+                    </figure>
+                </div>
+                <div class="about-text reveal">
+                    <p class="about-lede">I’m a CS student at <strong>Georgia Tech</strong> (GPA 3.7, graduating
+                        December 2026) concentrating in AI and Human-Computer Interaction — which means I care equally
+                        about what models can do and how it feels to use them.</p>
+                    <p>Off-screen, I captain <strong>GT Jadoo</strong>, a nationally competitive Bollywood fusion dance
+                        team — directing 30+ dancers, editing our digital backdrops, and managing a $20K budget against
+                        45+ teams across the country. I studied abroad in Barcelona with the College of Computing, and
+                        I’m happiest when I’m baking, traveling, or behind a camera.</p>
+                    <div class="about-facts">
+                        <div class="fact">
+                            <span class="fact-label mono-label">CERTIFICATES</span>
+                            <span>Google UX Design · Boomi Professional Integration Developer · Microsoft MTA</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label mono-label">LANGUAGES</span>
+                            <span>Java · Python · C++ · C# · TypeScript · JavaScript · SQL</span>
+                        </div>
+                        <div class="fact">
+                            <span class="fact-label mono-label">FRAMEWORKS &amp; TOOLS</span>
+                            <span>React · Angular · Node.js · Django · TensorFlow · AWS · Docker · Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2 class="contact-big reveal"><span>and</span><span>that’s</span><span class="wrap">a wrap<em>.</em></span></h2>
+            <div class="contact-note reveal">
+                <p class="handwritten">thanks for stopping by! if you’d like to build something together (or just say
+                    hi), my inbox is always open. — meera ✿</p>
+                <div class="contact-links">
+                    <a href="mailto:mdave39@gatech.edu" class="mono-label">EMAIL ↗</a>
+                    <a href="https://www.linkedin.com/in/meera-dave" target="_blank" rel="noopener"
+                        class="mono-label">LINKEDIN ↗</a>
+                    <a href="https://github.com/mdave1220" target="_blank" rel="noopener" class="mono-label">GITHUB ↗</a>
+                    <a href="Meera_Resume.pdf" target="_blank" rel="noopener" class="mono-label">RESUME ↗</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Meera Dave. All rights reserved.</p>
-        </div>
+        <span class="mono-label">FILE_END // © 2026 MEERA DAVE</span>
+        <a href="#top" class="back-top mono-label">BACK TO TOP ↑</a>
     </footer>
 
     <script src="script.js"></script>

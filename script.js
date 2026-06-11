@@ -1,159 +1,114 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// Scroll-reveal animations
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+);
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+document.querySelectorAll('.reveal').forEach((el, i) => {
+    // Stagger elements that enter together
+    el.style.transitionDelay = `${(i % 4) * 70}ms`;
+    observer.observe(el);
 });
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+// Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const menu = document.querySelector('.nav-menu');
 
-// Navigation link highlighting for current page
-document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === 'index.html' && href === 'index.html')) {
-            link.classList.add('active');
-        }
+toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+});
+
+menu.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+    })
+);
+
+// Custom cursor (desktop only)
+const dot = document.querySelector('.cursor-dot');
+const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+if (fine && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let x = 0, y = 0, dx = 0, dy = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        x = e.clientX;
+        y = e.clientY;
+        dot.classList.add('is-visible');
     });
-});
 
-// Navbar background change on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-
-
-// Add animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    window.addEventListener('mouseout', (e) => {
+        if (!e.relatedTarget) dot.classList.remove('is-visible');
     });
-}, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.project-card, .skill-category, .social-link');
+    (function follow() {
+        dx += (x - dx) * 0.18;
+        dy += (y - dy) * 0.18;
+        dot.style.transform = `translate(${dx - 7}px, ${dy - 7}px)`;
+        requestAnimationFrame(follow);
+    })();
 
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    document.querySelectorAll('a, button').forEach((el) => {
+        el.addEventListener('mouseenter', () => dot.classList.add('is-hovering'));
+        el.addEventListener('mouseleave', () => dot.classList.remove('is-hovering'));
     });
-});
-
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
 }
 
-// Initialize typing effect when page loads
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 50);
-    }
-});
+// Duplicate marquee content so the loop is seamless
+const track = document.querySelector('.marquee-track');
+track.innerHTML += track.innerHTML;
 
-// Project card hover effects
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
+// Collapsible file sections
+const files = document.querySelectorAll('.file');
 
-    card.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
+files.forEach((file) => {
+    const content = file.querySelector('.file-content');
 
-// Social link click handlers (you can customize these URLs)
-document.addEventListener('DOMContentLoaded', () => {
-    const socialLinks = {
-        '.social-link.linkedin': 'https://www.linkedin.com/in/meera-dave',
-        '.social-link.github': 'https://github.com/mdave1220',
-        '.social-link.email': 'mailto:mdave39@gatech.edu',
-        '.social-link.resume': 'Meera_Resume.pdf'
-    };
-
-    Object.entries(socialLinks).forEach(([selector, url]) => {
-        const link = document.querySelector(selector);
-        if (link) {
-            link.addEventListener('click', (e) => {
-                if (selector === '.social-link.resume') {
-                    // For resume, you might want to open in new tab
-                    e.preventDefault();
-                    window.open(url, '_blank');
-                }
-                // Other links will use their href attributes
-            });
+    content.addEventListener('transitionend', (e) => {
+        if (e.propertyName === 'grid-template-rows' && file.classList.contains('is-open')) {
+            file.classList.add('is-settled');
         }
     });
 });
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
+function setOpen(file, open) {
+    file.classList.toggle('is-open', open);
+    if (!open) file.classList.remove('is-settled');
+}
 
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
-});
+// Auto-open files as their headers scroll into view
+const fileObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setOpen(entry.target, true);
+                fileObserver.unobserve(entry.target);
+            }
+        });
+    },
+    // trigger when the header reaches the upper two-thirds of the viewport
+    { rootMargin: '0px 0px -38% 0px' }
+);
 
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    }
-});
+files.forEach((file) => fileObserver.observe(file));
 
-// Add CSS for active nav link
-const style = document.createElement('style');
-style.textContent = `
-    .nav-link.active {
-        color: #2563eb !important;
-    }
-    .nav-link.active::after {
-        width: 100% !important;
-    }
-`;
-document.head.appendChild(style); 
+// Opening a file via nav link / URL hash expands it
+function openFromHash(hash) {
+    const target = hash && document.querySelector(hash + '.file');
+    if (target) setOpen(target, true);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((link) =>
+    link.addEventListener('click', () => openFromHash(link.getAttribute('href')))
+);
+
+if (location.hash) openFromHash(location.hash);
