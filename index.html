@@ -4,22 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meera Dave | Aspiring Technical Product Manager | CS @ Georgia Tech</title>
+    <title>Meera Dave | Technical Product Manager | CS @ Georgia Tech</title>
     <meta name="description"
-        content="Meera Dave is an aspiring technical product manager and CS student at Georgia Tech who designs for users and ships products they'll actually use.">
+        content="Meera Dave is a technical product manager and CS student at Georgia Tech who designs for users and ships products they'll actually use.">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23efe7d8'/><text x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='bold' font-size='62' fill='%23e088ad'>M</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Caveat:wght@400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="fonts/arnie.css">
+    <link rel="stylesheet" href="fonts/pretty-neat.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home-patterns.css">
+    <link rel="stylesheet" href="scrap-editor.css">
 </head>
 
 <body>
     <div class="paper-grain" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"><img src="assets/cursor-pointer.png" alt="" width="15" height="25"></div>
 
     <!-- Navigation -->
     <header class="navbar">
@@ -50,7 +54,7 @@
             <p class="hero-note note-right reveal"><a href="#projects">let me show you around →</a></p>
             <div class="hero-strip reveal">
                 <span class="mono-label">CS @ GEORGIA TECH ’26</span>
-                <p class="hero-blurb">aspiring technical product manager. i like designing for users and staying close enough to the build that the work ends somewhere real, a finished product someone can actually use, not just another deck.</p>
+                <p class="hero-blurb">technical product manager. i like designing for users and staying close enough to the build that the work ends somewhere real, a finished product someone can actually use, not just another deck.</p>
                 <span class="mono-label">PRODUCT + RESEARCH // ATLANTA, GA</span>
             </div>
             <div class="hero-actions reveal">
@@ -62,389 +66,235 @@
         <!-- Skills marquee -->
         <div class="marquee" aria-hidden="true">
             <div class="marquee-track">
-                <span>Python</span><span>✿</span><span>TypeScript</span><span>✿</span><span>Java</span><span>✿</span>
-                <span>React</span><span>✿</span><span>React Native</span><span>✿</span><span>Node.js</span><span>✿</span>
-                <span>Django</span><span>✿</span><span>TensorFlow</span><span>✿</span><span>SQL</span><span>✿</span>
-                <span>Figma</span><span>✿</span><span>AWS</span><span>✿</span><span>Docker</span><span>✿</span>
-                <span>Go</span><span>✿</span><span>Kubernetes</span><span>✿</span><span>C++</span><span>✿</span>
+                <span>user research</span><span>✿</span><span>product strategy</span><span>✿</span><span>MVP scoping</span><span>✿</span>
+                <span>stakeholder alignment</span><span>✿</span><span>usability testing</span><span>✿</span><span>cross-functional delivery</span><span>✿</span>
+                <span>AI products</span><span>✿</span><span>React Native</span><span>✿</span><span>change management</span><span>✿</span>
+                <span>ship &amp; iterate</span><span>✿</span>
             </div>
         </div>
 
-        <!-- Projects -->
-        <section class="section file" id="projects">
-            <div class="section-tab reveal">
-                <span class="mono-label">FILE_01 //</span>
-                <h2>projects</h2>
-            </div>
-            <div class="file-content" id="projects-content">
-                <div class="file-inner">
-            <div class="project-list">
-                <div class="folder-tabs reveal">
-                    <button class="ftab" aria-controls="panel-serve" aria-expanded="false">CODE_001 // Serve</button>
-                    <button class="ftab" aria-controls="panel-28ish" aria-expanded="false">CODE_002 // 28ish</button>
-                    <button class="ftab" aria-controls="panel-traveljam" aria-expanded="false">CODE_003 // TravelJAM</button>
-                </div>
-                <article class="folder-panel" id="panel-serve">
-                    <div class="panel-inner">
-                    <div class="folder-body">
-                        <span class="folder-year mono-label">APR 2026 — PRESENT</span>
-                        <h3>Serve</h3>
-                        <p class="project-role mono-label">PRODUCT OWNER &amp; ENGINEER · SOLO · MOBILE APP · PRE-LAUNCH</p>
-                        <p class="project-tagline">saving a recipe is easy. actually cooking from it isn't.</p>
-                        <ul class="case-stats">
-                            <li><strong>15+</strong><span>user interviews</span></li>
-                            <li><strong>3</strong><span>launch features scoped</span></li>
-                            <li><strong>4</strong><span>social primitives scoped</span></li>
-                            <li><strong>2</strong><span>recipe input paths</span></li>
-                            <li><strong>1</strong><span>solo product owner</span></li>
-                        </ul>
-                        <div class="case-block">
-                            <span class="mono-label">THE BRIEF //</span>
-                            <p>Serve is a social recipe app for people who discover food everywhere: TikTok, Instagram,
-                                blogs, group chats. But they lose recipes before they ever cook them. Bookmarks become
-                                hoarding; recipe apps demand manual re-entry; notes apps have no structure. The gap isn't
-                                finding inspiration, it's closing the loop from <strong>"I saw this"</strong> to
-                                <strong>"I'm making this tonight."</strong> Serve bets that saving from anywhere, a personal
-                                cookbook, and lightweight social proof (what friends actually cook) beats another standalone
-                                recipe database.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">DISCOVERY //</span>
-                            <p>Ran <strong>15+ semi-structured 1:1 interviews</strong> with college students and
-                                full-time workers, from new grads learning to cook independently to adults juggling
-                                weeknight meals, to understand where recipe apps break down. Top pain points: recipes
-                                trapped on social platforms with no easy save path, re-typing ingredients as friction,
-                                inspiration that never converts to a grocery run, and a desire to see what people they
-                                know actually cook, not just celebrity chefs. That research pinned the core problem:
-                                <strong>recipe discovery and cooking inspiration</strong>, not another logging tool.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">DEFINING THE MVP //</span>
-                            <p>Translated interview themes into three launch features: <strong>AI voice-to-text recipe
-                                input</strong> (hands-free, in-kitchen capture), <strong>cross-app recipe saving</strong>
-                                (the core job-to-be-done), and a <strong>real-time grocery stock checker</strong> (closing
-                                inspiration → execution). Social wasn't deferred. I scoped <strong>4 core primitives</strong>
-                                (follows, likes, comments, DMs) so the product feels alive at launch, not a solo cookbook
-                                with sharing bolted on later. Supporting the save flow: an LLM-powered importer that parses
-                                unstructured web content into structured recipes, and trigger-driven push notifications on
-                                Expo Push API. Deliberately cut meal planning, nutrition tracking, and a web client. Solo
-                                owner, pre-launch scope had to complete one honest loop: discover → save → cook → share.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">PRE-LAUNCH VALIDATION //</span>
-                            <p>Before writing production code, pressure-tested the concept in Figma and early Expo builds
-                                with interview participants. Voice input moved up in priority when users described typing
-                                with messy hands mid-recipe; the importer flow was simplified when testers couldn't tell
-                                whether a pasted URL had successfully parsed. Each iteration fed back into scope: if a
-                                feature didn't survive a real conversation about weeknight cooking, it didn't make the
-                                launch cut.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">WHAT I OWNED //</span>
-                            <p>End-to-end product ownership from concept through pre-launch build: user interviews and
-                                synthesis, MVP definition, launch-feature prioritization, design decisions, and iterative
-                                release cadence. On the build side, designed a normalized Supabase Postgres schema to power
-                                the social graph, built the LLM importer pipeline, and wired push notifications, staying
-                                close enough to implementation that scope calls reflected real technical constraints, not
-                                wishful roadmaps.</p>
-                        </div>
-                        <ul class="tags">
-                            <li>Product Ownership</li><li>User Research</li><li>MVP Scoping</li><li>Roadmapping</li><li>Supabase</li><li>LLM</li><li>Expo</li><li>PostgreSQL</li>
-                        </ul>
-                    </div>
-                    </div>
-                </article>
-                <article class="folder-panel" id="panel-28ish">
-                    <div class="panel-inner">
-                    <div class="folder-body">
-                        <span class="folder-year mono-label">2024 — 2025</span>
-                        <h3>28ish</h3>
-                        <p class="project-role mono-label">PRODUCT LEAD &amp; ENGINEER · TEAM OF 5 · REAL STARTUP CLIENT</p>
-                        <p class="project-tagline">why women's health deserves better than a logging app.</p>
-                        <ul class="case-stats">
-                            <li><strong>60+</strong><span>survey responses</span></li>
-                            <li><strong>3</strong><span>MVP pillars scoped</span></li>
-                            <li><strong>5</strong><span>client-facing sprints</span></li>
-                            <li><strong>2</strong><span>semesters with a live founder</span></li>
-                            <li><strong>13</strong><span>REST API routes</span></li>
-                        </ul>
-                        <div class="case-gallery">
-                            <p class="gallery-heading mono-label">ARTIFACTS //</p>
+        <!-- Projects archive -->
+        <section class="section archive-section" id="projects">
+            <div class="kraft-folder kraft-folder--projects reveal" data-archive="projects" data-active-tab="serve">
 
-                            <section class="gallery-section">
-                                <h4 class="gallery-label mono-label">01 · live demo</h4>
-                                <figure class="snapshot gallery-shot gallery-shot--demo">
-                                    <video src="media/28ish-demo.mp4" poster="media/28ish-poster.jpg" controls
-                                        muted loop playsinline preload="none"></video>
-                                    <figcaption class="handwritten">postgres + daily check-in ✿</figcaption>
+                <nav class="v-tabs" aria-label="Projects">
+                    <button type="button" class="vtab vtab--serve is-active" data-tab="serve" aria-selected="true">serve</button>
+                    <button type="button" class="vtab vtab--28ish" data-tab="28ish" aria-selected="false">28ish</button>
+                    <button type="button" class="vtab vtab--traveljam" data-tab="traveljam" aria-selected="false">traveljam</button>
+                    <button type="button" class="vtab vtab--kindly" data-tab="kindly" aria-selected="false">kindly</button>
+                </nav>
+
+                <div class="kraft-cover">
+                    <span class="kraft-top-tab mono-label">projects // case studies</span>
+                    <img class="home-scrap home-scrap--paperclip home-scrap--projects-clip" data-scrap-id="projects-clip" src="assets/scrapbook/paperclip.png" alt="" aria-hidden="true">
+                    <img class="home-scrap home-scrap--binder-clip home-scrap--projects-binder" data-scrap-id="projects-binder" src="assets/scrapbook/binder-clip.png" alt="" aria-hidden="true">
+                    <span class="kraft-side-label mono-label" aria-hidden="true">(case studies)</span>
+
+                    <p class="vtab-hint reveal" aria-hidden="true">
+                        <span class="vtab-hint__bundle">
+                            <span class="vtab-hint__text-wrap">
+                                <span class="vtab-hint__text handwritten">
+                                    <span class="vtab-hint__text-line vtab-hint__text-line--top">click to</span>
+                                    <span class="vtab-hint__text-line vtab-hint__text-line--bottom">view more!!</span>
+                                </span>
+                            </span>
+                            <svg class="vtab-hint__arrow" viewBox="0 0 140 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path class="vtab-hint__path" pathLength="100" d="M 8 12 C 36 14, 68 34, 118 68" />
+                                <g class="vtab-hint__head">
+                                    <path d="M 0 -8 L 14 0 L 0 8 Z" fill="#e088ad" />
+                                </g>
+                            </svg>
+                        </span>
+                    </p>
+
+                    <div class="kraft-inner">
+                    <div class="kraft-panel kraft-panel--plain kraft-panel--scrap kraft-panel--scrap-lined">
+                        <article class="proj-card is-active" data-tab="serve">
+                            <div class="proj-card-copy">
+                                <span class="mono-label">APRIL '26 - PRESENT</span>
+                                <h3>Serve</h3>
+                                <p class="proj-card-tagline">saving a recipe is easy. actually cooking from it isn't.</p>
+                                <p class="proj-card-role mono-label">PRODUCT OWNER &amp; ENGINEER · SOLO · PRE-LAUNCH</p>
+                                <p class="proj-card-blurb">Social recipe app closing the loop from <strong>"I saw this"</strong> to <strong>"I'm making this tonight."</strong> 15+ user interviews, 3 launch features scoped, LLM importer + Expo build in progress.</p>
+                                <ul class="tags">
+                                    <li>Product Ownership</li><li>User Research</li><li>MVP Scoping</li><li>Supabase</li><li>Expo</li>
+                                </ul>
+                            </div>
+                            <a href="projects/serve.html" class="proj-card-cta btn btn-solid">open case study ↗</a>
+                        </article>
+
+                        <article class="proj-card" data-tab="28ish" hidden>
+                            <div class="proj-card-copy">
+                                <span class="mono-label">AUG '24 - MAY '25</span>
+                                <h3>28ish</h3>
+                                <p class="proj-card-tagline">women's health deserves more than a tracking app</p>
+                                <p class="proj-card-role mono-label">PRODUCT LEAD &amp; ENGINEER · TEAM OF 5 · STARTUP CLIENT</p>
+                                <p class="proj-card-blurb">Two-semester engagement with a real founder. 60+ survey responses, shipped React Native insights on FastAPI + PostgreSQL, 5 client-facing sprints.</p>
+                                <ul class="tags">
+                                    <li>Product Strategy</li><li>React Native</li><li>FastAPI</li><li>UX Research</li><li>Figma</li>
+                                </ul>
+                            </div>
+                            <a href="projects/28ish.html" class="proj-card-cta btn btn-solid">open case study ↗</a>
+                        </article>
+
+                        <article class="proj-card" data-tab="traveljam" hidden>
+                            <div class="proj-card-copy">
+                                <span class="mono-label">AUG '24 - DEC '24</span>
+                                <h3>TravelJAM</h3>
+                                <p class="proj-card-tagline">planning trips abroad is challenging</p>
+                                <p class="proj-card-role mono-label">PRODUCT DESIGNER · TEAM OF 4</p>
+                                <p class="proj-card-blurb">12 needfinding sessions, 3 lo-fi prototypes, 7 think-aloud evals. A null statistical result that still became a concrete design roadmap.</p>
+                                <ul class="tags">
+                                    <li>UX Research</li><li>Figma</li><li>Usability Testing</li><li>Experiment Design</li>
+                                </ul>
+                            </div>
+                            <a href="projects/traveljam.html" class="proj-card-cta btn btn-solid">open case study ↗</a>
+                        </article>
+
+                        <article class="proj-card" data-tab="kindly" hidden>
+                            <div class="proj-card-copy">
+                                <span class="mono-label">AUG '25 - DEC '25</span>
+                                <h3>Kindly</h3>
+                                <p class="proj-card-tagline">every client needs different onboarding — the prep shouldn't take days</p>
+                                <p class="proj-card-role mono-label">SOFTWARE CONSULTANT INTERN · ENTERPRISE SCM · INTERNAL AI TOOL</p>
+                                <p class="proj-card-blurb">Scoped and shipped an AI onboarding tool that ingests training docs and video to auto-generate client-tailored materials — cutting manual prep time by <strong>80%</strong> across active engagements.</p>
+                                <ul class="tags">
+                                    <li>AI Product</li><li>Internal Tooling</li><li>Workflow Research</li><li>Stakeholder Alignment</li><li>MVP Scoping</li>
+                                </ul>
+                            </div>
+                            <a href="projects/kindly.html" class="proj-card-cta btn btn-solid">open case study ↗</a>
+                        </article>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience archive -->
+        <section class="section archive-section" id="experience">
+            <div class="kraft-folder kraft-folder--experience reveal" data-archive="experience">
+
+                <nav class="v-tabs" aria-label="Experience">
+                    <button type="button" class="vtab is-active" data-tab="manhattan" aria-selected="true">manhattan</button>
+                    <button type="button" class="vtab" data-tab="nokia" aria-selected="false">nokia</button>
+                </nav>
+
+                <div class="kraft-cover">
+                    <span class="kraft-top-tab mono-label">experience // internships</span>
+                    <img class="home-scrap home-scrap--binder-clip home-scrap--exp-binder" data-scrap-id="exp-binder" src="assets/scrapbook/binder-clip.png" alt="" aria-hidden="true">
+                    <img class="home-scrap home-scrap--paperclip home-scrap--exp-clip" data-scrap-id="exp-clip" src="assets/scrapbook/paperclip.png" alt="" aria-hidden="true">
+                    <img class="home-scrap home-scrap--binder-clip home-scrap--exp-binder-2" data-scrap-id="exp-binder-2" src="assets/scrapbook/binder-clip.png" alt="" aria-hidden="true">
+                    <span class="kraft-side-label mono-label" aria-hidden="true">(work history)</span>
+
+                    <div class="kraft-inner">
+                    <div class="kraft-panel kraft-panel--plain kraft-panel--scrap kraft-panel--scrap-dots">
+                        <article class="exp-panel is-active" data-tab="manhattan">
+                            <div class="timeline-when mono-label">AUG 2025 — PRESENT</div>
+                            <div class="timeline-body">
+                                <h3>Manhattan Associates</h3>
+                                <p class="project-role mono-label">SOFTWARE CONSULTANT INTERN · AUG–DEC 2025 // CHANGE MANAGEMENT CONSULTANT INTERN · MAY 2026–PRESENT</p>
+                                <p class="exp-lede">Two rotations at an enterprise supply-chain software company: first scoping internal tools and improving warehouse product reliability with engineering and ops, now driving change management when client deployments go live across retail, life sciences, and healthcare.</p>
+                                <ul class="exp-bullets">
+                                    <li>Develop and execute change-management strategies across <strong>3 concurrent client engagements</strong>, including stakeholder identification, sponsorship management, readiness assessments, and end-user training to minimize disruption through go-live.</li>
+                                    <li>Partner with project teams to analyze process design changes, assess organizational impact across business units, and translate findings into actionable CM plans and risk mitigation frameworks.</li>
+                                    <li>Scoped and shipped an AI-powered client onboarding tool that ingests training documents and videos to auto-generate tailored materials, cutting manual formatting time by <strong>80%</strong> after mapping consultant workflow pain across engagements.</li>
+                                    <li>Identified and resolved performance bottlenecks in warehouse management workflows; collaborated cross-functionally with engineering and operations to define requirements, validate system changes, and improve release reliability through frontend testing standards.</li>
+                                </ul>
+                                <ul class="tags">
+                                    <li>Change Management</li><li>Internal Tooling</li><li>AI Product</li><li>Stakeholder Alignment</li><li>Cross-Functional Delivery</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="exp-panel" data-tab="nokia" hidden>
+                            <div class="timeline-when mono-label">JUN — AUG 2025</div>
+                            <div class="timeline-body">
+                                <h3>Nokia</h3>
+                                <p class="project-role mono-label">FRONTEND SOFTWARE ENGINEERING INTERN · JUN–AUG 2025</p>
+                                <p class="exp-lede">Intern on Nokia's customer-service platform, coordinating feature scope and release milestones for agent-facing tooling, from requirements through launch across web and mobile.</p>
+                                <figure class="snapshot">
+                                    <img src="photos/nokia-presentation.jpg" alt="Meera presenting her IMS Data Channel project at Nokia">
+                                    <figcaption class="handwritten">intern presentation day ✿</figcaption>
                                 </figure>
-                            </section>
-
-                            <section class="gallery-section">
-                                <h4 class="gallery-label mono-label">02 · iteration</h4>
-                                <div class="gallery-pair">
-                                    <span class="pair-topic mono-label">cycle tracking</span>
-                                    <div class="pair-row">
-                                        <figure class="snapshot snap--cycle-figma">
-                                            <img src="media/28ish-onboarding.jpg" alt="Figma prototype of 28ish onboarding with calendar period picker">
-                                            <figcaption class="handwritten">figma</figcaption>
-                                        </figure>
-                                        <span class="pair-arrow" aria-hidden="true">→</span>
-                                        <figure class="snapshot snap--cycle-shipped">
-                                            <img src="media/28ish-final-period.jpg" alt="Final 28ish period update screen with native calendar UI">
-                                            <figcaption class="handwritten">shipped</figcaption>
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="gallery-pair">
-                                    <span class="pair-topic mono-label">home / dashboard</span>
-                                    <div class="pair-row">
-                                        <figure class="snapshot snap--home-figma">
-                                            <img src="media/28ish-cycle-figma.jpg" alt="Figma prototype of 28ish cycle home screen showing day 20 ring tracker">
-                                            <figcaption class="handwritten">figma</figcaption>
-                                        </figure>
-                                        <span class="pair-arrow" aria-hidden="true">→</span>
-                                        <figure class="snapshot snap--home-shipped">
-                                            <img src="media/28ish-cycle-shipped.jpg" alt="Shipped 28ish dashboard with day 22 cycle ring, daily check-in task, and forecast">
-                                            <figcaption class="handwritten">shipped</figcaption>
-                                        </figure>
-                                    </div>
-                                </div>
-                            </section>
-
-                            <section class="gallery-section">
-                                <h4 class="gallery-label mono-label">03 · shipped product</h4>
-                                <div class="gallery-grid">
-                                    <figure class="snapshot snap--insights">
-                                        <img src="media/28ish-insights-hub.jpg" alt="28ish insights hub with weekly line chart">
-                                        <figcaption class="handwritten">insights</figcaption>
-                                    </figure>
-                                    <figure class="snapshot snap--drilldown">
-                                        <img src="media/28ish-final-insights.jpg" alt="28ish productivity insight drill-down with weekly bar chart">
-                                        <figcaption class="handwritten">drill-down ✿</figcaption>
-                                    </figure>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">THE BRIEF //</span>
-                            <p>A two-semester engagement with a real startup founder, weekly client syncs, demo
-                                feedback loops, and a written vision statement with problem and positioning against
-                                Flo and Period Calendar. Her mission: a world where women feel
-                                <strong>confident and in control</strong> of their bodies, not just informed when
-                                their period starts. Women's health is an underserved market, existing trackers stop
-                                at data entry: no personalized insights, weak handling of irregular cycles, and zero feedback loop. Users log everything and
-                                learn nothing. 28ish exists because closing that gap is both a product opportunity
-                                and a health equity problem.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">DISCOVERY //</span>
-                            <p>Because the data is sensitive, we deliberately chose an anonymous survey over
-                                interviews, <strong>60+ responses</strong> pinned our target user (women 18–34,
-                                North America) and the top pain points: complexity, lack of personalized insights,
-                                and privacy concerns.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">DEFINING THE MVP //</span>
-                            <p>I helped translate that research into three MVP pillars: cycle tracking, symptom
-                                logging, and personalized insights. User needs collided with data-modeling
-                                constraints, insights require structured, relational data over time, so we scoped
-                                a PostgreSQL schema (daily check-ins, conditional questions, user-cycle joins) and a
-                                5-sprint plan from user stories: data collection → time-series insights → monthly
-                                reports, with health advising as a stretch goal. We deliberately cut smartwatch
-                                biometrics and deferred AI advising to post-MVP, every sprint had to demo to a real
-                                founder, so scope had to be honest about what the data model could support on day one.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">ITERATION //</span>
-                            <p>We developed Figma high-fis and validated them in <strong>Expo Go usability sessions</strong>
-                                after semester-one and sprint-two client demos. Key findings drove the diffs in the
-                                artifacts above: period logging needed native calendar affordances (not just styled
-                                date tiles); daily check-in couldn't be a single catch-all button, users needed
-                                separate <strong>behavioral vs. menstrual</strong> form paths; and symptom data only
-                                became useful once we built drill-down insight categories with color-coded weekly charts.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">WHAT I OWNED //</span>
-                            <p>On a React Native/Expo + Firebase Auth stack backed by Python/FastAPI and PostgreSQL,
-                                I shipped the insights experience end-to-end, routing, styling, graph library
-                                integration, and wiring weekly mood / energy / productivity charts to live data from
-                                Naman's FastAPI endpoints, plus a monthly recap feature and team project management. I also sat on the seam
-                                between design, engineering, and data: aligning the Figma system with Arvind's Expo
-                                architecture and the PostgreSQL EERD so frontend forms mapped cleanly to backend
-                                tables, running <strong>peer code reviews</strong> across the React Native codebase,
-                                keeping sprint deliverables and client meeting minutes current, and negotiating API
-                                contracts for the insights pages so design iterations didn't break data integrity.</p>
-                        </div>
-                        <ul class="tags">
-                            <li>Product Strategy</li><li>Figma</li><li>Expo</li><li>React Native</li><li>TypeScript</li><li>FastAPI</li><li>PostgreSQL</li><li>UX Research</li><li>Usability Testing</li><li>Client Management</li>
-                        </ul>
+                                <ul class="exp-bullets">
+                                    <li>Drove a <strong>25%</strong> reduction in average call handling time by identifying a peer-to-peer data flow inefficiency and collaborating with frontend, backend, and infrastructure teams to ship an optimization.</li>
+                                    <li>Delivered a customer-service platform supporting live whiteboarding and file sharing across web and mobile, coordinating feature scope and release milestones from requirements through launch.</li>
+                                    <li>Scoped reliability and customization requirements for enterprise-scale deployment, designing the platform to support diverse customer-support workflows across large organizations.</li>
+                                </ul>
+                                <ul class="tags">
+                                    <li>Customer-Facing Product</li><li>Release Management</li><li>Cross-Functional Delivery</li><li>Enterprise Scale</li><li>Workflow Optimization</li>
+                                </ul>
+                            </div>
+                        </article>
                     </div>
                     </div>
-                </article>
-                <article class="folder-panel" id="panel-traveljam">
-                    <div class="panel-inner">
-                    <div class="folder-body">
-                        <span class="folder-year mono-label">2024</span>
-                        <h3>TravelJAM</h3>
-                        <p class="project-role mono-label">PRODUCT DESIGNER · TEAM OF 4 · FULL DESIGN LIFECYCLE</p>
-                        <p class="project-tagline">can a TikTok-style feed make trip planning less overwhelming?</p>
-                        <ul class="case-stats">
-                            <li><strong>12</strong><span>needfinding sessions</span></li>
-                            <li><strong>3</strong><span>lo-fi prototypes</span></li>
-                            <li><strong>7</strong><span>think-aloud evals</span></li>
-                            <li><strong>20</strong><span>person comparative study</span></li>
-                        </ul>
-                        <figure class="snapshot video-snap">
-                            <video src="media/traveljam-prototype.mp4" poster="media/traveljam-poster.jpg" controls
-                                muted loop playsinline preload="none"></video>
-                            <figcaption class="handwritten">prototype walkthrough ✿</figcaption>
-                        </figure>
-                        <div class="case-block">
-                            <span class="mono-label">THE PROBLEM //</span>
-                            <p>Study-abroad students burn hours planning trips, juggling group interests, budgets, and
-                                time constraints, usually ending in compromise fatigue.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">DISCOVERY //</span>
-                            <p>Chose methods deliberately: sat in on real group planning sessions (participant
-                                observation) and ran 1:1 interviews, rejecting surveys and focus groups for lack of
-                                depth. Key insights: students average <strong>$20–50 per activity</strong>, spend
-                                multiple sessions planning, and transportation logistics were the recurring pain.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">THE BET //</span>
-                            <p>Prioritized a swipeable discovery feed filtered by budget, interest, and location,
-                                betting that a familiar TikTok-style mental model would flatten the learning curve.
-                                Explored three lo-fi directions before committing to a high-fidelity Figma prototype.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">VALIDATION //</span>
-                            <p>Ran 7 moderated think-alouds plus a 20-person between-subjects study (lo-fi control vs
-                                hi-fi, t-test). The hi-fi version did <strong>not</strong> significantly raise
-                                satisfaction (p = 0.60), instead it surfaced discoverability, affordance, and
-                                hierarchy issues that polish alone couldn't fix.</p>
-                        </div>
-                        <div class="case-block">
-                            <span class="mono-label">WHAT I LEARNED //</span>
-                            <p>Translated findings into a concrete next iteration: simplified homepage hierarchy, a
-                                first-use swipe affordance, clearer navigation, and preference-capturing onboarding.
-                                Biggest lesson: a familiar pattern only works with clear affordances, and a
-                                null result is still a roadmap.</p>
-                        </div>
-                        <ul class="tags">
-                            <li>UX Research</li><li>Figma</li><li>Prototyping</li><li>Usability Testing</li><li>Experiment Design</li>
-                        </ul>
-                    </div>
-                    </div>
-                </article>
-            </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section class="section file" id="experience">
-            <div class="section-tab reveal">
-                <span class="mono-label">FILE_02 //</span>
-                <h2>experience</h2>
-            </div>
-            <div class="file-content" id="experience-content">
-                <div class="file-inner">
-            <ol class="timeline">
-                <li class="timeline-item reveal">
-                    <div class="timeline-when mono-label">AUG 2025 — PRESENT</div>
-                    <div class="timeline-body">
-                        <h3>Manhattan Associates</h3>
-                        <p class="project-role mono-label">SOFTWARE CONSULTANT INTERN · AUG–DEC 2025 // CHANGE MANAGEMENT CONSULTANT INTERN · MAY 2026–PRESENT</p>
-                        <p class="exp-lede">Two rotations at an enterprise supply-chain software company: first scoping internal tools and improving warehouse product reliability with engineering and ops, now driving change management when client deployments go live across retail, life sciences, and healthcare.</p>
-                        <ul class="exp-bullets">
-                            <li>Develop and execute change-management strategies across <strong>3 concurrent client engagements</strong>, including stakeholder identification, sponsorship management, readiness assessments, and end-user training to minimize disruption through go-live.</li>
-                            <li>Partner with project teams to analyze process design changes, assess organizational impact across business units, and translate findings into actionable CM plans and risk mitigation frameworks.</li>
-                            <li>Scoped and shipped an AI-powered client onboarding tool that ingests training documents and videos to auto-generate tailored materials, cutting manual formatting time by <strong>80%</strong> after mapping consultant workflow pain across engagements.</li>
-                            <li>Identified and resolved performance bottlenecks in warehouse management workflows; collaborated cross-functionally with engineering and operations to define requirements, validate system changes, and improve release reliability through frontend testing standards.</li>
-                        </ul>
-                        <ul class="tags">
-                            <li>Change Management</li><li>Internal Tooling</li><li>AI Product</li><li>Stakeholder Alignment</li><li>Cross-Functional Delivery</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="timeline-item reveal">
-                    <div class="timeline-when mono-label">JUN — AUG 2025</div>
-                    <div class="timeline-body">
-                        <h3>Nokia</h3>
-                        <p class="project-role mono-label">FRONTEND SOFTWARE ENGINEERING INTERN · JUN–AUG 2025</p>
-                        <p class="exp-lede">Intern on Nokia's customer-service platform, coordinating feature scope and release milestones for agent-facing tooling, from requirements through launch across web and mobile.</p>
-                        <figure class="snapshot">
-                            <img src="photos/nokia-presentation.jpg" alt="Meera presenting her IMS Data Channel project at Nokia">
-                            <figcaption class="handwritten">intern presentation day ✿</figcaption>
-                        </figure>
-                        <ul class="exp-bullets">
-                            <li>Drove a <strong>25%</strong> reduction in average call handling time by identifying a peer-to-peer data flow inefficiency and collaborating with frontend, backend, and infrastructure teams to ship an optimization.</li>
-                            <li>Delivered a customer-service platform supporting live whiteboarding and file sharing across web and mobile, coordinating feature scope and release milestones from requirements through launch.</li>
-                            <li>Scoped reliability and customization requirements for enterprise-scale deployment, designing the platform to support diverse customer-support workflows across large organizations.</li>
-                        </ul>
-                        <ul class="tags">
-                            <li>Customer-Facing Product</li><li>Release Management</li><li>Cross-Functional Delivery</li><li>Enterprise Scale</li><li>Workflow Optimization</li>
-                        </ul>
-                    </div>
-                </li>
-            </ol>
-                </div>
-            </div>
-        </section>
+        <!-- About archive -->
+        <section class="section archive-section" id="about">
+            <div class="kraft-folder kraft-folder--about kraft-folder--no-tabs reveal">
+                <span class="kraft-top-tab mono-label">about me // meera</span>
+                <img class="home-scrap home-scrap--paperclip home-scrap--about-clip" data-scrap-id="about-clip" src="assets/scrapbook/paperclip.png" alt="" aria-hidden="true">
+                <img class="home-scrap home-scrap--binder-clip home-scrap--about-binder" data-scrap-id="about-binder" src="assets/scrapbook/binder-clip.png" alt="" aria-hidden="true">
+                <span class="home-sticker handwritten" aria-hidden="true">meera ✿</span>
+                <span class="kraft-side-label mono-label" aria-hidden="true">(the person)</span>
 
-        <!-- About -->
-        <section class="section file" id="about">
-            <div class="section-tab reveal">
-                <span class="mono-label">FILE_03 //</span>
-                <h2>about me</h2>
-            </div>
-            <div class="file-content" id="about-content">
-                <div class="file-inner">
-            <div class="about-grid">
-                <div class="photo-stack reveal">
-                    <figure class="polaroid">
-                        <img src="photos/tech-tower.jpg" alt="Meera in front of Tech Tower at Georgia Tech">
-                        <figcaption class="handwritten">hello from GT</figcaption>
-                    </figure>
-                    <figure class="polaroid">
-                        <img src="photos/coffee.jpg" alt="Meera with a homemade iced coffee">
-                        <figcaption class="handwritten">avid coffee drinker ✿</figcaption>
-                    </figure>
-                    <figure class="polaroid">
-                        <img src="photos/jadoo-stage.jpg" alt="Meera performing with GT Jadoo on stage">
-                        <figcaption class="handwritten">on stage w/ jadoo</figcaption>
-                    </figure>
-                    <figure class="polaroid">
-                        <img src="photos/jadoo-trophy.jpg" alt="Meera holding a national competition trophy">
-                        <figcaption class="handwritten">we won!!</figcaption>
-                    </figure>
-                </div>
-                <div class="about-text reveal">
-                    <p class="about-lede">I’m a CS student at <strong>Georgia Tech</strong> (GPA 3.7, graduating
-                        December 2026) concentrating in AI and Human-Computer Interaction, which means I care equally
-                        about what models can do and how it feels to use them.</p>
-                    <p>Off-screen, I captain <strong>GT Jadoo</strong>, a nationally competitive Bollywood fusion dance
-                        team, directing 30+ dancers, editing our digital backdrops, and managing a $20K budget against
-                        45+ teams across the country. I studied abroad in Barcelona with the College of Computing, and
-                        I’m happiest when I’m trying new coffee shops, on a stage, or traveling.</p>
-                    <div class="about-facts">
-                        <div class="fact">
-                            <span class="fact-label mono-label">CERTIFICATES</span>
-                            <span>Google UX Design · Boomi Professional Integration Developer · Microsoft MTA</span>
-                        </div>
-                        <div class="fact">
-                            <span class="fact-label mono-label">LANGUAGES</span>
-                            <span>Java · Python · C++ · C# · TypeScript · JavaScript · SQL</span>
-                        </div>
-                        <div class="fact">
-                            <span class="fact-label mono-label">FRAMEWORKS &amp; TOOLS</span>
-                            <span>React · Angular · Node.js · Django · TensorFlow · AWS · Docker · Figma</span>
+                <div class="kraft-inner">
+                    <div class="kraft-panel kraft-panel--plain kraft-panel--scrap kraft-panel--scrap-grid">
+                        <div class="about-grid">
+                            <div class="photo-stack reveal">
+                                <figure class="polaroid">
+                                    <img src="photos/tech-tower.jpg" alt="Meera in front of Tech Tower at Georgia Tech">
+                                    <figcaption class="handwritten">hello from Georgia Tech</figcaption>
+                                </figure>
+                                <figure class="polaroid">
+                                    <img src="photos/coffee.jpg" alt="Meera with a homemade iced coffee">
+                                    <figcaption class="handwritten">avid coffee drinker</figcaption>
+                                    <span class="polaroid-flower" aria-hidden="true">✿</span>
+                                </figure>
+                                <figure class="polaroid">
+                                    <img src="photos/barcelona-rooftop.jpg" alt="Meera and a friend jumping on a Barcelona rooftop at sunset">
+                                    <figcaption class="handwritten">study abroad in Barcelona</figcaption>
+                                </figure>
+                                <figure class="polaroid">
+                                    <img src="photos/barcelona-sagrada.jpg" alt="Meera in front of the Sagrada Família in Barcelona">
+                                    <figcaption class="handwritten">Sagrada Família day</figcaption>
+                                </figure>
+                                <figure class="polaroid">
+                                    <img src="photos/jadoo-stage.jpg" alt="Meera performing with GT Jadoo on stage">
+                                    <figcaption class="handwritten">on stage with GT Jadoo</figcaption>
+                                </figure>
+                                <figure class="polaroid">
+                                    <img src="photos/jadoo-trophy.jpg" alt="Meera holding a national competition trophy">
+                                    <figcaption class="handwritten">we won the competition!!</figcaption>
+                                </figure>
+                            </div>
+                            <div class="about-text reveal">
+                                <p class="about-lede">I’m a CS student at <strong>Georgia Tech</strong> (GPA 3.7, graduating
+                                    December 2026) concentrating in AI and Human-Computer Interaction. I am passionate about both what products can do and how it feels to use them.</p>
+                                <p>Off-screen, I captain <strong>GT Jadoo</strong>, a nationally competitive Bollywood fusion dance
+                                    team, directing 30+ dancers, editing our digital backdrops, and managing a $20K budget against
+                                    45+ teams across the country.</p>
+                                <p>I studied abroad in Barcelona with the College of Computing, and I'm happiest when I'm somewhere new — a coffee shop, a stage, or a city I don't know yet. All pretty good training for talking to people, reading context, and figuring things out as you go.</p>
+                                <div class="about-facts">
+                                    <div class="fact">
+                                        <span class="fact-label mono-label">CERTIFICATES</span>
+                                        <span>Google UX Design · Boomi Professional Integration Developer · Microsoft MTA</span>
+                                    </div>
+                                    <div class="fact">
+                                        <span class="fact-label mono-label">LANGUAGES</span>
+                                        <span>Java · Python · C++ · C# · TypeScript · JavaScript · SQL</span>
+                                    </div>
+                                    <div class="fact">
+                                        <span class="fact-label mono-label">FRAMEWORKS &amp; TOOLS</span>
+                                        <span>React · Angular · Node.js · Django · TensorFlow · AWS · Docker · Figma</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
- 
                 </div>
             </div>
         </section>
@@ -453,6 +303,7 @@
         <section class="contact" id="contact">
             <h2 class="contact-big reveal"><span>and</span><span>that’s</span><span class="wrap">a wrap<em>.</em></span></h2>
             <div class="contact-note reveal">
+                <img class="home-scrap home-scrap--paperclip home-scrap--contact-clip" data-scrap-id="contact-clip" src="assets/scrapbook/paperclip.png" alt="" aria-hidden="true">
                 <p class="handwritten">thanks for stopping by! if you’d like to build something together (or just say
                     hi), my inbox is always open. meera ✿</p>
                 <div class="contact-links">
@@ -472,6 +323,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="scrap-editor.js"></script>
 </body>
 
 </html>

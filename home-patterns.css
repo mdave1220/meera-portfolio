@@ -1,0 +1,420 @@
+/* Homepage — unified tan stripes + serve pink/slate accent pops */
+
+:root {
+    --home-stripe-a: #efe8da;
+    --home-stripe-b: #e4dccf;
+    --home-stripe-size: 72px;
+    --slate: #7a95a8;
+    --slate-soft: #b5c5d0;
+    --slate-light: #dce4e9;
+}
+
+body {
+    background-color: var(--paper);
+    background-image:
+        repeating-linear-gradient(90deg,
+            var(--home-stripe-a) 0px, var(--home-stripe-a) var(--home-stripe-size),
+            var(--home-stripe-b) var(--home-stripe-size), var(--home-stripe-b) calc(var(--home-stripe-size) * 2));
+}
+
+#top {
+    position: relative;
+}
+
+/* ---------- Archive + contact — same tan stripes as hero ---------- */
+#projects.archive-section,
+#experience.archive-section,
+#about.archive-section,
+.contact {
+    background:
+        repeating-linear-gradient(90deg,
+            var(--home-stripe-a) 0px, var(--home-stripe-a) var(--home-stripe-size),
+            var(--home-stripe-b) var(--home-stripe-size), var(--home-stripe-b) calc(var(--home-stripe-size) * 2));
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    padding-left: max(1.5rem, calc((100% - 72rem) / 2 + 1.5rem));
+    padding-right: max(1.5rem, calc((100% - 72rem) / 2 + 1.5rem));
+}
+
+.kraft-folder--projects .kraft-cover,
+.kraft-folder--experience .kraft-cover,
+.kraft-folder--about {
+    background:
+        var(--kraft-noise),
+        var(--kraft);
+}
+
+/* Experience — neutral tan/brown accents (no pink/blue) */
+.kraft-folder--experience .vtab.is-active {
+    background: #b89565;
+    background-image: var(--kraft-noise);
+    color: #3d2f22;
+}
+
+.kraft-folder--experience .vtab[data-tab="nokia"].is-active {
+    background: #b89565;
+    background-image: var(--kraft-noise);
+    color: #3d2f22;
+}
+
+.kraft-folder--experience .kraft-panel--scrap::before {
+    border-color: rgba(139, 115, 85, 0.45);
+}
+
+.kraft-folder--experience .tags li:nth-child(odd),
+.kraft-folder--experience .tags li:nth-child(even) {
+    background: rgba(230, 215, 178, 0.75);
+    border-color: rgba(139, 115, 85, 0.5);
+}
+
+/* ---------- Inner panels — ruled paper only ---------- */
+.kraft-panel--scrap-lined,
+.kraft-panel--scrap-dots,
+.kraft-panel--scrap-grid {
+    background-color: var(--card);
+    background-image: repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.08) 32px);
+}
+
+.contact {
+    position: relative;
+    border-radius: 0;
+}
+
+.contact-note {
+    background-color: var(--card);
+    background-image: repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.1) 32px);
+}
+
+/* ---------- Marquee texture ---------- */
+.marquee {
+    background:
+        repeating-linear-gradient(90deg,
+            var(--ink) 0 24px,
+            #2e2820 24px 48px);
+}
+
+@media (max-width: 760px) {
+    .contact,
+    #projects.archive-section,
+    #experience.archive-section,
+    #about.archive-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+#projects.archive-section {
+    overflow: visible;
+}
+
+/* ---------- Homepage project card palettes ---------- */
+
+/* Serve — slate blue + sage tan (matches case study) */
+.proj-card[data-tab="serve"] .proj-card-tagline {
+    color: #7a95a8;
+}
+
+.proj-card[data-tab="serve"] .proj-card-copy .mono-label:first-child {
+    color: #7a95a8;
+}
+
+.proj-card[data-tab="serve"] .proj-card-cta.btn-solid {
+    background: #7a95a8;
+}
+
+.proj-card[data-tab="serve"] .tags li,
+.proj-card[data-tab="serve"] .tags li:nth-child(odd),
+.proj-card[data-tab="serve"] .tags li:nth-child(even) {
+    background: rgba(200, 212, 188, 0.65);
+    border-color: rgba(122, 139, 108, 0.5);
+}
+
+.kraft-folder--projects[data-active-tab="serve"] .kraft-panel--scrap::before {
+    border-color: rgba(122, 149, 168, 0.5);
+}
+
+/* 28ish — pink accents */
+.proj-card[data-tab="28ish"] .proj-card-tagline {
+    color: #8e3f5d;
+}
+
+.proj-card[data-tab="28ish"] .proj-card-copy .mono-label:first-child {
+    color: #8e3f5d;
+}
+
+.proj-card[data-tab="28ish"] .proj-card-cta.btn-solid {
+    background: #e088ad;
+}
+
+.proj-card[data-tab="28ish"] .tags li,
+.proj-card[data-tab="28ish"] .tags li:nth-child(odd),
+.proj-card[data-tab="28ish"] .tags li:nth-child(even) {
+    background: rgba(243, 228, 234, 0.85);
+    border-color: rgba(224, 136, 173, 0.55);
+}
+
+.kraft-folder--projects[data-active-tab="28ish"] .kraft-panel--scrap::before {
+    border-color: rgba(142, 63, 93, 0.4);
+}
+
+/* TravelJAM — brown + blue */
+.proj-card[data-tab="traveljam"] .proj-card-tagline {
+    color: #8b7355;
+}
+
+.proj-card[data-tab="traveljam"] .proj-card-copy .mono-label:first-child {
+    color: #8b7355;
+}
+
+.proj-card[data-tab="traveljam"] .proj-card-cta.btn-solid {
+    background: #8b7355;
+}
+
+.proj-card[data-tab="traveljam"] .tags li,
+.proj-card[data-tab="traveljam"] .tags li:nth-child(odd),
+.proj-card[data-tab="traveljam"] .tags li:nth-child(even) {
+    background: rgba(220, 232, 239, 0.75);
+    border-color: rgba(92, 115, 132, 0.5);
+}
+
+.kraft-folder--projects[data-active-tab="traveljam"] .kraft-panel--scrap::before {
+    border-color: rgba(92, 115, 132, 0.45);
+}
+
+/* Kindly — pink + green */
+.proj-card[data-tab="kindly"] .proj-card-tagline {
+    color: #6b7a5c;
+}
+
+.proj-card[data-tab="kindly"] .proj-card-copy .mono-label:first-child {
+    color: #6b7a5c;
+}
+
+.proj-card[data-tab="kindly"] .proj-card-cta.btn-solid {
+    background: #5f6e50;
+}
+
+.proj-card[data-tab="kindly"] .tags li,
+.proj-card[data-tab="kindly"] .tags li:nth-child(odd),
+.proj-card[data-tab="kindly"] .tags li:nth-child(even) {
+    background: rgba(243, 228, 234, 0.85);
+    border-color: rgba(224, 136, 173, 0.55);
+}
+
+.kraft-folder--projects[data-active-tab="kindly"] .kraft-panel--scrap::before {
+    border-color: rgba(95, 110, 80, 0.45);
+}
+
+/* ---------- Projects tab hint — points at 28ish tab ---------- */
+.kraft-folder--projects {
+    overflow: visible;
+}
+
+.kraft-folder--projects .kraft-cover {
+    overflow: visible;
+}
+
+.kraft-folder--projects .vtab-hint {
+    position: absolute;
+    left: 100%;
+    right: auto;
+    margin-left: 0.4rem;
+    top: calc(1.85rem + 0.25rem);
+    height: calc(5.75rem + 0.55rem + 5.75rem);
+    transform: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: calc(var(--vtab-width) + 8.5rem);
+    max-width: none;
+    overflow: visible;
+    margin-top: 0;
+    pointer-events: none;
+    z-index: 5;
+    color: var(--ink-soft);
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.kraft-folder--projects.has-used-tabs .vtab-hint {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.vtab-hint__bundle {
+    position: relative;
+    width: 100%;
+}
+
+.vtab-hint__arrow {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 140 / 88;
+    margin-top: 1.45rem;
+    overflow: visible;
+    transform: rotate(6deg) scale(1.15);
+    transform-origin: left center;
+    filter: drop-shadow(0 1px 2px rgba(34, 29, 22, 0.12));
+    --vtab-arrow-duration: 3.2s;
+}
+
+.vtab-hint__path {
+    fill: none;
+    stroke: #e088ad;
+    stroke-width: 3.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+}
+
+.vtab-hint__head {
+    pointer-events: none;
+}
+
+.vtab-hint__head path {
+    fill: #e088ad;
+}
+
+.vtab-hint__text-wrap {
+    position: absolute;
+    top: var(--hint-text-y, 0);
+    right: var(--hint-text-r, 0);
+    z-index: 6;
+    transform: translateX(var(--hint-text-x, 0));
+    pointer-events: auto;
+    touch-action: none;
+}
+
+.vtab-hint__text-wrap.is-dragging .vtab-hint__text {
+    animation-play-state: paused;
+}
+
+.vtab-hint__text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--font-hook);
+    font-size: clamp(1rem, 1.55vw, 1.2rem);
+    font-weight: 600;
+    line-height: 1.05;
+    text-align: right;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    -webkit-text-stroke: 0.4px currentColor;
+    paint-order: stroke fill;
+    transform-origin: right top;
+    animation: vtab-hint-text-wiggle 2.6s ease-in-out infinite;
+}
+
+.vtab-hint--placing {
+    pointer-events: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.vtab-hint--placing .vtab-hint__text-wrap {
+    outline: 1.5px dashed rgba(224, 136, 173, 0.75);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.vtab-hint-placement-bar {
+    position: absolute;
+    top: -2.1rem;
+    right: 0;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: rgba(255, 252, 247, 0.95);
+    border: 1px solid rgba(34, 29, 22, 0.18);
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    white-space: nowrap;
+    pointer-events: auto;
+    z-index: 6;
+}
+
+.vtab-hint-placement-bar button {
+    font: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: var(--pink);
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 0.35rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.vtab-hint__text-line {
+    display: block;
+}
+
+.vtab-hint__text-line--top {
+    margin-right: 1.35rem;
+}
+
+.vtab-hint__text-line--bottom {
+    position: relative;
+    top: 0.4rem;
+    right: -0.55rem;
+}
+
+@keyframes vtab-hint-text-wiggle {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    20% {
+        transform: translateY(-2px) rotate(-1.5deg);
+    }
+
+    40% {
+        transform: translateY(1px) rotate(1deg);
+    }
+
+    60% {
+        transform: translateY(-3px) rotate(-0.75deg);
+    }
+
+    80% {
+        transform: translateY(0) rotate(0.5deg);
+    }
+}
+
+@media (max-width: 960px) {
+    .kraft-folder--projects .vtab-hint {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vtab-hint__arrow {
+        transform: rotate(6deg) scale(1.15);
+    }
+
+    .vtab-hint__path {
+        stroke-dashoffset: 0;
+    }
+
+    .vtab-hint__head {
+        opacity: 1;
+    }
+
+    .vtab-hint__text {
+        animation: none;
+    }
+}

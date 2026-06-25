@@ -1,0 +1,1261 @@
+/* Scrapbook pattern overlays — loaded after styles.css on project pages */
+
+body:has(.project-page.scrapbook) {
+    background: transparent;
+}
+
+.project-page.scrapbook {
+    position: relative;
+    background: transparent;
+}
+
+.project-page.scrapbook::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+/* Fixed background patterns — one per project palette */
+.scrapbook--serve.project-page.scrapbook::before {
+    background:
+        repeating-linear-gradient(90deg,
+            #dce4e9 0px, #dce4e9 72px,
+            #c8d4bc 72px, #c8d4bc 144px);
+}
+
+.scrapbook--28ish.project-page.scrapbook::before {
+    background-color: #edd8e0;
+    background-image:
+        radial-gradient(circle, #f3e4ea 12px, transparent 12.5px),
+        radial-gradient(circle, #f8f0f2 12px, transparent 12.5px);
+    background-size: 72px 72px;
+    background-position: 0 0, 36px 36px;
+}
+
+.scrapbook--traveljam.project-page.scrapbook::before {
+    background:
+        repeating-linear-gradient(90deg,
+            #dce8ef 0px, #dce8ef 72px,
+            #e8dfd0 72px, #e8dfd0 144px);
+}
+
+.scrapbook--kindly.project-page.scrapbook::before {
+    background:
+        repeating-linear-gradient(90deg,
+            #f3e4ea 0px, #f3e4ea 72px,
+            #dce8d4 72px, #dce8d4 144px);
+}
+
+.scrapbook-frame {
+    position: relative;
+    padding: 1.4rem 1.4rem 1.6rem;
+}
+
+.page-scrap {
+    position: absolute;
+    z-index: 6;
+    pointer-events: none;
+    user-select: none;
+    display: block;
+}
+
+.page-scrap--paperclip {
+    width: 2.2rem;
+    filter: drop-shadow(1px 2px 3px rgba(34, 29, 22, 0.22));
+}
+
+.page-scrap--binder {
+    width: 2.8rem;
+    filter: drop-shadow(2px 4px 6px rgba(34, 29, 22, 0.24));
+}
+
+/* Locked scrap positions */
+[data-scrap-id="serve-paperclip"] {
+    top: 108px;
+    right: auto;
+    bottom: auto;
+    left: 1087px;
+    width: 35px;
+    z-index: 6;
+    transform: rotate(-6deg);
+}
+
+[data-scrap-id="serve-binder"] {
+    top: 299px;
+    right: auto;
+    bottom: auto;
+    left: -5px;
+    width: 45px;
+    z-index: 6;
+    transform: rotate(-138deg);
+}
+
+[data-scrap-id="28ish-paperclip"] {
+    top: 77px;
+    right: auto;
+    bottom: auto;
+    left: 104px;
+    width: 35px;
+    z-index: 6;
+    transform: rotate(78deg);
+}
+
+[data-scrap-id="28ish-binder"] {
+    top: 29px;
+    right: auto;
+    bottom: auto;
+    left: 1050px;
+    width: 45px;
+    z-index: 6;
+    transform: rotate(-10deg);
+}
+
+[data-scrap-id="traveljam-paperclip"] {
+    top: 306px;
+    right: auto;
+    bottom: auto;
+    left: 1142px;
+    width: 35px;
+    z-index: 6;
+    transform: rotate(4deg);
+}
+
+[data-scrap-id="traveljam-binder"] {
+    top: 21px;
+    right: auto;
+    bottom: auto;
+    left: 360px;
+    width: 45px;
+    z-index: 6;
+    transform: rotate(-46deg);
+}
+
+.scrapbook-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0.6rem;
+    border: 2px dashed rgba(132, 119, 92, 0.45);
+    border-radius: 16px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.scrap-stitch {
+    display: block;
+    height: 10px;
+    margin-bottom: 1rem;
+    background: repeating-linear-gradient(90deg,
+            var(--olive) 0 6px,
+            transparent 6px 12px,
+            var(--manila) 12px 18px,
+            transparent 18px 24px);
+    border-radius: 2px;
+    opacity: 0.85;
+}
+
+.scrapbook--28ish .scrapbook-frame::before {
+    border-color: rgba(142, 63, 93, 0.4);
+}
+
+.scrapbook--28ish .scrap-stitch {
+    background: repeating-linear-gradient(90deg,
+            #8e3f5d 0 6px,
+            transparent 6px 12px,
+            #edd8e0 12px 18px,
+            transparent 18px 24px);
+}
+
+.scrapbook--traveljam .scrapbook-frame::before {
+    border-color: rgba(92, 115, 132, 0.45);
+}
+
+.scrapbook--traveljam .scrap-stitch {
+    background: repeating-linear-gradient(90deg,
+            #5c7384 0 6px,
+            transparent 6px 12px,
+            #e8dfd0 12px 18px,
+            transparent 18px 24px);
+}
+
+.scrapbook--kindly .scrap-stitch {
+    background: repeating-linear-gradient(90deg,
+            #e088ad 0 6px,
+            transparent 6px 12px,
+            #dce8d4 12px 18px,
+            transparent 18px 24px);
+}
+
+[data-scrap-id="kindly-paperclip"] {
+    top: 90px;
+    right: auto;
+    bottom: auto;
+    left: 1050px;
+    width: 35px;
+    z-index: 6;
+    transform: rotate(-12deg);
+}
+
+[data-scrap-id="kindly-binder"] {
+    top: 40px;
+    right: auto;
+    bottom: auto;
+    left: 80px;
+    width: 45px;
+    z-index: 6;
+    transform: rotate(52deg);
+}
+
+.scrapbook-spread {
+    border-width: 2px;
+    border-radius: 14px;
+    padding: 2.8rem 1rem 1rem;
+    box-shadow: 0 18px 50px rgba(34, 29, 22, 0.2);
+    z-index: 1;
+}
+
+.scrap-spine {
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(34, 29, 22, 0.12) 0 4px,
+            rgba(34, 29, 22, 0.04) 4px 8px);
+}
+
+.scrap-page {
+    padding: 0;
+}
+
+.scrap-page-num {
+    position: absolute;
+    top: 0.55rem;
+    left: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    color: var(--olive);
+    opacity: 0.55;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.scrap-page-inner {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1.8rem 2.4rem;
+    min-height: 100%;
+}
+
+.scrap-page--left {
+    background-color: #faf7f0;
+    background-image:
+        linear-gradient(rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.09) 32px);
+    background-size: 48px 48px, 48px 48px, auto;
+    border: 1.5px solid rgba(34, 29, 22, 0.18);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.scrap-page--right {
+    background-color: #f0ebe3;
+    background-image:
+        linear-gradient(rgba(34, 29, 22, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 29, 22, 0.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+    border: 1.5px solid rgba(34, 29, 22, 0.18);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.scrap-page--right::before {
+    display: none;
+}
+
+.scrap-head {
+    margin-bottom: 1.4rem;
+    padding: 1rem 1.2rem 0.85rem;
+    border: 1.5px solid var(--ink);
+    border-radius: 4px;
+    border-bottom: 1.5px solid var(--ink);
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, transparent 50%),
+        linear-gradient(rgba(180, 200, 170, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 200, 170, 0.35) 1px, transparent 1px),
+        var(--head-bg, #e8f0e4);
+    background-size: 16px 16px, 16px 16px, 16px 16px, auto;
+    box-shadow: 3px 4px 0 rgba(34, 29, 22, 0.1);
+    transform: rotate(-0.4deg);
+}
+
+.scrap-intro-zone {
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.2rem;
+    border-left: 3px solid var(--accent, var(--pink));
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.scrap-greeting {
+    margin-bottom: 0.35rem;
+}
+
+.scrap-hook {
+    margin-bottom: 0.45rem;
+}
+
+.scrap-role {
+    margin-bottom: 0;
+}
+
+.scrap-stickers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border: 1.5px dashed var(--line);
+    background:
+        linear-gradient(rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.35);
+    background-size: 14px 14px;
+}
+
+.stat-sticker {
+    border-radius: 50%;
+    min-height: 4.8rem;
+    aspect-ratio: 1;
+    justify-content: center;
+    min-width: unset;
+    padding: 0.55rem 0.5rem;
+}
+
+.stat-sticker:nth-child(1) {
+    --rot: -3deg;
+    background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 18%, transparent 19%),
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 18%, transparent 19%),
+        var(--sticker-bg, #e8d4dc);
+    background-size: 12px 12px, 12px 12px, auto;
+    background-position: 0 0, 6px 6px, 0 0;
+}
+
+.stat-sticker:nth-child(2) {
+    --rot: 2deg;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+        var(--sticker-bg, var(--manila));
+    background-size: 10px 10px, 10px 10px, 10px 10px, auto;
+}
+
+.stat-sticker:nth-child(3) {
+    --rot: -1.5deg;
+    background:
+        repeating-linear-gradient(45deg,
+            transparent, transparent 4px,
+            rgba(255, 255, 255, 0.35) 4px, rgba(255, 255, 255, 0.35) 8px),
+        var(--sticker-bg, var(--card));
+}
+
+.stat-sticker:nth-child(4) {
+    --rot: 3deg;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.5) 0 2px, transparent 3px),
+        var(--sticker-bg, #f0e6d0);
+    background-size: 14px 14px, 14px 14px, auto;
+}
+
+.stat-sticker strong {
+    font-size: 1.35rem;
+}
+
+.stat-sticker span {
+    font-size: 0.5rem;
+    max-width: 5rem;
+    line-height: 1.2;
+    color: var(--ink);
+}
+
+.scrap-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scrap-entry {
+    margin-bottom: 0;
+    padding: 1rem 1.1rem;
+    border: 1.5px solid var(--ink);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 4px 5px 0 rgba(34, 29, 22, 0.08);
+    transform: rotate(var(--entry-rot, 0deg));
+    position: relative;
+}
+
+.scrap-entry::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 1.2rem;
+    width: 52px;
+    height: 16px;
+    background: rgba(230, 215, 178, 0.88);
+    transform: rotate(-2deg);
+    box-shadow: 0 1px 2px rgba(34, 29, 22, 0.1);
+}
+
+.scrap-entry:nth-child(even) {
+    --entry-rot: 0.5deg;
+    background:
+        repeating-linear-gradient(transparent,
+            transparent 23px,
+            rgba(34, 29, 22, 0.05) 24px),
+        rgba(255, 255, 255, 0.78);
+}
+
+.scrap-entry h2 {
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed var(--line);
+}
+
+.scrap-entry p {
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+}
+
+.scrap-tags {
+    padding: 0.75rem;
+    border: 1.5px solid var(--ink);
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 6px,
+            rgba(224, 136, 173, 0.08) 6px, rgba(224, 136, 173, 0.08) 12px),
+        var(--card);
+}
+
+/* ---------- Project pages: intro is the star, body stays clean ---------- */
+.project-page.scrapbook .scrap-head {
+    background: var(--head-bg, var(--card));
+    box-shadow: none;
+    transform: none;
+    border: 1px solid rgba(34, 29, 22, 0.12);
+    border-radius: 4px;
+}
+
+.project-page.scrapbook.scrapbook--serve .scrap-head,
+.project-page.scrapbook.scrapbook--28ish .scrap-head,
+.project-page.scrapbook.scrapbook--traveljam .scrap-head,
+.project-page.scrapbook.scrapbook--kindly .scrap-head {
+    background: var(--head-bg, var(--card));
+}
+
+.project-page.scrapbook .scrap-intro-zone {
+    margin-bottom: 1.75rem;
+    border-left-width: 4px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.project-page.scrapbook .scrap-entry {
+    padding: 0 0 1.25rem;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+.project-page.scrapbook .scrap-entry::before {
+    display: none;
+}
+
+.project-page.scrapbook .scrap-entry:nth-child(even) {
+    background: transparent;
+}
+
+.project-page.scrapbook .scrap-entry h2 {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-page.scrapbook .scrap-entry p {
+    font-family: var(--font-body);
+    font-size: clamp(1.05rem, 1.9vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--ink-soft);
+}
+
+.project-page.scrapbook .scrap-entries {
+    gap: 1.5rem;
+}
+
+.scrap-clip {
+    top: -10px;
+    width: 50px;
+    height: 24px;
+    border-color: #b0899a;
+    z-index: 6;
+    clip-path: inset(0 0 50% 0);
+}
+
+.scrap-clip::after {
+    background: #b0899a;
+}
+
+.scrap-aside {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.8rem;
+    border: 1.5px solid var(--ink);
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--ink);
+    box-shadow: 2px 3px 0 rgba(34, 29, 22, 0.08);
+    transform: rotate(-1deg);
+}
+
+.scrapbook--serve .scrap-aside {
+    background: rgba(238, 241, 244, 0.92);
+    border-color: rgba(122, 149, 168, 0.35);
+}
+
+.scrapbook--28ish .scrap-aside {
+    background: #faf5f7;
+    border-color: rgba(142, 63, 93, 0.35);
+}
+
+.scrapbook--28ish .scrap-clip {
+    border-color: #c47896;
+}
+
+.scrapbook--28ish .scrap-clip::after {
+    background: #c47896;
+}
+
+.scrapbook--traveljam .scrap-aside {
+    background: #faf7f0;
+    color: var(--ink);
+    border-color: rgba(92, 115, 132, 0.35);
+}
+
+.scrapbook--traveljam .scrap-clip {
+    border-color: #5c7384;
+}
+
+.scrapbook--traveljam .scrap-clip::after {
+    background: #5c7384;
+}
+
+.scrapbook--kindly .scrap-aside {
+    background: rgba(245, 241, 232, 0.92);
+    border-color: rgba(224, 136, 173, 0.35);
+}
+
+.scrapbook--kindly .scrap-clip {
+    border-color: #5a6648;
+}
+
+.scrapbook--kindly .scrap-clip::after {
+    background: #5a6648;
+}
+
+.scrapbook--traveljam .stat-sticker {
+    border-color: rgba(92, 115, 132, 0.35);
+}
+
+.scrapbook--serve .scrap-page--right::after {
+    content: "";
+    position: absolute;
+    bottom: 1.4rem;
+    right: 1.2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    background:
+        radial-gradient(circle, var(--serve-slate-deep) 1.5px, transparent 2px),
+        transparent;
+    background-size: 10px 10px;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scrap-pocket {
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    border: 2px dashed rgba(34, 29, 22, 0.28);
+    border-radius: 6px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        rgba(255, 255, 255, 0.25);
+    position: relative;
+}
+
+.scrap-pocket::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(34, 29, 22, 0.08);
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.scrap-polaroid {
+    position: relative;
+    border: 1px solid rgba(34, 29, 22, 0.12);
+}
+
+.scrap-polaroid::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 46px;
+    height: 16px;
+    background: rgba(230, 215, 178, 0.9);
+}
+
+.scrap-pair {
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(34, 29, 22, 0.1);
+}
+
+.scrap-note {
+    padding: 0.55rem 1.1rem;
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(230, 215, 178, 0.95) 0 8px,
+            rgba(220, 205, 168, 0.95) 8px 16px);
+    border: 1px dashed rgba(34, 29, 22, 0.2);
+}
+
+.scrap-label {
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid var(--line);
+    display: inline-block;
+    transform: rotate(-0.5deg);
+}
+
+.scrap-doodle {
+    position: absolute;
+    font-family: var(--font-hand);
+    font-size: 1.6rem;
+    color: var(--accent, var(--pink));
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.scrap-star {
+    opacity: 0.75;
+}
+
+.scrapbook--serve {
+    --serve-slate: #b5c5d0;
+    --serve-tan: #d4c4a4;
+    --serve-slate-deep: #7a95a8;
+    --serve-slate-light: #dce4e9;
+    --serve-tan-light: #ebe4d4;
+    --serve-paper: #eef1f4;
+    --accent: #7a95a8;
+    --accent-alt: #8a9a88;
+    --head-bg: #c5d2db;
+    --sticker-bg: #d4c4a4;
+}
+
+.scrapbook--serve .scrap-date {
+    color: #7a95a8;
+}
+
+.scrapbook--serve .scrap-hook {
+    color: #7a95a8;
+}
+
+.scrapbook--serve .scrapbook-spread {
+    background: var(--serve-tan);
+}
+
+.scrapbook--serve .scrapbook-frame::before {
+    border-color: rgba(122, 149, 168, 0.55);
+}
+
+.scrapbook--serve .scrap-stitch {
+    background: repeating-linear-gradient(90deg,
+            var(--serve-slate-deep) 0 6px,
+            transparent 6px 12px,
+            var(--serve-tan-light) 12px 18px,
+            transparent 18px 24px);
+}
+
+.scrapbook--serve .scrap-page--left {
+    background-color: var(--serve-paper);
+    background-image:
+        linear-gradient(rgba(122, 149, 168, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 149, 168, 0.07) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(122, 149, 168, 0.1) 32px);
+    background-size: 48px 48px, 48px 48px, auto;
+}
+
+.scrapbook--serve .scrap-page--right {
+    background-color: var(--serve-tan-light);
+    background-image:
+        linear-gradient(rgba(181, 197, 208, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(181, 197, 208, 0.12) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+
+.scrapbook--serve .scrap-page--right::before {
+    display: none;
+}
+
+.scrapbook--serve .scrap-head {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
+        linear-gradient(rgba(122, 149, 168, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 149, 168, 0.28) 1px, transparent 1px),
+        var(--head-bg);
+    background-size: 16px 16px, 16px 16px, 16px 16px, auto;
+}
+
+.scrapbook--serve .scrap-intro-zone,
+.scrapbook--28ish .scrap-intro-zone,
+.scrapbook--traveljam .scrap-intro-zone,
+.scrapbook--kindly .scrap-intro-zone {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem 1.5rem;
+    align-items: center;
+}
+
+.scrapbook--serve .scrap-intro-copy,
+.scrapbook--28ish .scrap-intro-copy,
+.scrapbook--traveljam .scrap-intro-copy,
+.scrapbook--kindly .scrap-intro-copy {
+    min-width: 0;
+    max-width: none;
+}
+
+.scrapbook--serve .scrap-intro-zone .scrap-hook,
+.scrapbook--28ish .scrap-intro-zone .scrap-hook,
+.scrapbook--traveljam .scrap-intro-zone .scrap-hook,
+.scrapbook--kindly .scrap-intro-zone .scrap-hook {
+    margin-bottom: 0.35rem;
+    white-space: nowrap;
+}
+
+.scrapbook--serve .scrap-intro-zone .scrap-role,
+.scrapbook--28ish .scrap-intro-zone .scrap-role,
+.scrapbook--traveljam .scrap-intro-zone .scrap-role,
+.scrapbook--kindly .scrap-intro-zone .scrap-role {
+    white-space: nowrap;
+}
+
+.scrapbook--serve .scrap-stickers--compact,
+.scrapbook--28ish .scrap-stickers--compact,
+.scrapbook--traveljam .scrap-stickers--compact,
+.scrapbook--kindly .scrap-stickers--compact {
+    --stat-size: 5.75rem;
+    --stat-gap: 0.9rem;
+    --stat-box-width: 89%;
+    display: grid;
+    grid-template-columns: repeat(4, var(--stat-size));
+    column-gap: var(--stat-gap);
+    justify-content: space-between;
+    align-items: center;
+    width: var(--stat-box-width);
+    max-width: 100%;
+    justify-self: end;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0 0.25rem;
+    border: none;
+    background: none;
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker,
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker,
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker,
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker {
+    min-height: var(--stat-size);
+    width: var(--stat-size);
+    padding: calc(var(--stat-size) * 0.07) calc(var(--stat-size) * 0.05);
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker strong,
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker strong,
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker strong,
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker strong {
+    font-size: calc(var(--stat-size) * 0.23);
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker span,
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker span,
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker span,
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker span {
+    font-size: calc(var(--stat-size) * 0.085);
+    max-width: calc(var(--stat-size) * 0.71);
+    line-height: 1.15;
+}
+
+.scrapbook--serve .scrap-intro-zone {
+    border-left-color: var(--serve-slate-deep);
+    background: rgba(238, 241, 244, 0.72);
+}
+
+.scrapbook--28ish .scrap-intro-zone {
+    border-left-color: #8e3f5d;
+    background: rgba(248, 240, 242, 0.72);
+}
+
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(1) {
+    --sticker-bg: #f3e4ea;
+}
+
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(2) {
+    --sticker-bg: #edd8e0;
+}
+
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(3) {
+    --sticker-bg: #f8f0f2;
+}
+
+.scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(4) {
+    --sticker-bg: #e8d4dc;
+}
+
+.scrapbook--28ish .scrap-tags {
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 6px,
+            rgba(224, 136, 173, 0.12) 6px, rgba(224, 136, 173, 0.12) 12px),
+        #f8f0f2;
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker span {
+    color: var(--ink);
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(1) {
+    --sticker-bg: #dce8ef;
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(2) {
+    --sticker-bg: #e8dfd0;
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(3) {
+    --sticker-bg: #f5f0e8;
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(4) {
+    --sticker-bg: #d4c4a4;
+}
+
+.scrapbook--serve .scrap-tags {
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 6px,
+            rgba(122, 149, 168, 0.1) 6px, rgba(122, 149, 168, 0.1) 12px),
+        var(--serve-paper);
+}
+
+.scrapbook--serve .stat-sticker:nth-child(1) {
+    --sticker-bg: var(--serve-slate-light);
+}
+
+.scrapbook--serve .stat-sticker:nth-child(2) {
+    --sticker-bg: var(--serve-tan);
+}
+
+.scrapbook--serve .stat-sticker:nth-child(3) {
+    --sticker-bg: var(--serve-paper);
+}
+
+.scrapbook--serve .stat-sticker:nth-child(4) {
+    --sticker-bg: #e0d6c4;
+}
+
+.scrapbook--serve .scrap-stickers:not(.scrap-stickers--compact) {
+    background:
+        linear-gradient(rgba(122, 149, 168, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 149, 168, 0.06) 1px, transparent 1px),
+        rgba(238, 241, 244, 0.55);
+    background-size: 12px 12px;
+    border-color: rgba(122, 149, 168, 0.35);
+}
+
+.scrapbook--serve .scrap-entry::before {
+    background: rgba(212, 196, 164, 0.92);
+}
+
+.scrapbook--serve .scrap-clip {
+    border-color: #8a9aa8;
+}
+
+.scrapbook--serve .scrap-clip::after {
+    background: #8a9aa8;
+}
+
+.scrapbook--serve .scrap-note {
+    background:
+        repeating-linear-gradient(90deg,
+            rgba(181, 197, 208, 0.85) 0 8px,
+            rgba(212, 196, 164, 0.85) 8px 16px);
+}
+
+.scrapbook--28ish {
+    --accent: #8e3f5d;
+    --accent-alt: #e088ad;
+    --head-bg: #edd8e0;
+    --sticker-bg: #f3e4ea;
+}
+
+.scrapbook--28ish .scrapbook-spread {
+    background: #e8d4dc;
+}
+
+.scrapbook--28ish .scrap-hook {
+    color: #8e3f5d;
+}
+
+.scrapbook--28ish .scrap-date {
+    color: #8e3f5d;
+}
+
+.scrapbook--28ish .scrap-page--left {
+    background-color: #f8f0f2;
+    background-image:
+        linear-gradient(rgba(142, 63, 93, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(142, 63, 93, 0.04) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(142, 63, 93, 0.07) 32px);
+    background-size: 40px 40px, 40px 40px, auto;
+}
+
+.scrapbook--28ish .scrap-page--right {
+    background-color: #f3e4ea;
+    background-image:
+        linear-gradient(rgba(224, 136, 173, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.scrapbook--28ish .scrap-head {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+        linear-gradient(rgba(200, 160, 175, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200, 160, 175, 0.4) 1px, transparent 1px),
+        #edd8e0;
+    background-size: 14px 14px, 14px 14px, 14px 14px, auto;
+}
+
+.scrapbook--traveljam {
+    --accent: #5c7384;
+    --accent-alt: #8b7355;
+    --head-bg: #f0ebe3;
+    --sticker-bg: #e8dfd0;
+}
+
+.scrapbook--traveljam .scrapbook-spread {
+    background: #e8dfd0;
+}
+
+.scrapbook--traveljam .scrap-date {
+    color: #8b7355;
+}
+
+.scrapbook--traveljam .scrap-head {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+        linear-gradient(rgba(92, 115, 132, 0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 115, 85, 0.18) 1px, transparent 1px),
+        var(--head-bg);
+    background-size: 14px 14px, 14px 14px, 14px 14px, auto;
+}
+
+.scrapbook--traveljam .scrap-entry {
+    background: transparent;
+    border-color: rgba(34, 29, 22, 0.12);
+}
+
+.scrapbook--traveljam .scrap-intro-zone {
+    border-left-color: #5c7384;
+    background: rgba(248, 244, 236, 0.88);
+}
+
+.scrapbook--28ish .scrap-stickers:not(.scrap-stickers--compact) {
+    background:
+        linear-gradient(rgba(142, 63, 93, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(142, 63, 93, 0.05) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.4);
+    background-size: 14px 14px;
+}
+
+.scrapbook--traveljam .scrap-stickers:not(.scrap-stickers--compact) {
+    background:
+        linear-gradient(rgba(92, 115, 132, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.06) 1px, transparent 1px),
+        rgba(248, 244, 236, 0.55);
+    background-size: 14px 14px;
+    border-color: rgba(92, 115, 132, 0.25);
+}
+
+.scrapbook--traveljam .stat-sticker:nth-child(1) {
+    --sticker-bg: #dce8ef;
+}
+
+.scrapbook--traveljam .stat-sticker:nth-child(2) {
+    --sticker-bg: #e8dfd0;
+}
+
+.scrapbook--traveljam .stat-sticker:nth-child(3) {
+    --sticker-bg: #f5f0e8;
+}
+
+.scrapbook--traveljam .stat-sticker:nth-child(4) {
+    --sticker-bg: #d4c4a4;
+}
+
+.scrapbook--traveljam .stat-sticker span {
+    color: var(--ink);
+}
+
+.scrapbook--traveljam .scrap-pocket {
+    border-color: rgba(34, 29, 22, 0.2);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.scrapbook--traveljam .scrap-page--left {
+    background-color: #faf7f0;
+    background-image:
+        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(92, 115, 132, 0.07) 32px);
+    background-size: 40px 40px, 40px 40px, auto;
+}
+
+.scrapbook--traveljam .scrap-page--right {
+    background-color: #f5f0e8;
+    background-image:
+        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.scrapbook--traveljam .scrap-tags {
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 6px,
+            rgba(92, 115, 132, 0.1) 6px, rgba(92, 115, 132, 0.1) 12px),
+        rgba(232, 223, 208, 0.75);
+}
+
+.scrapbook--kindly {
+    --accent: #5a6648;
+    --accent-alt: #e088ad;
+    --head-bg: #ebe6d8;
+    --sticker-bg: #dce0d0;
+}
+
+.scrapbook--kindly .scrap-date {
+    color: #6b7a5c;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(odd) strong {
+    color: #e088ad;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(even) strong {
+    color: #5a6648;
+}
+
+.scrapbook--kindly .scrap-head {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
+        linear-gradient(rgba(224, 136, 173, 0.22) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 102, 72, 0.18) 1px, transparent 1px),
+        var(--head-bg);
+    background-size: 14px 14px, 14px 14px, 14px 14px, auto;
+}
+
+.scrapbook--kindly .scrap-tags {
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent, transparent 6px,
+            rgba(90, 102, 72, 0.1) 6px, rgba(90, 102, 72, 0.1) 12px),
+        rgba(220, 228, 210, 0.65);
+}
+
+.scrapbook--kindly .scrapbook-frame::before {
+    border-color: rgba(90, 102, 72, 0.45);
+}
+
+.scrapbook--kindly .scrapbook-spread {
+    background: #d4c4a4;
+}
+
+.scrapbook--kindly .scrap-intro-zone {
+    border-left-color: #5a6648;
+    background: rgba(245, 241, 232, 0.88);
+}
+
+.scrapbook--kindly .scrap-hook {
+    color: #4a5540;
+}
+
+.scrapbook--kindly .scrap-page--left {
+    background-color: #faf7f0;
+    background-image:
+        linear-gradient(rgba(90, 102, 72, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 102, 72, 0.05) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(90, 102, 72, 0.07) 32px);
+    background-size: 40px 40px, 40px 40px, auto;
+}
+
+.scrapbook--kindly .scrap-page--right {
+    background-color: #f5f0f0;
+    background-image:
+        linear-gradient(rgba(224, 136, 173, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(1) {
+    --sticker-bg: #dce0d0;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(2) {
+    --sticker-bg: #d4c4a4;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(3) {
+    --sticker-bg: #f5f0e8;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(4) {
+    --sticker-bg: #c8d4bc;
+}
+
+/* Shared project-page chrome — accent color per theme */
+.project-page.scrapbook .project-back:hover {
+    color: var(--accent, var(--pink));
+    border-bottom-color: var(--accent, var(--pink));
+}
+
+.project-page.scrapbook .pager-link:hover {
+    color: var(--accent, var(--pink));
+    border-bottom-color: var(--accent, var(--pink));
+}
+
+.project-page.scrapbook .project-pager {
+    border-top-color: color-mix(in srgb, var(--accent, var(--pink)) 28%, var(--line));
+}
+
+.project-page.scrapbook .page-nav-link.is-active {
+    color: var(--accent, var(--pink));
+    border-bottom-color: var(--accent, var(--pink));
+}
+
+.project-page.scrapbook .page-nav-link:focus-visible {
+    outline-color: var(--accent, var(--pink));
+}
+
+.project-page.scrapbook .scrap-entry h2 {
+    border-bottom-color: color-mix(in srgb, var(--accent, var(--pink)) 32%, transparent);
+}
+
+@media (max-width: 900px) {
+    .scrap-page-inner {
+        padding: 1.5rem 1.3rem 2rem;
+    }
+
+    .scrap-stickers {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .scrapbook-frame {
+        padding: 0.8rem;
+    }
+
+    .scrapbook--serve .scrap-intro-zone,
+    .scrapbook--28ish .scrap-intro-zone,
+    .scrapbook--traveljam .scrap-intro-zone,
+    .scrapbook--kindly .scrap-intro-zone {
+        grid-template-columns: 1fr;
+    }
+
+    .scrapbook--serve .scrap-intro-zone .scrap-hook,
+    .scrapbook--serve .scrap-intro-zone .scrap-role,
+    .scrapbook--28ish .scrap-intro-zone .scrap-hook,
+    .scrapbook--28ish .scrap-intro-zone .scrap-role,
+    .scrapbook--traveljam .scrap-intro-zone .scrap-hook,
+    .scrapbook--traveljam .scrap-intro-zone .scrap-role,
+    .scrapbook--kindly .scrap-intro-zone .scrap-hook,
+    .scrapbook--kindly .scrap-intro-zone .scrap-role {
+        white-space: normal;
+    }
+
+    .scrapbook--serve .scrap-stickers--compact,
+    .scrapbook--28ish .scrap-stickers--compact,
+    .scrapbook--traveljam .scrap-stickers--compact,
+    .scrapbook--kindly .scrap-stickers--compact {
+        justify-content: space-between;
+        max-width: none;
+    }
+
+    .project-page.scrapbook {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Final project-page overrides — beat per-theme entry styling */
+main.project-page.scrapbook .scrap-entry {
+    padding: 0 0 1.25rem;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+main.project-page.scrapbook .scrap-entry::before {
+    display: none;
+}
+
+main.project-page.scrapbook .scrap-entry:nth-child(even) {
+    background: transparent;
+}
+
+main.project-page.scrapbook .scrap-entry p,
+main.project-page.scrapbook .scrap-entry p strong {
+    font-family: var(--font-body);
+}
+
+main.project-page.scrapbook .scrap-entry p strong {
+    font-weight: 600;
+}
+
+main.project-page.scrapbook .scrap-hook.handwritten {
+    font-family: var(--font-hook);
+}
+
+main.project-page.scrapbook .scrap-aside.handwritten {
+    font-family: var(--font-hand);
+}

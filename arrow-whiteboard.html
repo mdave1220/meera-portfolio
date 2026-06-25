@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow motion whiteboard (temp)</title>
+    <style>
+        :root {
+            --ink: #222;
+            --pink: #e088ad;
+            --paper: #faf8f4;
+            --line: #ddd5c8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #ece7de;
+            color: var(--ink);
+            padding: 1.25rem;
+        }
+
+        .wrap {
+            max-width: 52rem;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 0 0 0.35rem;
+        }
+
+        .intro {
+            margin: 0 0 1rem;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: #564c3f;
+        }
+
+        .board-shell {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 12px 28px rgba(34, 29, 22, 0.12);
+        }
+
+        .board-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8b7355;
+            margin-bottom: 0.5rem;
+        }
+
+        .board-frame {
+            position: relative;
+            width: 100%;
+            max-width: none;
+            margin: 0 auto;
+            aspect-ratio: 140 / 88;
+            border: 1.5px dashed var(--line);
+            border-radius: 8px;
+            background:
+                linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 100% 11px,
+                linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 14px 100%,
+                #fff;
+            touch-action: none;
+            cursor: crosshair;
+        }
+
+        .board-frame.is-replaying {
+            cursor: default;
+        }
+
+        .board-frame svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .guide-tab {
+            position: absolute;
+            right: -0.2rem;
+            top: 42%;
+            width: 1.75rem;
+            height: 4.25rem;
+            transform: translateY(-50%);
+            border: 1.5px solid var(--ink);
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            background: #f0b9cd;
+            font-size: 0.55rem;
+            writing-mode: vertical-rl;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        button {
+            font: inherit;
+            font-size: 0.85rem;
+            padding: 0.45rem 0.85rem;
+            border: 1.5px solid var(--ink);
+            border-radius: 999px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #f5f0e8;
+        }
+
+        button.primary {
+            background: var(--pink);
+            border-color: #c46082;
+            color: #fff;
+        }
+
+        button.primary:hover {
+            background: #d97aa0;
+        }
+
+        button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 0.85rem;
+            font-size: 0.82rem;
+            color: #564c3f;
+            min-height: 1.25rem;
+        }
+
+        .preview {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .preview h2 {
+            font-size: 0.85rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .preview-box {
+            width: 100%;
+            max-width: none;
+            margin: 0 auto;
+            aspect-ratio: 140 / 88;
+            background: #efe8da;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+        }
+
+        .preview-box svg {
+            width: 100%;
+            height: auto;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 4.5rem;
+            margin-top: 0.75rem;
+            font-family: ui-monospace, monospace;
+            font-size: 0.72rem;
+            padding: 0.6rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Arrow motion whiteboard</h1>
+        <p class="intro">
+            Draw the arrow path you want — start where the caption is (left) and finish pointing at the tab (right).
+            Hit <strong>Replay</strong> to preview your motion, then <strong>Apply to portfolio</strong> and refresh the homepage to see it live.
+        </p>
+
+        <div class="board-shell">
+            <div class="board-label">Draw here · same proportions as the site arrow</div>
+            <div class="board-frame" id="board">
+                <span class="guide-tab" aria-hidden="true">28ish</span>
+                <svg viewBox="0 0 140 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path id="draw-path" fill="none" stroke="#e088ad" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+                    <path id="replay-path" fill="none" stroke="#e088ad" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" opacity="0" />
+                    <g id="replay-head" opacity="0">
+                        <path d="M 0 -5.5 L 10 0 L 0 5.5 Z" fill="#e088ad" stroke="#e088ad" stroke-width="0.5" stroke-linejoin="round" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="toolbar">
+                <button type="button" id="btn-clear">Clear</button>
+                <button type="button" id="btn-replay" disabled>Replay</button>
+                <button type="button" id="btn-loop" disabled>Loop replay</button>
+                <button type="button" class="primary" id="btn-apply" disabled>Apply to portfolio</button>
+                <button type="button" id="btn-reset-site">Reset site arrow</button>
+            </div>
+
+            <p class="status" id="status" role="status"></p>
+
+            <div class="preview">
+                <h2>Live preview (your replay)</h2>
+                <div class="preview-box">
+                    <svg viewBox="0 0 140 88" xmlns="http://www.w3.org/2000/svg">
+                        <path id="preview-path" fill="none" stroke="#e088ad" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" />
+                        <g id="preview-head" opacity="0">
+                            <path d="M 0 -5.5 L 10 0 L 0 5.5 Z" fill="#e088ad" stroke="#e088ad" stroke-width="0.5" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </div>
+                <textarea id="export-data" readonly placeholder="Path data will appear here after you draw…"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const VIEWBOX = { w: 140, h: 88 };
+        const STORAGE_KEY = 'portfolio-vtab-arrow-custom';
+        const MIN_POINT_DIST = 0.8;
+
+        const board = document.getElementById('board');
+        const svg = board.querySelector('svg');
+        const drawPath = document.getElementById('draw-path');
+        const replayPath = document.getElementById('replay-path');
+        const replayHead = document.getElementById('replay-head');
+        const previewPath = document.getElementById('preview-path');
+        const previewHead = document.getElementById('preview-head');
+        const exportData = document.getElementById('export-data');
+        const status = document.getElementById('status');
+
+        const btnClear = document.getElementById('btn-clear');
+        const btnReplay = document.getElementById('btn-replay');
+        const btnLoop = document.getElementById('btn-loop');
+        const btnApply = document.getElementById('btn-apply');
+        const btnResetSite = document.getElementById('btn-reset-site');
+
+        let strokes = [];
+        let currentStroke = null;
+        let isDrawing = false;
+        let loopRaf = null;
+        let replayToken = 0;
+
+        function setStatus(msg) {
+            status.textContent = msg;
+        }
+
+        function svgPoint(clientX, clientY) {
+            const rect = svg.getBoundingClientRect();
+            const x = ((clientX - rect.left) / rect.width) * VIEWBOX.w;
+            const y = ((clientY - rect.top) / rect.height) * VIEWBOX.h;
+            return {
+                x: Math.max(0, Math.min(VIEWBOX.w, x)),
+                y: Math.max(0, Math.min(VIEWBOX.h, y)),
+            };
+        }
+
+        function dist(a, b) {
+            return Math.hypot(a.x - b.x, a.y - b.y);
+        }
+
+        function pointsToPathD(points) {
+            if (!points.length) return '';
+            let d = `M ${points[0].x.toFixed(2)} ${points[0].y.toFixed(2)}`;
+            for (let i = 1; i < points.length; i += 1) {
+                d += ` L ${points[i].x.toFixed(2)} ${points[i].y.toFixed(2)}`;
+            }
+            return d;
+        }
+
+        function getFlatPoints() {
+            return strokes.flat();
+        }
+
+        function updateUI() {
+            const points = getFlatPoints();
+            const hasDrawn = points.length > 1;
+            drawPath.setAttribute('d', pointsToPathD(points));
+            btnReplay.disabled = !hasDrawn;
+            btnLoop.disabled = !hasDrawn;
+            btnApply.disabled = !hasDrawn;
+
+            const payload = {
+                viewBox: '0 0 140 88',
+                pathD: pointsToPathD(points),
+                points,
+                durationMs: points.length ? points[points.length - 1].t - points[0].t : 0,
+            };
+            exportData.value = JSON.stringify(payload, null, 2);
+        }
+
+        function startStroke(clientX, clientY) {
+            if (board.classList.contains('is-replaying')) return;
+            isDrawing = true;
+            const p = svgPoint(clientX, clientY);
+            currentStroke = [{ ...p, t: performance.now() }];
+            strokes.push(currentStroke);
+        }
+
+        function extendStroke(clientX, clientY) {
+            if (!isDrawing || !currentStroke) return;
+            const p = svgPoint(clientX, clientY);
+            const last = currentStroke[currentStroke.length - 1];
+            if (dist(last, p) < MIN_POINT_DIST) return;
+            currentStroke.push({ ...p, t: performance.now() });
+            updateUI();
+        }
+
+        function endStroke() {
+            isDrawing = false;
+            currentStroke = null;
+            updateUI();
+        }
+
+        function clearAll() {
+            stopLoop();
+            replayToken += 1;
+            strokes = [];
+            currentStroke = null;
+            drawPath.setAttribute('d', '');
+            replayPath.setAttribute('opacity', '0');
+            replayHead.setAttribute('opacity', '0');
+            previewPath.setAttribute('opacity', '1');
+            previewPath.setAttribute('stroke-dashoffset', '100');
+            previewHead.setAttribute('opacity', '0');
+            exportData.value = '';
+            board.classList.remove('is-replaying');
+            setStatus('Cleared.');
+            updateUI();
+        }
+
+        function getDuration(points) {
+            if (points.length < 2) return 1800;
+            const raw = points[points.length - 1].t - points[0].t;
+            return Math.max(900, Math.min(4000, raw));
+        }
+
+        function pointAtProgress(points, progress) {
+            if (points.length === 0) return null;
+            if (points.length === 1 || progress <= 0) return { ...points[0], angle: 0 };
+            if (progress >= 1) {
+                const a = points[points.length - 2];
+                const b = points[points.length - 1];
+                return { ...b, angle: Math.atan2(b.y - a.y, b.x - a.x) * (180 / Math.PI) };
+            }
+
+            const totalLen = (() => {
+                let len = 0;
+                for (let i = 1; i < points.length; i += 1) len += dist(points[i - 1], points[i]);
+                return len;
+            })();
+
+            const target = totalLen * progress;
+            let walked = 0;
+
+            for (let i = 1; i < points.length; i += 1) {
+                const seg = dist(points[i - 1], points[i]);
+                if (walked + seg >= target) {
+                    const t = seg === 0 ? 0 : (target - walked) / seg;
+                    const x = points[i - 1].x + (points[i].x - points[i - 1].x) * t;
+                    const y = points[i - 1].y + (points[i].y - points[i - 1].y) * t;
+                    const angle = Math.atan2(points[i].y - points[i - 1].y, points[i].x - points[i - 1].x) * (180 / Math.PI);
+                    return { x, y, angle };
+                }
+                walked += seg;
+            }
+
+            const a = points[points.length - 2];
+            const b = points[points.length - 1];
+            return { ...b, angle: Math.atan2(b.y - a.y, b.x - a.x) * (180 / Math.PI) };
+        }
+
+        function placeHead(group, point) {
+            if (!point) return;
+            group.setAttribute('transform', `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${point.angle.toFixed(2)})`);
+            group.setAttribute('opacity', '1');
+        }
+
+        function cycleProgress(elapsed, drawMs, holdMs, resetMs) {
+            const cycle = drawMs + holdMs + resetMs;
+            const t = elapsed % cycle;
+
+            if (t < drawMs) {
+                return { progress: t / drawMs, visible: true };
+            }
+            if (t < drawMs + holdMs) {
+                return { progress: 1, visible: true };
+            }
+            return { progress: 0, visible: false };
+        }
+
+        function applyCycleFrame(pathEl, headEl, points, elapsed, drawMs, holdMs, resetMs) {
+            const { progress, visible } = cycleProgress(elapsed, drawMs, holdMs, resetMs);
+
+            if (!visible) {
+                pathEl.setAttribute('opacity', '0');
+                pathEl.setAttribute('stroke-dashoffset', '100');
+                headEl.setAttribute('opacity', '0');
+                return;
+            }
+
+            pathEl.setAttribute('opacity', '1');
+            pathEl.setAttribute('stroke-dashoffset', String(100 - progress * 100));
+            if (progress <= 0.01) {
+                headEl.setAttribute('opacity', '0');
+            } else {
+                placeHead(headEl, pointAtProgress(points, progress));
+            }
+        }
+
+        async function animateReplay({ pathEl, headEl, points, duration, token }) {
+            const pathD = pointsToPathD(points);
+            pathEl.setAttribute('d', pathD);
+            pathEl.setAttribute('stroke-dashoffset', '100');
+
+            const holdMs = 350;
+            const resetMs = 250;
+            const cycleMs = duration + holdMs + resetMs;
+
+            return new Promise((resolve) => {
+                const start = performance.now();
+
+                function frame(now) {
+                    if (token !== replayToken) {
+                        resolve();
+                        return;
+                    }
+
+                    applyCycleFrame(pathEl, headEl, points, now - start, duration, holdMs, resetMs);
+
+                    if (now - start < duration + holdMs + resetMs) {
+                        requestAnimationFrame(frame);
+                    } else {
+                        resolve();
+                    }
+                }
+
+                requestAnimationFrame(frame);
+            });
+        }
+
+        async function runReplay({ loop = false } = {}) {
+            const points = getFlatPoints();
+            if (points.length < 2) return;
+
+            stopLoop();
+            replayToken += 1;
+            const token = replayToken;
+            board.classList.add('is-replaying');
+
+            const duration = getDuration(points);
+            const holdMs = 350;
+            const resetMs = 250;
+            const pathD = pointsToPathD(points);
+            drawPath.setAttribute('opacity', loop ? '0.25' : '0.35');
+            replayPath.setAttribute('d', pathD);
+            previewPath.setAttribute('d', pathD);
+
+            setStatus(loop ? 'Looping your stroke… (click Clear to stop)' : 'Replaying your stroke…');
+
+            if (loop) {
+                const loopStart = performance.now();
+                const tick = (now) => {
+                    if (token !== replayToken) return;
+                    applyCycleFrame(replayPath, replayHead, points, now - loopStart, duration, holdMs, resetMs);
+                    applyCycleFrame(previewPath, previewHead, points, now - loopStart, duration, holdMs, resetMs);
+                    loopRaf = requestAnimationFrame(tick);
+                };
+                loopRaf = requestAnimationFrame(tick);
+                return;
+            }
+
+            await Promise.all([
+                animateReplay({ pathEl: replayPath, headEl: replayHead, points, duration, token }),
+                animateReplay({ pathEl: previewPath, headEl: previewHead, points, duration, token }),
+            ]);
+
+            if (token === replayToken) {
+                board.classList.remove('is-replaying');
+                setStatus('Replay done. Tweak the drawing or apply to the portfolio.');
+            }
+        }
+
+        function stopLoop() {
+            if (loopRaf) {
+                cancelAnimationFrame(loopRaf);
+                loopRaf = null;
+            }
+        }
+
+        function applyToPortfolio() {
+            const points = getFlatPoints();
+            if (points.length < 2) return;
+
+            const payload = {
+                viewBox: '0 0 140 88',
+                pathD: pointsToPathD(points),
+                points: points.map(({ x, y }) => ({ x, y })),
+                durationMs: getDuration(points),
+                alternate: false,
+            };
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+            setStatus('Applied! Refresh the homepage (index.html) to see your arrow with the head attached.');
+        }
+
+        function resetSiteArrow() {
+            localStorage.removeItem(STORAGE_KEY);
+            setStatus('Site arrow reset to default. Refresh the homepage.');
+        }
+
+        board.addEventListener('pointerdown', (e) => {
+            board.setPointerCapture(e.pointerId);
+            startStroke(e.clientX, e.clientY);
+        });
+
+        board.addEventListener('pointermove', (e) => {
+            if (!isDrawing) return;
+            extendStroke(e.clientX, e.clientY);
+        });
+
+        board.addEventListener('pointerup', endStroke);
+        board.addEventListener('pointercancel', endStroke);
+        board.addEventListener('pointerleave', endStroke);
+
+        btnClear.addEventListener('click', clearAll);
+        btnReplay.addEventListener('click', () => runReplay({ loop: false }));
+        btnLoop.addEventListener('click', () => runReplay({ loop: true }));
+        btnApply.addEventListener('click', applyToPortfolio);
+        btnResetSite.addEventListener('click', resetSiteArrow);
+
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            try {
+                const data = JSON.parse(saved);
+                if (data.pathD) {
+                    drawPath.setAttribute('d', data.pathD);
+                    drawPath.setAttribute('opacity', '1');
+                    setStatus('Loaded your saved stroke from last session.');
+                }
+            } catch (_) {
+                /* ignore */
+            }
+        }
+
+        updateUI();
+    </script>
+</body>
+</html>

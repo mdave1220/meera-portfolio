@@ -12,7 +12,6 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((el, i) => {
-    // Stagger elements that enter together
     el.style.transitionDelay = `${(i % 4) * 70}ms`;
     observer.observe(el);
 });
@@ -21,17 +20,19 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
 const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('.nav-menu');
 
-toggle.addEventListener('click', () => {
-    const open = menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(open));
-});
+if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+    });
 
-menu.querySelectorAll('a').forEach((link) =>
-    link.addEventListener('click', () => {
-        menu.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-    })
-);
+    menu.querySelectorAll('a').forEach((link) =>
+        link.addEventListener('click', () => {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        })
+    );
+}
 
 // Custom cursor (desktop only)
 const dot = document.querySelector('.cursor-dot');
@@ -39,41 +40,371 @@ const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function bindCursorHover() {
-    if (!fine || reducedMotion) return;
-    document.querySelectorAll('a, button, .zoomable').forEach((el) => {
+    if (!fine || reducedMotion || !dot) return;
+    document.querySelectorAll('a, button, .zoomable, .vtab, .htab').forEach((el) => {
         el.addEventListener('mouseenter', () => dot.classList.add('is-hovering'));
         el.addEventListener('mouseleave', () => dot.classList.remove('is-hovering'));
     });
 }
 
-if (fine && !reducedMotion) {
-    let x = 0, y = 0, dx = 0, dy = 0;
+if (fine && !reducedMotion && dot) {
+    let visible = false;
 
-    window.addEventListener('mousemove', (e) => {
-        x = e.clientX;
-        y = e.clientY;
-        dot.classList.add('is-visible');
-    });
+    function moveCursor(x, y) {
+        dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        if (!visible) {
+            visible = true;
+            dot.classList.add('is-visible');
+        }
+    }
+
+    window.addEventListener('mousemove', (e) => moveCursor(e.clientX, e.clientY), { passive: true });
+
+    if ('onpointerrawupdate' in window) {
+        window.addEventListener('pointerrawupdate', (e) => moveCursor(e.clientX, e.clientY));
+    }
 
     window.addEventListener('mouseout', (e) => {
-        if (!e.relatedTarget) dot.classList.remove('is-visible');
+        if (!e.relatedTarget) {
+            visible = false;
+            dot.classList.remove('is-visible');
+        }
     });
-
-    (function follow() {
-        dx += (x - dx) * 0.18;
-        dy += (y - dy) * 0.18;
-        dot.style.transform = `translate(${dx - 7}px, ${dy - 7}px)`;
-        requestAnimationFrame(follow);
-    })();
 }
 
 // Duplicate marquee content so the loop is seamless
 const track = document.querySelector('.marquee-track');
-track.innerHTML += track.innerHTML;
+if (track) track.innerHTML += track.innerHTML;
 
-// Collapsible file sections
+// Archive folder tabs (per-section folders with vertical subsection tabs)
+const sectionHashes = ['projects', 'experience', 'about', 'contact'];
+
+function isHomepage() {
+    return Boolean(document.getElementById('top'));
+}
+
+function initArchiveFolder(folder) {
+    const vtabs = folder.querySelectorAll('.vtab');
+    const tabPanels = folder.querySelectorAll('[data-tab]');
+    if (!vtabs.length || !tabPanels.length) return;
+
+    const defaultTab = vtabs[0].dataset.tab;
+
+    function setTab(tabId, { userInitiated = false } = {}) {
+        vtabs.forEach((tab) => {
+            const active = tab.dataset.tab === tabId;
+            tab.classList.toggle('is-active', active);
+            tab.setAttribute('aria-selected', String(active));
+        });
+
+        tabPanels.forEach((panel) => {
+            const active = panel.dataset.tab === tabId;
+            panel.classList.toggle('is-active', active);
+            panel.hidden = !active;
+        });
+
+        folder.dataset.activeTab = tabId;
+
+        // Dismiss tab hint only when the user explores a non-default project tab.
+        if (
+            userInitiated &&
+            folder.classList.contains('kraft-folder--projects') &&
+            tabId !== defaultTab
+        ) {
+            folder.classList.add('has-used-tabs');
+        }
+    }
+
+    vtabs.forEach((tab) => {
+        tab.addEventListener('click', () => setTab(tab.dataset.tab, { userInitiated: true }));
+    });
+
+    folder._resetTab = () => setTab(defaultTab);
+}
+
+document.querySelectorAll('.kraft-folder[data-archive]').forEach(initArchiveFolder);
+
+const CUSTOM_TAB_ARROW_KEY = 'portfolio-vtab-arrow-custom';
+
+function applyCustomTabArrow(path, arrow) {
+    const raw = localStorage.getItem(CUSTOM_TAB_ARROW_KEY);
+    if (!raw) return;
+
+    try {
+        const data = JSON.parse(raw);
+        if (!data.pathD) return;
+
+        path.setAttribute('d', data.pathD);
+        if (data.durationMs) {
+            arrow?.style.setProperty('--vtab-arrow-duration', `${data.durationMs}ms`);
+        }
+    } catch (_) {
+        /* ignore invalid saved stroke */
+    }
+}
+
+function getVtabArrowDurationMs() {
+    const arrow = document.querySelector('.vtab-hint__arrow');
+    if (!arrow) return 3200;
+
+    const raw = getComputedStyle(arrow).getPropertyValue('--vtab-arrow-duration').trim();
+    if (raw.endsWith('ms')) return parseFloat(raw);
+    if (raw.endsWith('s')) return parseFloat(raw) * 1000;
+    return 3200;
+}
+
+function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - ((-2 * t + 2) ** 3) / 2;
+}
+
+function setVtabHeadVisible(head, visible) {
+    head.style.opacity = visible ? '1' : '0';
+}
+
+function placeVtabArrowHead(path, head, progress) {
+    const len = path.getTotalLength();
+    if (!len || progress <= 0.008) {
+        setVtabHeadVisible(head, false);
+        return;
+    }
+
+    const tipLen = 14;
+    const aheadOffset = 3.5;
+    const at = progress * len;
+    const pt = path.getPointAtLength(at);
+    const lookBack = Math.max(0, at - Math.max(2.5, len * 0.035));
+    const behind = path.getPointAtLength(lookBack);
+    const angleRad = Math.atan2(pt.y - behind.y, pt.x - behind.x);
+    const angle = angleRad * (180 / Math.PI);
+    const tipX = pt.x + Math.cos(angleRad) * aheadOffset;
+    const tipY = pt.y + Math.sin(angleRad) * aheadOffset;
+    const tx = tipX - Math.cos(angleRad) * tipLen;
+    const ty = tipY - Math.sin(angleRad) * tipLen;
+
+    head.setAttribute('transform', `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) rotate(${angle.toFixed(2)})`);
+    setVtabHeadVisible(head, true);
+}
+
+function initVtabArrowAnimation() {
+    const path = document.querySelector('.vtab-hint__path');
+    const head = document.querySelector('.vtab-hint__head');
+    const arrow = document.querySelector('.vtab-hint__arrow');
+    if (!path || !head || !arrow) return;
+
+    applyCustomTabArrow(path, arrow);
+
+    path.setAttribute('pathLength', '100');
+    path.setAttribute('stroke-dasharray', '100');
+    setVtabHeadVisible(head, false);
+
+    if (reducedMotion) {
+        path.style.strokeDashoffset = '0';
+        path.style.opacity = '1';
+        placeVtabArrowHead(path, head, 1);
+        return;
+    }
+
+    const drawMs = getVtabArrowDurationMs();
+    const holdMs = 400;
+    const resetMs = 320;
+    const cycleMs = drawMs + holdMs + resetMs;
+    const start = performance.now();
+    let animating = true;
+    let frameId = 0;
+
+    function frame(now) {
+        if (!animating) {
+            frameId = 0;
+            return;
+        }
+
+        const t = (now - start) % cycleMs;
+
+        if (t < drawMs) {
+            const eased = easeInOutCubic(t / drawMs);
+
+            path.style.opacity = '1';
+            path.style.strokeDashoffset = String(100 - eased * 100);
+            placeVtabArrowHead(path, head, eased);
+        } else if (t < drawMs + holdMs) {
+            path.style.opacity = '1';
+            path.style.strokeDashoffset = '0';
+            placeVtabArrowHead(path, head, 1);
+        } else {
+            const resetT = (t - drawMs - holdMs) / resetMs;
+            const fade = 1 - easeInOutCubic(Math.min(1, resetT));
+
+            path.style.opacity = String(Math.max(0, fade));
+            head.style.opacity = String(Math.max(0, fade));
+
+            if (resetT >= 0.92) {
+                path.style.strokeDashoffset = '100';
+            } else {
+                placeVtabArrowHead(path, head, 1);
+            }
+        }
+
+        frameId = requestAnimationFrame(frame);
+    }
+
+    function setAnimating(active) {
+        animating = active;
+        if (active && !frameId) {
+            frameId = requestAnimationFrame(frame);
+        }
+        if (!active && frameId) {
+            cancelAnimationFrame(frameId);
+            frameId = 0;
+        }
+    }
+
+    const hint = document.querySelector('.vtab-hint');
+    if (hint && 'IntersectionObserver' in window) {
+        const hintObserver = new IntersectionObserver(
+            ([entry]) => setAnimating(entry.isIntersecting && !document.hidden),
+            { threshold: 0 }
+        );
+        hintObserver.observe(hint);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        const hintEl = document.querySelector('.vtab-hint');
+        if (!hintEl) return;
+        const rect = hintEl.getBoundingClientRect();
+        const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+        setAnimating(inView && !document.hidden);
+    });
+
+    frameId = requestAnimationFrame(frame);
+}
+
+initVtabArrowAnimation();
+
+const HINT_TEXT_POS_KEY = 'portfolio-vtab-hint-text-position';
+
+function loadHintTextPosition() {
+    try {
+        const raw = JSON.parse(localStorage.getItem(HINT_TEXT_POS_KEY) || '{}');
+        return {
+            x: Number(raw.x) || 0,
+            y: Number(raw.y) || 0,
+        };
+    } catch (_) {
+        return { x: 0, y: 0 };
+    }
+}
+
+function applyHintTextPosition(pos = loadHintTextPosition()) {
+    const wrap = document.querySelector('.vtab-hint__text-wrap');
+    if (!wrap) return;
+
+    wrap.style.setProperty('--hint-text-x', `${pos.x}px`);
+    wrap.style.setProperty('--hint-text-y', `${pos.y}px`);
+}
+
+function initHintTextPlacement() {
+    const hint = document.querySelector('.vtab-hint');
+    const wrap = document.querySelector('.vtab-hint__text-wrap');
+    if (!hint || !wrap) return;
+
+    applyHintTextPosition();
+
+    const isPlacementMode = new URLSearchParams(location.search).has('place-hint');
+
+    if (isPlacementMode) {
+        hint.classList.add('vtab-hint--placing', 'is-in');
+        hint.closest('.kraft-folder--projects')?.classList.remove('has-used-tabs');
+        document.getElementById('projects')?.scrollIntoView({ behavior: 'auto', block: 'center' });
+    }
+
+    let pos = loadHintTextPosition();
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let startPosX = 0;
+    let startPosY = 0;
+
+    if (isPlacementMode) {
+        const bar = document.createElement('div');
+        bar.className = 'vtab-hint-placement-bar';
+        bar.innerHTML = 'Drag to place <button type="button">Reset</button>';
+        hint.appendChild(bar);
+
+        bar.querySelector('button')?.addEventListener('click', () => {
+            pos = { x: 0, y: 0 };
+            applyHintTextPosition(pos);
+            saveHintTextPosition(pos);
+        });
+    }
+
+    wrap.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('button')) return;
+        e.preventDefault();
+        dragging = true;
+        wrap.classList.add('is-dragging');
+        wrap.setPointerCapture(e.pointerId);
+        startX = e.clientX;
+        startY = e.clientY;
+        startPosX = pos.x;
+        startPosY = pos.y;
+    });
+
+    wrap.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        pos.x = startPosX + (e.clientX - startX);
+        pos.y = startPosY + (e.clientY - startY);
+        applyHintTextPosition(pos);
+    });
+
+    const endDrag = () => {
+        if (!dragging) return;
+        dragging = false;
+        wrap.classList.remove('is-dragging');
+        saveHintTextPosition(pos);
+    };
+
+    wrap.addEventListener('pointerup', endDrag);
+    wrap.addEventListener('pointercancel', endDrag);
+}
+
+function saveHintTextPosition(pos) {
+    localStorage.setItem(HINT_TEXT_POS_KEY, JSON.stringify(pos));
+}
+
+initHintTextPlacement();
+
+function openSectionFromHash(hash) {
+    if (!hash) return;
+    const section = hash.replace('#', '');
+    if (!sectionHashes.includes(section)) return;
+
+    const sectionEl = document.getElementById(section);
+    sectionEl?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+
+    const folder = sectionEl?.querySelector('.kraft-folder[data-archive]');
+    folder?._resetTab?.();
+}
+
+document.querySelectorAll('a[href*="#"]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || !href.includes('#')) return;
+    const hash = '#' + (href.includes('index.html#') ? href.split('#')[1] : href.replace(/^[^#]*#/, ''));
+    if (!sectionHashes.some((s) => hash === '#' + s)) return;
+    link.addEventListener('click', (e) => {
+        if (!isHomepage()) return;
+        e.preventDefault();
+        history.replaceState(null, '', hash);
+        openSectionFromHash(hash);
+    });
+});
+
+if (location.hash && sectionHashes.includes(location.hash.slice(1))) {
+    openSectionFromHash(location.hash);
+}
+
+// Collapsible file sections (legacy — none on homepage now)
 const files = document.querySelectorAll('.file');
-const fileOrder = ['projects', 'experience', 'about'];
+const fileOrder = [];
 let lastRevealedIndex = -1;
 
 function setFileOpen(file, open) {
@@ -112,16 +443,8 @@ files.forEach((file) => {
     });
 });
 
-function openFirstProjectTab() {
-    const anyOpen = [...document.querySelectorAll('.folder-panel')].some((p) =>
-        p.classList.contains('is-open')
-    );
-    const firstTab = document.querySelector('.ftab');
-    if (!anyOpen && firstTab) firstTab.click();
-}
-
 function revealNextSectionOnScroll() {
-    if (reducedMotion) return;
+    if (reducedMotion || !files.length) return;
 
     const triggerY = window.innerHeight * 0.72;
 
@@ -135,7 +458,6 @@ function revealNextSectionOnScroll() {
         const { top, bottom } = tab.getBoundingClientRect();
         if (top <= triggerY && bottom > 0) {
             setFileOpen(file, true);
-            if (id === 'projects') openFirstProjectTab();
             lastRevealedIndex = index;
         }
     });
@@ -145,7 +467,7 @@ let scrollPending = false;
 window.addEventListener(
     'scroll',
     () => {
-        if (scrollPending) return;
+        if (scrollPending || !files.length) return;
         scrollPending = true;
         requestAnimationFrame(() => {
             revealNextSectionOnScroll();
@@ -156,46 +478,6 @@ window.addEventListener(
 );
 
 revealNextSectionOnScroll();
-
-// Opening a file via nav link / URL hash expands it
-function openFromHash(hash) {
-    const target = hash && document.querySelector(hash + '.file');
-    if (target) {
-        delete target.dataset.userClosed;
-        setFileOpen(target, true);
-        if (target.id === 'projects') openFirstProjectTab();
-        const index = fileOrder.indexOf(target.id);
-        if (index > lastRevealedIndex) lastRevealedIndex = index;
-    }
-}
-
-document.querySelectorAll('a[href^="#"]').forEach((link) =>
-    link.addEventListener('click', () => openFromHash(link.getAttribute('href')))
-);
-
-if (location.hash) openFromHash(location.hash);
-
-// Project folder tabs: all collapsed by default, click a tab to expand
-const ftabs = document.querySelectorAll('.ftab');
-const folderPanels = document.querySelectorAll('.folder-panel');
-
-ftabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-        const panel = document.getElementById(tab.getAttribute('aria-controls'));
-        const wasOpen = panel.classList.contains('is-open');
-
-        folderPanels.forEach((p) => {
-            p.classList.remove('is-open');
-            p.querySelectorAll('video').forEach((v) => v.pause());
-        });
-        ftabs.forEach((t) => t.setAttribute('aria-expanded', 'false'));
-
-        if (!wasOpen) {
-            panel.classList.add('is-open');
-            tab.setAttribute('aria-expanded', 'true');
-        }
-    });
-});
 
 // Photo lightbox
 const lightbox = document.createElement('div');
@@ -210,7 +492,6 @@ document.body.appendChild(lightbox);
 
 const lbImg = lightbox.querySelector('img');
 const lbCaption = lightbox.querySelector('figcaption');
-
 const lbFrame = lightbox.querySelector('.lightbox-frame');
 const lbClose = lightbox.querySelector('.lightbox-close');
 
@@ -263,11 +544,58 @@ function bindZoomable(fig) {
     fig.addEventListener('click', activate);
     fig.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
+            e.preventDefault();
             openLightbox(src, alt, caption);
         }
     });
 }
 
-document.querySelectorAll('.polaroid, .snapshot, .hero-photo').forEach(bindZoomable);
+document.querySelectorAll('.polaroid, .snapshot, .hero-photo, .scrap-polaroid').forEach(bindZoomable);
+
+function scrollToProjectPage(pageId) {
+    const target = document.getElementById(pageId);
+    if (!target) return;
+    target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+}
+
+function setActivePageNavLink(nav, pageId) {
+    nav.querySelectorAll('.page-nav-link').forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${pageId}`);
+    });
+}
+
+function initPageNav() {
+    const nav = document.querySelector('[data-page-nav]');
+    if (!nav) return;
+
+    const pages = nav.closest('.scrapbook-spread')?.querySelectorAll('.scrap-page[id]');
+    if (!pages?.length) return;
+
+    pages.forEach((page, index) => {
+        const link = document.createElement('a');
+        link.className = 'page-nav-link';
+        link.href = `#${page.id}`;
+        link.textContent = String(index + 1);
+        link.setAttribute('aria-label', `Page ${index + 1}`);
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            history.replaceState(null, '', `#${page.id}`);
+            scrollToProjectPage(page.id);
+            setActivePageNavLink(nav, page.id);
+        });
+
+        nav.appendChild(link);
+    });
+
+    const hashPage = location.hash.startsWith('#page-') ? location.hash.slice(1) : null;
+    const initialPage = hashPage && document.getElementById(hashPage) ? hashPage : pages[0].id;
+    setActivePageNavLink(nav, initialPage);
+}
+
+initPageNav();
+if (location.hash.startsWith('#page-')) {
+    requestAnimationFrame(() => scrollToProjectPage(location.hash.slice(1)));
+}
+
 bindCursorHover();

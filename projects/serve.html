@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serve | Meera Dave</title>
+    <meta name="description"
+        content="Serve — a social recipe app case study by Meera Dave. From user research through MVP scoping to pre-launch build.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23efe7d8'/><text x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='bold' font-size='62' fill='%23e088ad'>M</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../fonts/arnie.css">
+    <link rel="stylesheet" href="../fonts/pretty-neat.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../scrapbook-patterns.css">
+    <link rel="stylesheet" href="../scrap-editor.css">
+    <link rel="stylesheet" href="../stat-editor.css">
+</head>
+
+<body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"><img src="../assets/cursor-pointer.png" alt="" width="15" height="25"></div>
+
+    <header class="navbar">
+        <nav class="nav-inner">
+            <a href="../index.html" class="nav-logo">MD<span>_01</span></a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#projects" class="nav-link">my work</a></li>
+                <li><a href="../index.html#experience" class="nav-link">experience</a></li>
+                <li><a href="../index.html#about" class="nav-link">about</a></li>
+                <li><a href="../index.html#contact" class="nav-link nav-cta">say hi ✿</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="project-page scrapbook scrapbook--serve">
+        <a href="../index.html#projects" class="project-back reveal">← all projects</a>
+
+        <div class="scrapbook-frame reveal">
+            <img class="page-scrap page-scrap--paperclip" data-scrap-id="serve-paperclip" src="../assets/scrapbook/paperclip.png" alt="" aria-hidden="true">
+            <img class="page-scrap page-scrap--binder" data-scrap-id="serve-binder" src="../assets/scrapbook/binder-clip.png" alt="" aria-hidden="true">
+            <span class="scrap-stitch" aria-hidden="true"></span>
+
+        <article class="scrapbook-spread">
+            <nav class="page-nav" aria-label="Project pages" data-page-nav></nav>
+
+            <div class="scrapbook-open">
+                <section class="scrap-page scrap-page--left" id="page-01">
+                    <span class="scrap-page-num" aria-hidden="true">01</span>
+                    <div class="scrap-page-inner">
+                    <header class="scrap-head">
+                        <span class="scrap-date mono-label">APRIL '26 - PRESENT</span>
+                        <h1>SERVE</h1>
+                        <span class="scrap-handle mono-label">@MEERADAVE</span>
+                    </header>
+
+                    <div class="scrap-intro-zone">
+                    <div class="scrap-intro-copy">
+                    <p class="scrap-hook handwritten">saving a recipe is easy. actually cooking from it isn't.</p>
+                    <p class="scrap-role mono-label">PRODUCT OWNER &amp; ENGINEER · SOLO · MOBILE APP · PRE-LAUNCH</p>
+                    </div>
+                    <div class="scrap-stickers scrap-stickers--compact">
+                        <div class="stat-sticker"><strong>15+</strong><span>user interviews</span></div>
+                        <div class="stat-sticker"><strong>3</strong><span>launch features</span></div>
+                        <div class="stat-sticker"><strong>4</strong><span>social primitives</span></div>
+                        <div class="stat-sticker"><strong>1</strong><span>solo owner</span></div>
+                    </div>
+                    </div>
+
+                    <div class="scrap-entries">
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">THE BRIEF //</h2>
+                        <p>Serve is a social recipe app for people who discover food everywhere: TikTok, Instagram,
+                            blogs, group chats. But they lose recipes before they ever cook them. The gap isn't
+                            finding inspiration — it's closing the loop from <strong>"I saw this"</strong> to
+                            <strong>"I'm making this tonight."</strong></p>
+                    </section>
+
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">DISCOVERY //</h2>
+                        <p>Ran <strong>15+ semi-structured 1:1 interviews</strong> with college students and
+                            full-time workers. Top pain points: recipes trapped on social platforms, re-typing
+                            ingredients as friction, inspiration that never converts to a grocery run, and wanting
+                            to see what people they know actually cook. That pinned the core problem:
+                            <strong>recipe discovery and cooking inspiration</strong>, not another logging tool.</p>
+                    </section>
+                    </div>
+
+                    </div>
+                </section>
+
+                <div class="scrap-spine" aria-hidden="true"></div>
+
+                <section class="scrap-page scrap-page--right" id="page-02">
+                    <span class="scrap-page-num" aria-hidden="true">02</span>
+                    <div class="scrap-page-inner">
+                    <div class="scrap-clip" aria-hidden="true"></div>
+                    <span class="scrap-doodle" style="top:18%; right:12%;" aria-hidden="true">↓</span>
+                    <p class="scrap-aside handwritten">the build notes...</p>
+
+                    <div class="scrap-note">discover → save → cook → share</div>
+
+                    <div class="scrap-entries">
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">DEFINING THE MVP //</h2>
+                        <p>Three launch features: <strong>AI voice-to-text recipe input</strong>,
+                            <strong>cross-app recipe saving</strong>, and a <strong>real-time grocery stock checker</strong>.
+                            Scoped <strong>4 social primitives</strong> (follows, likes, comments, DMs) so the product
+                            feels alive at launch. Built an LLM importer + Expo push notifications. Cut meal planning,
+                            nutrition tracking, and a web client.</p>
+                    </section>
+
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">PRE-LAUNCH VALIDATION //</h2>
+                        <p>Pressure-tested in Figma and early Expo builds with interview participants. Voice input
+                            moved up when users described typing with messy hands mid-recipe. Importer flow simplified
+                            when testers couldn't tell if a pasted URL had parsed. If a feature didn't survive a real
+                            weeknight cooking conversation, it didn't make the launch cut.</p>
+                    </section>
+
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">WHAT I OWNED //</h2>
+                        <p>End-to-end product ownership: interviews, MVP definition, design decisions, release cadence.
+                            On the build side — normalized Supabase Postgres schema, LLM importer pipeline, push
+                            notifications. Stayed close enough to implementation that scope reflected real constraints.</p>
+                    </section>
+                    </div>
+
+                    <span class="scrap-star" style="top:12%; right:8%;" aria-hidden="true">✦</span>
+                    <span class="scrap-star" style="bottom: 1.2rem; right: 1rem;" aria-hidden="true">✿</span>
+                    </div>
+                </section>
+            </div>
+        </article>
+        </div>
+
+        <nav class="project-pager reveal" aria-label="Project navigation">
+            <a href="../index.html#projects" class="pager-link pager-back">← projects</a>
+            <a href="28ish.html" class="pager-link pager-next">28ish →</a>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <span class="mono-label">FILE_END // © 2026 MEERA DAVE</span>
+        <a href="../index.html" class="back-top mono-label">BACK TO HOME ↑</a>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="../scrap-editor.js"></script>
+    <script src="../stat-editor.js"></script>
+</body>
+
+</html>

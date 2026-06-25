@@ -1,0 +1,101 @@
+/* Stat circle editor — active with ?edit-stats=1 */
+
+body.stat-editor-active .scrap-stickers--compact {
+    outline: 2px dashed rgba(122, 149, 168, 0.9);
+    outline-offset: 4px;
+    background: rgba(122, 149, 168, 0.06);
+    border-radius: 4px;
+}
+
+.stat-editor-panel {
+    position: fixed;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem 0.85rem;
+    max-width: min(44rem, calc(100vw - 2rem));
+    padding: 0.9rem 1rem;
+    background: rgba(246, 241, 230, 0.97);
+    border: 1.5px solid var(--ink, #221d16);
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(34, 29, 22, 0.22);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+}
+
+.stat-editor-panel strong {
+    color: var(--pink, #e088ad);
+    text-transform: uppercase;
+}
+
+.stat-editor-hint {
+    flex: 1 1 100%;
+    color: var(--ink-soft, #564c3f);
+    line-height: 1.45;
+}
+
+.stat-editor-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 10rem;
+    flex: 1 1 12rem;
+}
+
+.stat-editor-control label {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.stat-editor-control input[type="range"] {
+    width: 100%;
+    accent-color: var(--pink, #e088ad);
+}
+
+.stat-editor-panel button {
+    font-family: inherit;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.7rem;
+    border: 1.5px solid var(--ink, #221d16);
+    border-radius: 6px;
+    background: var(--card, #f6f1e6);
+    cursor: pointer;
+}
+
+.stat-editor-panel button:hover {
+    background: var(--pink-soft, #f0b9cd);
+}
+
+.stat-editor-panel button.stat-editor-primary {
+    background: var(--pink, #e088ad);
+    color: #fff;
+}
+
+.stat-editor-toast {
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+    padding: 0.65rem 1rem;
+    background: var(--ink, #221d16);
+    color: var(--paper, #efe8da);
+    border-radius: 8px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.68rem;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.stat-editor-toast.is-visible {
+    opacity: 1;
+}

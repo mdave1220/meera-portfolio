@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "Arnie";
+    src: url("arnie.woff") format("woff");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
