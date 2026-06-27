@@ -145,12 +145,12 @@ function applyCustomTabArrow(path, arrow) {
 
 function getVtabArrowDurationMs() {
     const arrow = document.querySelector('.vtab-hint__arrow');
-    if (!arrow) return 3200;
+    if (!arrow) return 4000;
 
     const raw = getComputedStyle(arrow).getPropertyValue('--vtab-arrow-duration').trim();
     if (raw.endsWith('ms')) return parseFloat(raw);
     if (raw.endsWith('s')) return parseFloat(raw) * 1000;
-    return 3200;
+    return 4000;
 }
 
 function easeInOutCubic(t) {
