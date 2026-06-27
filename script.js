@@ -34,47 +34,11 @@ if (toggle && menu) {
     );
 }
 
-// Custom cursor (desktop only)
-const dot = document.querySelector('.cursor-dot');
-const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function bindCursorHover() {
-    if (!fine || reducedMotion || !dot) return;
-    document.querySelectorAll('a, button, .zoomable, .vtab, .htab').forEach((el) => {
-        el.addEventListener('mouseenter', () => dot.classList.add('is-hovering'));
-        el.addEventListener('mouseleave', () => dot.classList.remove('is-hovering'));
-    });
-}
-
-if (fine && !reducedMotion && dot) {
-    let visible = false;
-
-    function moveCursor(x, y) {
-        dot.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        if (!visible) {
-            visible = true;
-            dot.classList.add('is-visible');
-        }
-    }
-
-    window.addEventListener('mousemove', (e) => moveCursor(e.clientX, e.clientY), { passive: true });
-
-    if ('onpointerrawupdate' in window) {
-        window.addEventListener('pointerrawupdate', (e) => moveCursor(e.clientX, e.clientY));
-    }
-
-    window.addEventListener('mouseout', (e) => {
-        if (!e.relatedTarget) {
-            visible = false;
-            dot.classList.remove('is-visible');
-        }
-    });
-}
-
 // Duplicate marquee content so the loop is seamless
 const track = document.querySelector('.marquee-track');
 if (track) track.innerHTML += track.innerHTML;
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Archive folder tabs (per-section folders with vertical subsection tabs)
 const sectionHashes = ['projects', 'experience', 'about', 'contact'];
@@ -597,5 +561,3 @@ initPageNav();
 if (location.hash.startsWith('#page-')) {
     requestAnimationFrame(() => scrollToProjectPage(location.hash.slice(1)));
 }
-
-bindCursorHover();
