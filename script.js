@@ -21,17 +21,17 @@ const toggle = document.querySelector('.nav-toggle');
 const menu = document.querySelector('.nav-menu');
 
 if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-        const open = menu.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', String(open));
-    });
+toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+});
 
-    menu.querySelectorAll('a').forEach((link) =>
-        link.addEventListener('click', () => {
-            menu.classList.remove('is-open');
-            toggle.setAttribute('aria-expanded', 'false');
-        })
-    );
+menu.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+    })
+);
 }
 
 // Duplicate marquee content so the loop is seamless
@@ -508,7 +508,7 @@ function bindZoomable(fig) {
     fig.addEventListener('click', activate);
     fig.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
+                    e.preventDefault();
             openLightbox(src, alt, caption);
         }
     });

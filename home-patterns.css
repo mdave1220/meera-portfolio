@@ -114,28 +114,32 @@ body {
 
 /* ---------- Homepage project card palettes ---------- */
 
-/* Serve — slate blue + sage tan (matches case study) */
+/* Serve — pink + green (matches case study) */
 .proj-card[data-tab="serve"] .proj-card-tagline {
-    color: #7a95a8;
+    color: #6b7a5c;
 }
 
 .proj-card[data-tab="serve"] .proj-card-copy .mono-label:first-child {
-    color: #7a95a8;
+    color: #6b7a5c;
 }
 
 .proj-card[data-tab="serve"] .proj-card-cta.btn-solid {
-    background: #7a95a8;
+    background: #5f6e50;
 }
 
 .proj-card[data-tab="serve"] .tags li,
 .proj-card[data-tab="serve"] .tags li:nth-child(odd),
 .proj-card[data-tab="serve"] .tags li:nth-child(even) {
-    background: rgba(200, 212, 188, 0.65);
-    border-color: rgba(122, 139, 108, 0.5);
+    background: rgba(243, 228, 234, 0.85);
+    border-color: rgba(224, 136, 173, 0.55);
 }
 
 .kraft-folder--projects[data-active-tab="serve"] .kraft-panel--scrap::before {
-    border-color: rgba(122, 149, 168, 0.5);
+    border-color: rgba(95, 110, 80, 0.45);
+}
+
+.kraft-folder--projects[data-active-tab="kindly"] .kraft-panel--scrap::before {
+    border-color: rgba(92, 115, 132, 0.45);
 }
 
 /* 28ish — pink accents */
@@ -162,52 +166,48 @@ body {
     border-color: rgba(142, 63, 93, 0.4);
 }
 
-/* TravelJAM — brown + blue */
+/* TravelJAM — slate blue + sage tan */
 .proj-card[data-tab="traveljam"] .proj-card-tagline {
-    color: #8b7355;
+    color: #7a95a8;
 }
 
 .proj-card[data-tab="traveljam"] .proj-card-copy .mono-label:first-child {
-    color: #8b7355;
+    color: #7a95a8;
 }
 
 .proj-card[data-tab="traveljam"] .proj-card-cta.btn-solid {
-    background: #8b7355;
+    background: #7a95a8;
 }
 
 .proj-card[data-tab="traveljam"] .tags li,
 .proj-card[data-tab="traveljam"] .tags li:nth-child(odd),
 .proj-card[data-tab="traveljam"] .tags li:nth-child(even) {
-    background: rgba(220, 232, 239, 0.75);
-    border-color: rgba(92, 115, 132, 0.5);
+    background: rgba(200, 212, 188, 0.65);
+    border-color: rgba(122, 139, 108, 0.5);
 }
 
 .kraft-folder--projects[data-active-tab="traveljam"] .kraft-panel--scrap::before {
-    border-color: rgba(92, 115, 132, 0.45);
+    border-color: rgba(122, 149, 168, 0.5);
 }
 
-/* Kindly — pink + green */
+/* Kindly — brown + blue */
 .proj-card[data-tab="kindly"] .proj-card-tagline {
-    color: #6b7a5c;
+    color: #8b7355;
 }
 
 .proj-card[data-tab="kindly"] .proj-card-copy .mono-label:first-child {
-    color: #6b7a5c;
+    color: #8b7355;
 }
 
 .proj-card[data-tab="kindly"] .proj-card-cta.btn-solid {
-    background: #5f6e50;
+    background: #8b7355;
 }
 
 .proj-card[data-tab="kindly"] .tags li,
 .proj-card[data-tab="kindly"] .tags li:nth-child(odd),
 .proj-card[data-tab="kindly"] .tags li:nth-child(even) {
-    background: rgba(243, 228, 234, 0.85);
-    border-color: rgba(224, 136, 173, 0.55);
-}
-
-.kraft-folder--projects[data-active-tab="kindly"] .kraft-panel--scrap::before {
-    border-color: rgba(95, 110, 80, 0.45);
+    background: rgba(220, 232, 239, 0.75);
+    border-color: rgba(92, 115, 132, 0.5);
 }
 
 /* ---------- Projects tab hint — points at 28ish tab ---------- */

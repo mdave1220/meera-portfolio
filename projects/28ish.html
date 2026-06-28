@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>28ish | Meera Dave</title>
     <meta name="description"
-        content="28ish — women's health startup case study by Meera Dave. Product strategy, UX research, and shipped React Native insights.">
+        content="28ish | women's health startup case study by Meera Dave. Product strategy, UX research, and shipped React Native insights.">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23efe7d8'/><text x='50' y='72' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='bold' font-size='62' fill='%23e088ad'>M</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +16,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../fonts/arnie.css">
     <link rel="stylesheet" href="../fonts/pretty-neat.css">
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../scrapbook-patterns.css">
+    <link rel="stylesheet" href="../styles.css?v=20260618r">
+    <link rel="stylesheet" href="../scrapbook-patterns.css?v=20260618r">
     <link rel="stylesheet" href="../scrap-editor.css">
     <link rel="stylesheet" href="../stat-editor.css">
 </head>
@@ -76,32 +76,56 @@
                     <div class="scrap-entries">
                     <section class="scrap-entry">
                         <h2 class="mono-label">THE BRIEF //</h2>
-                        <p>A two-semester engagement with a real startup founder. Her mission: a world where women feel
-                            <strong>confident and in control</strong> of their bodies. Existing trackers stop at data
-                            entry — users log everything and learn nothing. 28ish exists because closing that gap is both
-                            a product opportunity and a health equity problem.</p>
+                        <p>A two-semester, industry-sponsored capstone with a real startup founder. Her mission: a world
+                            where women feel <strong>confident and in control</strong> of their bodies. 28ish is a menstrual
+                            health app built to do more than log dates. It helps users understand how each cycle phase
+                            affects mood, energy, productivity, and social life. Existing trackers stop at data entry;
+                            closing that gap is both a product opportunity and a health equity problem.</p>
                     </section>
 
                     <section class="scrap-entry">
-                        <h2 class="mono-label">DISCOVERY //</h2>
-                        <p>Anonymous survey over interviews — <strong>60+ responses</strong> pinned our target user
-                            (women 18–34, North America) and top pain points: complexity, lack of personalized insights,
-                            and privacy concerns.</p>
+                        <h2 class="mono-label">THE PROBLEM //</h2>
+                        <p>Most period apps do the bare minimum: calendars, symptom logs, and vague predictions. In our
+                            research, women said they wanted to <em>understand</em> their cycle, not just track it.</p>
+                        <p><em>“I never really learned what the phases of my cycle actually mean for me.”</em><br>
+                            <em>“I wish I knew how to work <strong>with</strong> my cycle instead of against it.”</em></p>
+                        <p>Competitors like Flo, Clue, Apple Health, and Glow collect plenty of data but rarely turn it
+                            into personalized, actionable insight. Users get dots on a calendar, not context for why
+                            energy dips in one phase and focus peaks in another.</p>
+                    </section>
+
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">RESEARCH //</h2>
+                        <p>We ran an anonymous survey with <strong>60+ responses</strong> from women 18–34, mixing free
+                            response, scales, and multiple choice. That blend of qualitative and quantitative data
+                            pinned our target user and surfaced three consistent themes:</p>
+                        <p>Most users felt <strong>under-educated</strong> about how cycle phases affect daily life.
+                            They wanted <strong>practical insights</strong> tied to energy, focus, and mood, not more
+                            logging fields. And every major competitor offered data without enough
+                            <strong>interpretability or personalization</strong>.</p>
                     </section>
 
                     <section class="scrap-entry">
                         <h2 class="mono-label">DEFINING THE MVP //</h2>
-                        <p>Three MVP pillars: cycle tracking, symptom logging, personalized insights. Scoped a PostgreSQL
-                            schema and 5-sprint plan. Cut smartwatch biometrics; deferred AI advising. Every sprint had
-                            to demo to a real founder.</p>
+                        <p>Three MVP pillars: cycle tracking, symptom logging, and personalized insights. We scoped a
+                            PostgreSQL schema and a <strong>5-sprint Agile plan</strong> on Jira. Every sprint demoed
+                            to the founder. Cut smartwatch biometrics; deferred AI advising.</p>
+                        <p>Four core flows carried the experience: <strong>sign-in / account creation</strong>, a
+                            gamified <strong>onboarding form</strong> (sexual health, symptoms, recent period), a
+                            <strong>daily check-in</strong> split into behavioral and menstrual data, and an
+                            <strong>insights dashboard</strong> surfacing mood, work, energy, and sociability by cycle
+                            phase, with charts, icons, and short readings instead of walls of text.</p>
                     </section>
 
                     <section class="scrap-entry">
                         <h2 class="mono-label">WHAT I OWNED //</h2>
-                        <p>Shipped the insights experience end-to-end on React Native/Expo + FastAPI + PostgreSQL —
-                            routing, graph library integration, weekly mood/energy/productivity charts wired to live
-                            data. Ran peer code reviews and negotiated API contracts so design iterations didn't break
-                            data integrity.</p>
+                        <p>As product lead, I authored user stories, managed the Jira backlog, and ran weekly client
+                            syncs, presenting progress, gathering feedback, and keeping design and engineering aligned
+                            on the MVP.</p>
+                        <p>On the build side, I shipped the insights experience end-to-end on React Native/Expo +
+                            FastAPI + PostgreSQL: routing, graph library integration, and weekly mood/energy/productivity
+                            charts wired to live data. I researched the charting API, mirrored our Figma prototypes in
+                            code, and negotiated API contracts so design iterations didn't break data integrity.</p>
                     </section>
                     </div>
 
@@ -169,10 +193,28 @@
                     <div class="scrap-entries">
                     <section class="scrap-entry">
                         <h2 class="mono-label">ITERATION //</h2>
-                        <p>Validated Figma high-fis in <strong>Expo Go usability sessions</strong>. Period logging needed
-                            native calendar affordances; daily check-in needed separate
-                            <strong>behavioral vs. menstrual</strong> form paths; symptom data only became useful with
-                            drill-down insight categories and color-coded weekly charts.</p>
+                        <p>Validated Figma high-fis in <strong>Expo Go usability sessions</strong> and heuristic
+                            evaluations across five scenarios: account creation, onboarding, daily check-in, snoozing a
+                            check-in, and reading insights. Period logging needed native calendar affordances; daily
+                            check-in needed separate <strong>behavioral vs. menstrual</strong> form paths with scales
+                            and buttons instead of long text fields; symptom data only became useful with drill-down
+                            insight categories and color-coded weekly charts.</p>
+                        <p>Onboarding went through several passes to feel gamified without overwhelming users. A central
+                            hub let people complete sexual health, symptoms, and recent-period sections in any order,
+                            with a progress bar tracking completion. Insights split qualitative readings (especially
+                            for social life) from quantitative graphs so users could scan a week at a glance or dive
+                            into one category.</p>
+                    </section>
+
+                    <section class="scrap-entry">
+                        <h2 class="mono-label">TAKEAWAYS //</h2>
+                        <p>Weekly founder syncs taught me how much <strong>ongoing stakeholder alignment</strong> matters
+                            in a real product cycle, especially when business priorities and engineering constraints
+                            pull in different directions.</p>
+                        <p>Prototyping with a component library in mind (Tamagui) showed me how much smoother the
+                            design-dev handoff gets when Figma maps cleanly to code. Owning the roadmap alongside the
+                            build pushed me toward <strong>product thinking</strong>: balancing user needs, client
+                            goals, and what we could actually ship in five sprints.</p>
                     </section>
                     </div>
                     </div>
@@ -182,7 +224,7 @@
         </div>
 
         <nav class="project-pager reveal" aria-label="Project navigation">
-            <a href="serve.html" class="pager-link pager-back">← serve</a>
+            <a href="kindly.html" class="pager-link pager-back">← kindly</a>
             <a href="traveljam.html" class="pager-link pager-next">traveljam →</a>
         </nav>
     </main>

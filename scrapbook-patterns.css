@@ -16,35 +16,33 @@ body:has(.project-page.scrapbook) {
     z-index: -1;
 }
 
-/* Fixed background patterns — one per project palette */
+/* Fixed background patterns — project-tinted stripes */
 .scrapbook--serve.project-page.scrapbook::before {
     background:
         repeating-linear-gradient(90deg,
-            #dce4e9 0px, #dce4e9 72px,
-            #c8d4bc 72px, #c8d4bc 144px);
+            #e2dbcf 0px, #e2dbcf 72px,
+            #f3e4ea 72px, #f3e4ea 144px);
 }
 
-.scrapbook--28ish.project-page.scrapbook::before {
-    background-color: #edd8e0;
-    background-image:
-        radial-gradient(circle, #f3e4ea 12px, transparent 12.5px),
-        radial-gradient(circle, #f8f0f2 12px, transparent 12.5px);
-    background-size: 72px 72px;
-    background-position: 0 0, 36px 36px;
-}
-
-.scrapbook--traveljam.project-page.scrapbook::before {
+.scrapbook--kindly.project-page.scrapbook::before {
     background:
         repeating-linear-gradient(90deg,
             #dce8ef 0px, #dce8ef 72px,
             #e8dfd0 72px, #e8dfd0 144px);
 }
 
-.scrapbook--kindly.project-page.scrapbook::before {
+.scrapbook--28ish.project-page.scrapbook::before {
     background:
         repeating-linear-gradient(90deg,
-            #f3e4ea 0px, #f3e4ea 72px,
-            #dce8d4 72px, #dce8d4 144px);
+            #ebe6d8 0px, #ebe6d8 72px,
+            #edd8e0 72px, #edd8e0 144px);
+}
+
+.scrapbook--traveljam.project-page.scrapbook::before {
+    background:
+        repeating-linear-gradient(90deg,
+            #ebe6d8 0px, #ebe6d8 72px,
+            #d8e2d0 72px, #d8e2d0 144px);
 }
 
 .scrapbook-frame {
@@ -162,27 +160,35 @@ body:has(.project-page.scrapbook) {
     background: repeating-linear-gradient(90deg,
             #8e3f5d 0 6px,
             transparent 6px 12px,
-            #edd8e0 12px 18px,
+            #ebe6d8 12px 18px,
             transparent 18px 24px);
 }
 
 .scrapbook--traveljam .scrapbook-frame::before {
-    border-color: rgba(92, 115, 132, 0.45);
+    border-color: rgba(122, 149, 168, 0.55);
 }
 
 .scrapbook--traveljam .scrap-stitch {
     background: repeating-linear-gradient(90deg,
-            #5c7384 0 6px,
+            #7a95a8 0 6px,
             transparent 6px 12px,
-            #e8dfd0 12px 18px,
+            #ebe4d4 12px 18px,
+            transparent 18px 24px);
+}
+
+.scrapbook--serve .scrap-stitch {
+    background: repeating-linear-gradient(90deg,
+            #e088ad 0 6px,
+            transparent 6px 12px,
+            #dce8d4 12px 18px,
             transparent 18px 24px);
 }
 
 .scrapbook--kindly .scrap-stitch {
     background: repeating-linear-gradient(90deg,
-            #e088ad 0 6px,
+            #5c7384 0 6px,
             transparent 6px 12px,
-            #dce8d4 12px 18px,
+            #e8dfd0 12px 18px,
             transparent 18px 24px);
 }
 
@@ -517,8 +523,8 @@ body:has(.project-page.scrapbook) {
 }
 
 .scrapbook--serve .scrap-aside {
-    background: rgba(238, 241, 244, 0.92);
-    border-color: rgba(122, 149, 168, 0.35);
+    background: rgba(245, 241, 232, 0.92);
+    border-color: rgba(224, 136, 173, 0.35);
 }
 
 .scrapbook--28ish .scrap-aside {
@@ -535,34 +541,34 @@ body:has(.project-page.scrapbook) {
 }
 
 .scrapbook--traveljam .scrap-aside {
+    background: rgba(238, 241, 244, 0.92);
+    border-color: rgba(122, 149, 168, 0.35);
+}
+
+.scrapbook--traveljam .scrap-clip {
+    border-color: #8a9aa8;
+}
+
+.scrapbook--traveljam .scrap-clip::after {
+    background: #8a9aa8;
+}
+
+.scrapbook--kindly .scrap-aside {
     background: #faf7f0;
     color: var(--ink);
     border-color: rgba(92, 115, 132, 0.35);
 }
 
-.scrapbook--traveljam .scrap-clip {
+.scrapbook--kindly .scrap-clip {
     border-color: #5c7384;
 }
 
-.scrapbook--traveljam .scrap-clip::after {
+.scrapbook--kindly .scrap-clip::after {
     background: #5c7384;
 }
 
-.scrapbook--kindly .scrap-aside {
-    background: rgba(245, 241, 232, 0.92);
-    border-color: rgba(224, 136, 173, 0.35);
-}
-
-.scrapbook--kindly .scrap-clip {
-    border-color: #5a6648;
-}
-
-.scrapbook--kindly .scrap-clip::after {
-    background: #5a6648;
-}
-
 .scrapbook--traveljam .stat-sticker {
-    border-color: rgba(92, 115, 132, 0.35);
+    border-color: rgba(122, 149, 168, 0.35);
 }
 
 .scrapbook--serve .scrap-page--right::after {
@@ -655,59 +661,55 @@ body:has(.project-page.scrapbook) {
 }
 
 .scrapbook--serve {
-    --serve-slate: #b5c5d0;
+    --serve-slate: #dce0d0;
     --serve-tan: #d4c4a4;
-    --serve-slate-deep: #7a95a8;
-    --serve-slate-light: #dce4e9;
-    --serve-tan-light: #ebe4d4;
-    --serve-paper: #eef1f4;
-    --accent: #7a95a8;
-    --accent-alt: #8a9a88;
-    --head-bg: #c5d2db;
-    --sticker-bg: #d4c4a4;
+    --serve-slate-deep: #5f6e50;
+    --serve-slate-light: #f3e4ea;
+    --serve-tan-light: #ebe6d8;
+    --serve-paper: #faf7f0;
+    --accent: #5f6e50;
+    --accent-alt: #e088ad;
+    --head-bg: #c9d3bd;
+    --sticker-bg: #dce0d0;
 }
 
 .scrapbook--serve .scrap-date {
-    color: #7a95a8;
+    color: #6b7a5c;
 }
 
 .scrapbook--serve .scrap-hook {
-    color: #7a95a8;
+    color: #6b7a5c;
+}
+
+.scrapbook--serve .scrap-role {
+    color: #6b7a5c;
 }
 
 .scrapbook--serve .scrapbook-spread {
-    background: var(--serve-tan);
+    background: #f5f0f0;
 }
 
 .scrapbook--serve .scrapbook-frame::before {
-    border-color: rgba(122, 149, 168, 0.55);
-}
-
-.scrapbook--serve .scrap-stitch {
-    background: repeating-linear-gradient(90deg,
-            var(--serve-slate-deep) 0 6px,
-            transparent 6px 12px,
-            var(--serve-tan-light) 12px 18px,
-            transparent 18px 24px);
+    border-color: rgba(95, 110, 80, 0.45);
 }
 
 .scrapbook--serve .scrap-page--left {
-    background-color: var(--serve-paper);
+    background-color: #faf7f0;
     background-image:
-        linear-gradient(rgba(122, 149, 168, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(122, 149, 168, 0.07) 1px, transparent 1px),
+        linear-gradient(rgba(90, 102, 72, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 102, 72, 0.05) 1px, transparent 1px),
         repeating-linear-gradient(transparent,
             transparent 31px,
-            rgba(122, 149, 168, 0.1) 32px);
-    background-size: 48px 48px, 48px 48px, auto;
+            rgba(90, 102, 72, 0.07) 32px);
+    background-size: 40px 40px, 40px 40px, auto;
 }
 
 .scrapbook--serve .scrap-page--right {
-    background-color: var(--serve-tan-light);
+    background-color: #f5f0f0;
     background-image:
-        linear-gradient(rgba(181, 197, 208, 0.12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(181, 197, 208, 0.12) 1px, transparent 1px);
-    background-size: 36px 36px;
+        linear-gradient(rgba(224, 136, 173, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
 }
 
 .scrapbook--serve .scrap-page--right::before {
@@ -716,11 +718,11 @@ body:has(.project-page.scrapbook) {
 
 .scrapbook--serve .scrap-head {
     background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
-        linear-gradient(rgba(122, 149, 168, 0.28) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(122, 149, 168, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 50%, transparent 50%),
+        linear-gradient(rgba(95, 110, 80, 0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(95, 110, 80, 0.12) 1px, transparent 1px),
         var(--head-bg);
-    background-size: 16px 16px, 16px 16px, 16px 16px, auto;
+    background-size: 14px 14px, 14px 14px, 14px 14px, auto;
 }
 
 .scrapbook--serve .scrap-intro-zone,
@@ -806,25 +808,33 @@ body:has(.project-page.scrapbook) {
 }
 
 .scrapbook--serve .scrap-intro-zone {
-    border-left-color: var(--serve-slate-deep);
-    background: rgba(238, 241, 244, 0.72);
+    border-left-color: #5f6e50;
+    background: rgba(245, 241, 232, 0.88);
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(odd) strong {
+    color: #e088ad;
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(even) strong {
+    color: #5f6e50;
 }
 
 .scrapbook--28ish .scrap-intro-zone {
-    border-left-color: #8e3f5d;
+    border-left-color: #e088ad;
     background: rgba(248, 240, 242, 0.72);
 }
 
 .scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(1) {
-    --sticker-bg: #f3e4ea;
+    --sticker-bg: rgba(243, 228, 234, 0.85);
 }
 
 .scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(2) {
-    --sticker-bg: #edd8e0;
+    --sticker-bg: #ebe6d8;
 }
 
 .scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(3) {
-    --sticker-bg: #f8f0f2;
+    --sticker-bg: rgba(243, 228, 234, 0.65);
 }
 
 .scrapbook--28ish .scrap-stickers--compact .stat-sticker:nth-child(4) {
@@ -836,7 +846,8 @@ body:has(.project-page.scrapbook) {
         repeating-linear-gradient(-45deg,
             transparent, transparent 6px,
             rgba(224, 136, 173, 0.12) 6px, rgba(224, 136, 173, 0.12) 12px),
-        #f8f0f2;
+        rgba(243, 228, 234, 0.85);
+    border-color: rgba(224, 136, 173, 0.55);
 }
 
 .scrapbook--traveljam .scrap-stickers--compact .stat-sticker span {
@@ -844,82 +855,101 @@ body:has(.project-page.scrapbook) {
 }
 
 .scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(1) {
-    --sticker-bg: #dce8ef;
+    --sticker-bg: #dce4e9;
 }
 
 .scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(2) {
-    --sticker-bg: #e8dfd0;
+    --sticker-bg: rgba(200, 212, 188, 0.85);
 }
 
 .scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(3) {
-    --sticker-bg: #f5f0e8;
+    --sticker-bg: #eef1f4;
 }
 
 .scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(4) {
-    --sticker-bg: #d4c4a4;
+    --sticker-bg: rgba(181, 197, 208, 0.55);
 }
 
 .scrapbook--serve .scrap-tags {
     background:
         repeating-linear-gradient(-45deg,
             transparent, transparent 6px,
-            rgba(122, 149, 168, 0.1) 6px, rgba(122, 149, 168, 0.1) 12px),
-        var(--serve-paper);
+            rgba(224, 136, 173, 0.12) 6px, rgba(224, 136, 173, 0.12) 12px),
+        rgba(243, 228, 234, 0.85);
+    border-color: rgba(224, 136, 173, 0.55);
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(1) {
+    --sticker-bg: rgba(243, 228, 234, 0.85);
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(2) {
+    --sticker-bg: #dce0d0;
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(3) {
+    --sticker-bg: rgba(243, 228, 234, 0.65);
+}
+
+.scrapbook--serve .scrap-stickers--compact .stat-sticker:nth-child(4) {
+    --sticker-bg: #c8d4bc;
 }
 
 .scrapbook--serve .stat-sticker:nth-child(1) {
-    --sticker-bg: var(--serve-slate-light);
+    --sticker-bg: #dce0d0;
 }
 
 .scrapbook--serve .stat-sticker:nth-child(2) {
-    --sticker-bg: var(--serve-tan);
+    --sticker-bg: #d4c4a4;
 }
 
 .scrapbook--serve .stat-sticker:nth-child(3) {
-    --sticker-bg: var(--serve-paper);
+    --sticker-bg: #f5f0e8;
 }
 
 .scrapbook--serve .stat-sticker:nth-child(4) {
-    --sticker-bg: #e0d6c4;
+    --sticker-bg: #c8d4bc;
 }
 
 .scrapbook--serve .scrap-stickers:not(.scrap-stickers--compact) {
     background:
-        linear-gradient(rgba(122, 149, 168, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(122, 149, 168, 0.06) 1px, transparent 1px),
-        rgba(238, 241, 244, 0.55);
+        linear-gradient(rgba(90, 102, 72, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 102, 72, 0.06) 1px, transparent 1px),
+        rgba(245, 241, 232, 0.55);
     background-size: 12px 12px;
-    border-color: rgba(122, 149, 168, 0.35);
+    border-color: rgba(90, 102, 72, 0.35);
 }
 
 .scrapbook--serve .scrap-entry::before {
-    background: rgba(212, 196, 164, 0.92);
+    background: rgba(220, 228, 210, 0.92);
 }
 
 .scrapbook--serve .scrap-clip {
-    border-color: #8a9aa8;
+    border-color: #5f6e50;
 }
 
 .scrapbook--serve .scrap-clip::after {
-    background: #8a9aa8;
+    background: #5f6e50;
 }
 
 .scrapbook--serve .scrap-note {
-    background:
+    background-color: rgba(250, 247, 240, 0.92);
+    background-image:
         repeating-linear-gradient(90deg,
-            rgba(181, 197, 208, 0.85) 0 8px,
-            rgba(212, 196, 164, 0.85) 8px 16px);
+            rgba(226, 219, 207, 0.6) 0 8px,
+            rgba(243, 228, 234, 0.45) 8px 16px);
+    border-color: rgba(34, 29, 22, 0.14);
 }
 
 .scrapbook--28ish {
     --accent: #8e3f5d;
     --accent-alt: #e088ad;
-    --head-bg: #edd8e0;
-    --sticker-bg: #f3e4ea;
+    --head-bg: #f3e4ea;
+    --sticker-bg: #ebe6d8;
 }
 
 .scrapbook--28ish .scrapbook-spread {
-    background: #e8d4dc;
+    background: #faf7f0;
 }
 
 .scrapbook--28ish .scrap-hook {
@@ -930,66 +960,39 @@ body:has(.project-page.scrapbook) {
     color: #8e3f5d;
 }
 
+.scrapbook--28ish .scrap-role {
+    color: #8e3f5d;
+}
+
 .scrapbook--28ish .scrap-page--left {
-    background-color: #f8f0f2;
+    background-color: #faf7f0;
     background-image:
         linear-gradient(rgba(142, 63, 93, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(142, 63, 93, 0.04) 1px, transparent 1px),
         repeating-linear-gradient(transparent,
             transparent 31px,
-            rgba(142, 63, 93, 0.07) 32px);
+            rgba(34, 29, 22, 0.08) 32px);
     background-size: 40px 40px, 40px 40px, auto;
 }
 
 .scrapbook--28ish .scrap-page--right {
-    background-color: #f3e4ea;
+    background-color: #faf7f0;
     background-image:
         linear-gradient(rgba(224, 136, 173, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
+        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.08) 32px);
+    background-size: 32px 32px, 32px 32px, auto;
 }
 
 .scrapbook--28ish .scrap-head {
     background:
         linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
-        linear-gradient(rgba(200, 160, 175, 0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200, 160, 175, 0.4) 1px, transparent 1px),
-        #edd8e0;
+        linear-gradient(rgba(224, 136, 173, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(142, 63, 93, 0.12) 1px, transparent 1px),
+        #f3e4ea;
     background-size: 14px 14px, 14px 14px, 14px 14px, auto;
-}
-
-.scrapbook--traveljam {
-    --accent: #5c7384;
-    --accent-alt: #8b7355;
-    --head-bg: #f0ebe3;
-    --sticker-bg: #e8dfd0;
-}
-
-.scrapbook--traveljam .scrapbook-spread {
-    background: #e8dfd0;
-}
-
-.scrapbook--traveljam .scrap-date {
-    color: #8b7355;
-}
-
-.scrapbook--traveljam .scrap-head {
-    background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
-        linear-gradient(rgba(92, 115, 132, 0.22) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 115, 85, 0.18) 1px, transparent 1px),
-        var(--head-bg);
-    background-size: 14px 14px, 14px 14px, 14px 14px, auto;
-}
-
-.scrapbook--traveljam .scrap-entry {
-    background: transparent;
-    border-color: rgba(34, 29, 22, 0.12);
-}
-
-.scrapbook--traveljam .scrap-intro-zone {
-    border-left-color: #5c7384;
-    background: rgba(248, 244, 236, 0.88);
 }
 
 .scrapbook--28ish .scrap-stickers:not(.scrap-stickers--compact) {
@@ -1000,33 +1003,85 @@ body:has(.project-page.scrapbook) {
     background-size: 14px 14px;
 }
 
+.scrapbook--traveljam {
+    --serve-slate: #b5c5d0;
+    --serve-tan: #d4c4a4;
+    --serve-slate-deep: #7a95a8;
+    --serve-slate-light: #dce4e9;
+    --serve-tan-light: #ebe4d4;
+    --serve-paper: #eef1f4;
+    --accent: #7a95a8;
+    --accent-alt: #7a8b6c;
+    --head-bg: #dce4e9;
+    --sticker-bg: rgba(200, 212, 188, 0.65);
+}
+
+.scrapbook--traveljam .scrapbook-spread {
+    background: #faf7f0;
+}
+
+.scrapbook--traveljam .scrap-date {
+    color: #7a95a8;
+}
+
+.scrapbook--traveljam .scrap-hook {
+    color: #7a95a8;
+}
+
+.scrapbook--traveljam .scrap-role {
+    color: #7a95a8;
+}
+
+.scrapbook--traveljam .scrap-head {
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 50%, transparent 50%),
+        linear-gradient(rgba(122, 149, 168, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 149, 168, 0.28) 1px, transparent 1px),
+        var(--head-bg);
+    background-size: 16px 16px, 16px 16px, 16px 16px, auto;
+}
+
+.scrapbook--traveljam .scrap-entry {
+    background: transparent;
+    border-color: rgba(34, 29, 22, 0.12);
+}
+
+.scrapbook--traveljam .scrap-intro-zone {
+    border-left-color: var(--serve-slate-deep);
+    background: rgba(250, 247, 240, 0.88);
+}
+
 .scrapbook--traveljam .scrap-stickers:not(.scrap-stickers--compact) {
     background:
-        linear-gradient(rgba(92, 115, 132, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92, 115, 132, 0.06) 1px, transparent 1px),
-        rgba(248, 244, 236, 0.55);
+        linear-gradient(rgba(122, 149, 168, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 149, 168, 0.06) 1px, transparent 1px),
+        rgba(238, 241, 244, 0.55);
     background-size: 14px 14px;
-    border-color: rgba(92, 115, 132, 0.25);
+    border-color: rgba(122, 149, 168, 0.25);
 }
 
 .scrapbook--traveljam .stat-sticker:nth-child(1) {
-    --sticker-bg: #dce8ef;
+    --sticker-bg: #dce4e9;
 }
 
 .scrapbook--traveljam .stat-sticker:nth-child(2) {
-    --sticker-bg: #e8dfd0;
+    --sticker-bg: rgba(200, 212, 188, 0.85);
 }
 
 .scrapbook--traveljam .stat-sticker:nth-child(3) {
-    --sticker-bg: #f5f0e8;
+    --sticker-bg: #eef1f4;
 }
 
 .scrapbook--traveljam .stat-sticker:nth-child(4) {
-    --sticker-bg: #d4c4a4;
+    --sticker-bg: rgba(181, 197, 208, 0.55);
 }
 
-.scrapbook--traveljam .stat-sticker span {
-    color: var(--ink);
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(odd) strong {
+    color: #7a95a8;
+}
+
+.scrapbook--traveljam .scrap-stickers--compact .stat-sticker:nth-child(even) strong {
+    color: #7a8b6c;
 }
 
 .scrapbook--traveljam .scrap-pocket {
@@ -1037,54 +1092,62 @@ body:has(.project-page.scrapbook) {
 .scrapbook--traveljam .scrap-page--left {
     background-color: #faf7f0;
     background-image:
-        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 29, 22, 0.04) 1px, transparent 1px),
         repeating-linear-gradient(transparent,
             transparent 31px,
-            rgba(92, 115, 132, 0.07) 32px);
-    background-size: 40px 40px, 40px 40px, auto;
+            rgba(34, 29, 22, 0.08) 32px);
+    background-size: 48px 48px, 48px 48px, auto;
 }
 
 .scrapbook--traveljam .scrap-page--right {
-    background-color: #f5f0e8;
+    background-color: #faf7f0;
     background-image:
-        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
+        linear-gradient(rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 29, 22, 0.04) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.08) 32px);
+    background-size: 48px 48px, 48px 48px, auto;
 }
 
 .scrapbook--traveljam .scrap-tags {
     background:
         repeating-linear-gradient(-45deg,
             transparent, transparent 6px,
-            rgba(92, 115, 132, 0.1) 6px, rgba(92, 115, 132, 0.1) 12px),
-        rgba(232, 223, 208, 0.75);
+            rgba(122, 139, 108, 0.12) 6px, rgba(122, 139, 108, 0.12) 12px),
+        rgba(200, 212, 188, 0.65);
+    border-color: rgba(122, 139, 108, 0.5);
 }
 
 .scrapbook--kindly {
-    --accent: #5a6648;
-    --accent-alt: #e088ad;
-    --head-bg: #ebe6d8;
-    --sticker-bg: #dce0d0;
+    --accent: #5c7384;
+    --accent-alt: #8b7355;
+    --head-bg: #dce8ef;
+    --sticker-bg: #e8dfd0;
+}
+
+.scrapbook--kindly .scrapbook-spread {
+    background: #faf7f0;
 }
 
 .scrapbook--kindly .scrap-date {
-    color: #6b7a5c;
+    color: #8b7355;
 }
 
-.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(odd) strong {
-    color: #e088ad;
+.scrapbook--kindly .scrap-hook {
+    color: #8b7355;
 }
 
-.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(even) strong {
-    color: #5a6648;
+.scrapbook--kindly .scrap-role {
+    color: #8b7355;
 }
 
 .scrapbook--kindly .scrap-head {
     background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.4) 50%, transparent 50%),
-        linear-gradient(rgba(224, 136, 173, 0.22) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(90, 102, 72, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.35) 50%, transparent 50%),
+        linear-gradient(rgba(92, 115, 132, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.14) 1px, transparent 1px),
         var(--head-bg);
     background-size: 14px 14px, 14px 14px, 14px 14px, auto;
 }
@@ -1093,60 +1156,227 @@ body:has(.project-page.scrapbook) {
     background:
         repeating-linear-gradient(-45deg,
             transparent, transparent 6px,
-            rgba(90, 102, 72, 0.1) 6px, rgba(90, 102, 72, 0.1) 12px),
-        rgba(220, 228, 210, 0.65);
+            rgba(92, 115, 132, 0.1) 6px, rgba(92, 115, 132, 0.1) 12px),
+        rgba(220, 232, 239, 0.75);
+    border-color: rgba(92, 115, 132, 0.5);
 }
 
 .scrapbook--kindly .scrapbook-frame::before {
-    border-color: rgba(90, 102, 72, 0.45);
-}
-
-.scrapbook--kindly .scrapbook-spread {
-    background: #d4c4a4;
+    border-color: rgba(92, 115, 132, 0.45);
 }
 
 .scrapbook--kindly .scrap-intro-zone {
-    border-left-color: #5a6648;
-    background: rgba(245, 241, 232, 0.88);
-}
-
-.scrapbook--kindly .scrap-hook {
-    color: #4a5540;
+    border-left-color: #5c7384;
+    background: rgba(248, 244, 236, 0.88);
 }
 
 .scrapbook--kindly .scrap-page--left {
     background-color: #faf7f0;
     background-image:
-        linear-gradient(rgba(90, 102, 72, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(90, 102, 72, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px),
         repeating-linear-gradient(transparent,
             transparent 31px,
-            rgba(90, 102, 72, 0.07) 32px);
+            rgba(34, 29, 22, 0.08) 32px);
     background-size: 40px 40px, 40px 40px, auto;
 }
 
 .scrapbook--kindly .scrap-page--right {
-    background-color: #f5f0f0;
+    background-color: #faf7f0;
     background-image:
-        linear-gradient(rgba(224, 136, 173, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(224, 136, 173, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
+        linear-gradient(rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 115, 132, 0.05) 1px, transparent 1px),
+        repeating-linear-gradient(transparent,
+            transparent 31px,
+            rgba(34, 29, 22, 0.08) 32px);
+    background-size: 32px 32px, 32px 32px, auto;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(odd) strong {
+    color: #5c7384;
+}
+
+.scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(even) strong {
+    color: #8b7355;
 }
 
 .scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(1) {
-    --sticker-bg: #dce0d0;
+    --sticker-bg: rgba(220, 232, 239, 0.9);
 }
 
 .scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(2) {
-    --sticker-bg: #d4c4a4;
+    --sticker-bg: #e8dfd0;
 }
 
 .scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(3) {
-    --sticker-bg: #f5f0e8;
+    --sticker-bg: rgba(220, 232, 239, 0.65);
 }
 
 .scrapbook--kindly .scrap-stickers--compact .stat-sticker:nth-child(4) {
-    --sticker-bg: #c8d4bc;
+    --sticker-bg: #f5f0e8;
+}
+
+.scrapbook--kindly a.stat-sticker--link:hover {
+    transform: rotate(var(--rot, 3deg)) scale(1.05);
+    box-shadow: 3px 4px 0 rgba(92, 115, 132, 0.22);
+}
+
+.scrapbook--kindly a.stat-sticker--link:focus-visible {
+    outline: 2px solid #5c7384;
+    outline-offset: 3px;
+}
+
+.scrapbook--kindly a.stat-sticker--link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Kindly — live prototype button */
+.scrapbook--kindly .scrap-page--right .scrap-entries > .scrap-entry--product:first-child {
+    margin-top: -1.95rem;
+}
+
+.scrapbook--kindly .scrap-entry--product .scrap-entry__head {
+    --product-btn-gap: 0.5rem;
+}
+
+.scrapbook--kindly .scrap-entry--product .scrap-entry__btn-slot {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--product-btn-gap);
+    padding-bottom: 0.02rem;
+}
+
+.scrapbook--kindly .scrap-entry--product .scrap-entry__head h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--line);
+    border-bottom-color: color-mix(in srgb, var(--accent, var(--pink)) 32%, transparent);
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.38rem;
+    min-width: 10.25rem;
+    padding: 0.75rem 1.65rem 0.8rem;
+    line-height: 1.1;
+    text-decoration: none;
+    color: #3d2f22;
+    background: #dce8ef;
+    border: 1.5px solid rgba(92, 115, 132, 0.55);
+    border-radius: 999px;
+    box-shadow: 2px 4px 0 rgba(92, 115, 132, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn__label {
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: #3d2f22;
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn__label-text {
+    letter-spacing: inherit;
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn__title-row {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn__arrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1;
+    color: #3d2f22;
+    transform: translateY(-0.05em);
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn__title {
+    font-family: var(--font-bubble);
+    font-size: clamp(0.9rem, 1.5vw, 1.02rem);
+    line-height: 1;
+    color: inherit;
+}
+
+.scrapbook--kindly .scrap-entry--product .kindly-demo-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 rgba(92, 115, 132, 0.14);
+    background: #c8d8e4;
+}
+
+/* Kindly — interview quote cards */
+.scrapbook--kindly .scrap-quote-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.85rem;
+}
+
+.scrapbook--kindly .scrap-quote-card {
+    margin: 0;
+    padding: 0.65rem 0.7rem 0.55rem;
+    border: 1px solid rgba(139, 115, 85, 0.22);
+    box-shadow: 2px 3px 0 rgba(61, 47, 34, 0.1);
+    transform: rotate(var(--rot, 0deg));
+    position: relative;
+}
+
+.scrapbook--kindly .scrap-quote-card--blue {
+    border-top: 2.5px solid #6b8498;
+    background: #dce6ef;
+}
+
+.scrapbook--kindly .scrap-quote-card--brown {
+    border-top: 2.5px solid #8b7355;
+    background: #f5f0e8;
+}
+
+.scrapbook--kindly .scrap-quote-card--blue .scrap-quote-card__q,
+.scrapbook--kindly .scrap-quote-card--blue .scrap-quote-card__who {
+    color: #7a95a8;
+}
+
+.scrapbook--kindly .scrap-quote-card--brown .scrap-quote-card__q,
+.scrapbook--kindly .scrap-quote-card--brown .scrap-quote-card__who {
+    color: #8b7355;
+}
+
+.scrapbook--kindly .scrap-quote-card__q {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+}
+
+.scrapbook--kindly .scrap-quote-card__a {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    color: var(--ink);
+}
+
+.scrapbook--kindly .scrap-quote-card__who {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    .scrapbook--kindly .scrap-quote-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Shared project-page chrome — accent color per theme */

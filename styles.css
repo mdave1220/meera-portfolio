@@ -616,7 +616,7 @@ body {
 }
 
 .exp-bullets li::before {
-    content: "—";
+    content: "-";
     position: absolute;
     left: 0;
     color: var(--pink);
@@ -825,8 +825,9 @@ body {
 }
 
 .vtab--serve.is-active {
-    background: #dce4e9;
+    background: #c4cfb4;
     background-image: var(--kraft-noise);
+    color: #4f5c42;
 }
 
 .vtab--28ish.is-active {
@@ -835,15 +836,14 @@ body {
 }
 
 .vtab--traveljam.is-active {
-    background: #e8dfd0;
+    background: #dce4e9;
     background-image: var(--kraft-noise);
-    color: #5c4a32;
 }
 
 .vtab--kindly.is-active {
-    background: #c4cfb4;
+    background: #e8dfd0;
     background-image: var(--kraft-noise);
-    color: #4f5c42;
+    color: #5c4a32;
 }
 
 .kraft-folder--no-tabs {
@@ -1651,6 +1651,10 @@ body {
     font-weight: 600;
 }
 
+.scrap-entry p + p {
+    margin-top: 0.65rem;
+}
+
 .scrap-tags {
     margin-top: 0;
     margin-bottom: 1.2rem;
@@ -1801,32 +1805,37 @@ body {
 }
 
 .scrapbook--serve {
-    --accent: #7a95a8;
-    --sticker-bg: #d4c4a4;
+    --accent: #5f6e50;
+    --sticker-bg: #dce0d0;
+    --head-bg: #c9d3bd;
 }
 
 .scrapbook--28ish {
     --accent: #8e3f5d;
     --accent-alt: #e088ad;
-    --sticker-bg: #e8d4dc;
+    --sticker-bg: #ebe6d8;
 }
 
 .scrapbook--traveljam {
-    --accent: #5c7384;
-    --accent-alt: #8b7355;
-    --sticker-bg: #e8dfd0;
-    --head-bg: #f0ebe3;
+    --accent: #7a95a8;
+    --accent-alt: #7a8b6c;
+    --sticker-bg: rgba(200, 212, 188, 0.65);
+    --head-bg: #dce4e9;
 }
 
 .scrapbook--kindly {
-    --accent: #5a6648;
-    --accent-alt: #e088ad;
-    --sticker-bg: #dce0d0;
-    --head-bg: #ebe6d8;
+    --accent: #5c7384;
+    --accent-alt: #8b7355;
+    --sticker-bg: #dce8ef;
+    --head-bg: #dce8ef;
+}
+
+.scrapbook--kindly .scrap-hook {
+    color: #8b7355;
 }
 
 .scrapbook--traveljam .scrap-hook {
-    color: #8b7355;
+    color: #7a95a8;
 }
 
 .scrapbook--traveljam .stat-sticker strong {
